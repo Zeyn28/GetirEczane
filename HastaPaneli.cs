@@ -14,9 +14,9 @@ using System.IO;
 
 namespace ProjeDeneme_2
 {
-    public partial class Form4 : Form
+    public partial class HastaPaneli : Form
     {
-        public Form4()
+        public HastaPaneli()
         {
             InitializeComponent();
         }
@@ -39,8 +39,7 @@ namespace ProjeDeneme_2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5();
-            form5.Show();
+           
 
             baglanti.Open();
 
@@ -51,6 +50,16 @@ namespace ProjeDeneme_2
             //dataGridView2.DataSource = ds.Tables[0];
 
             baglanti.Close();
+        }
+
+        private void maskedTextBox5_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void HastaPaneli_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
