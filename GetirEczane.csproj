@@ -61,6 +61,18 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
+    <Compile Include="hasta_girişi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hasta_girişi.Designer.cs">
+      <DependentUpon>hasta_girişi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hasta_kayıt_ekleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hasta_kayıt_ekleme.Designer.cs">
+      <DependentUpon>hasta_kayıt_ekleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HastaPaneli.resx">
@@ -68,6 +80,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hasta_girişi.resx">
+      <DependentUpon>hasta_girişi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hasta_kayıt_ekleme.resx">
+      <DependentUpon>hasta_kayıt_ekleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
