@@ -209,7 +209,7 @@ namespace ProjeDeneme_2
             this.btn_kayıt_ol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kayıt_ol.Font = new System.Drawing.Font("Arial Unicode MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_kayıt_ol.ForeColor = System.Drawing.Color.Black;
-            this.btn_kayıt_ol.Location = new System.Drawing.Point(581, 355);
+            this.btn_kayıt_ol.Location = new System.Drawing.Point(615, 355);
             this.btn_kayıt_ol.Name = "btn_kayıt_ol";
             this.btn_kayıt_ol.Size = new System.Drawing.Size(126, 45);
             this.btn_kayıt_ol.TabIndex = 5;
@@ -241,7 +241,7 @@ namespace ProjeDeneme_2
             this.btn_vazgec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vazgec.Font = new System.Drawing.Font("Arial Unicode MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_vazgec.ForeColor = System.Drawing.Color.Black;
-            this.btn_vazgec.Location = new System.Drawing.Point(431, 355);
+            this.btn_vazgec.Location = new System.Drawing.Point(450, 355);
             this.btn_vazgec.Name = "btn_vazgec";
             this.btn_vazgec.Size = new System.Drawing.Size(126, 45);
             this.btn_vazgec.TabIndex = 6;
