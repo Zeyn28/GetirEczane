@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjeDeneme_2
 {
-    public partial class Giris : Form
+    public partial class EczaciGiris : Form
     {
-        public Giris()
+        public EczaciGiris()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            EczaciGiris frmg = new EczaciGiris();
-            frmg.Show();
-            this.Hide();
         }
     }
 }
