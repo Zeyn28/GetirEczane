@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ProjeDeneme_2
 {
-    public partial class EczacıPaneli : Form
+    public partial class EczGüncelle : Form
     {
-        public EczacıPaneli()
+        public EczGüncelle()
         {
             InitializeComponent();
         }
+
     }
 }

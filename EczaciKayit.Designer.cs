@@ -50,8 +50,14 @@ namespace ProjeDeneme_2
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEczacıG
@@ -62,11 +68,11 @@ namespace ProjeDeneme_2
             this.btnEczacıG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
             this.btnEczacıG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEczacıG.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.btnEczacıG.Location = new System.Drawing.Point(237, 300);
+            this.btnEczacıG.Location = new System.Drawing.Point(256, 349);
             this.btnEczacıG.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnEczacıG.Name = "btnEczacıG";
             this.btnEczacıG.Size = new System.Drawing.Size(129, 38);
-            this.btnEczacıG.TabIndex = 6;
+            this.btnEczacıG.TabIndex = 10;
             this.btnEczacıG.Text = "Kaydol";
             this.btnEczacıG.UseVisualStyleBackColor = false;
             // 
@@ -190,16 +196,16 @@ namespace ProjeDeneme_2
             this.cmbSehir.FormattingEnabled = true;
             this.cmbSehir.Location = new System.Drawing.Point(118, 39);
             this.cmbSehir.Name = "cmbSehir";
-            this.cmbSehir.Size = new System.Drawing.Size(248, 32);
-            this.cmbSehir.TabIndex = 7;
+            this.cmbSehir.Size = new System.Drawing.Size(165, 32);
+            this.cmbSehir.TabIndex = 8;
             // 
             // richAdres
             // 
             this.richAdres.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.richAdres.Location = new System.Drawing.Point(118, 96);
             this.richAdres.Name = "richAdres";
-            this.richAdres.Size = new System.Drawing.Size(248, 146);
-            this.richAdres.TabIndex = 8;
+            this.richAdres.Size = new System.Drawing.Size(267, 200);
+            this.richAdres.TabIndex = 9;
             this.richAdres.Text = "";
             // 
             // mskDiploma
@@ -213,6 +219,8 @@ namespace ProjeDeneme_2
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.mskDiploma);
@@ -226,23 +234,24 @@ namespace ProjeDeneme_2
             this.groupBox1.Controls.Add(this.mskTC);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.mskTel);
-            this.groupBox1.Location = new System.Drawing.Point(52, 38);
+            this.groupBox1.Location = new System.Drawing.Point(12, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 355);
+            this.groupBox1.Size = new System.Drawing.Size(422, 411);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kişisel Bilgiler";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.richAdres);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnEczacıG);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cmbSehir);
-            this.groupBox2.Location = new System.Drawing.Point(480, 38);
+            this.groupBox2.Location = new System.Drawing.Point(461, 115);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(425, 355);
+            this.groupBox2.Size = new System.Drawing.Size(425, 411);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adres Bilgileri";
@@ -267,6 +276,60 @@ namespace ProjeDeneme_2
             this.label9.TabIndex = 19;
             this.label9.Text = "Doğrulanamadı !";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(128, 363);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 24);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Şifre :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(203, 360);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(167, 32);
+            this.textBox1.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(75)))), ((int)(((byte)(49)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.button1.Location = new System.Drawing.Point(118, 349);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 38);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Vazgeç";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.OliveDrab;
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(898, 100);
+            this.panel1.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Sitka Subheading", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(275, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(365, 39);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "ECZACI KAYIT OLUŞTURMA";
+            // 
             // EczaciKayit
             // 
             this.AcceptButton = this.btnEczacıG;
@@ -274,7 +337,8 @@ namespace ProjeDeneme_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(917, 421);
+            this.ClientSize = new System.Drawing.Size(898, 538);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -288,6 +352,8 @@ namespace ProjeDeneme_2
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +380,10 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label11;
     }
 }

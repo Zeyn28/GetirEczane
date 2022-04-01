@@ -64,11 +64,23 @@
     <Compile Include="EczaciKayit.Designer.cs">
       <DependentUpon>EczaciKayit.cs</DependentUpon>
     </Compile>
-    <Compile Include="EczacıPaneli.cs">
+    <Compile Include="EczaciOncekiSiparis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EczacıPaneli.Designer.cs">
-      <DependentUpon>EczacıPaneli.cs</DependentUpon>
+    <Compile Include="EczaciOncekiSiparis.Designer.cs">
+      <DependentUpon>EczaciOncekiSiparis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EczaciPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EczaciPaneli.Designer.cs">
+      <DependentUpon>EczaciPaneli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EczGüncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EczGüncelle.Designer.cs">
+      <DependentUpon>EczGüncelle.cs</DependentUpon>
     </Compile>
     <Compile Include="Giris.cs">
       <SubType>Form</SubType>
@@ -84,14 +96,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiparisPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiparisPaneli.Designer.cs">
+      <DependentUpon>SiparisPaneli.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EczaciGiris.resx">
       <DependentUpon>EczaciGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EczaciKayit.resx">
       <DependentUpon>EczaciKayit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EczacıPaneli.resx">
-      <DependentUpon>EczacıPaneli.cs</DependentUpon>
+    <EmbeddedResource Include="EczaciOncekiSiparis.resx">
+      <DependentUpon>EczaciOncekiSiparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EczaciPaneli.resx">
+      <DependentUpon>EczaciPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EczGüncelle.resx">
+      <DependentUpon>EczGüncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Giris.resx">
       <DependentUpon>Giris.cs</DependentUpon>
@@ -108,6 +132,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SiparisPaneli.resx">
+      <DependentUpon>SiparisPaneli.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

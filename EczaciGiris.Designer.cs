@@ -76,7 +76,7 @@ namespace ProjeDeneme_2
             this.mskTC.Mask = "00000000000";
             this.mskTC.Name = "mskTC";
             this.mskTC.Size = new System.Drawing.Size(189, 39);
-            this.mskTC.TabIndex = 3;
+            this.mskTC.TabIndex = 1;
             this.mskTC.ValidatingType = typeof(int);
             // 
             // txtSifre
@@ -84,7 +84,8 @@ namespace ProjeDeneme_2
             this.txtSifre.Location = new System.Drawing.Point(174, 176);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(189, 39);
-            this.txtSifre.TabIndex = 4;
+            this.txtSifre.TabIndex = 2;
+            this.txtSifre.UseSystemPasswordChar = true;
             // 
             // btnEczacıG
             // 
@@ -97,7 +98,7 @@ namespace ProjeDeneme_2
             this.btnEczacıG.Location = new System.Drawing.Point(242, 248);
             this.btnEczacıG.Name = "btnEczacıG";
             this.btnEczacıG.Size = new System.Drawing.Size(121, 40);
-            this.btnEczacıG.TabIndex = 5;
+            this.btnEczacıG.TabIndex = 3;
             this.btnEczacıG.Text = "Giriş";
             this.btnEczacıG.UseVisualStyleBackColor = false;
             // 
@@ -112,7 +113,7 @@ namespace ProjeDeneme_2
             this.btnKaydol.Location = new System.Drawing.Point(88, 248);
             this.btnKaydol.Name = "btnKaydol";
             this.btnKaydol.Size = new System.Drawing.Size(115, 40);
-            this.btnKaydol.TabIndex = 6;
+            this.btnKaydol.TabIndex = 4;
             this.btnKaydol.Text = "Kaydol";
             this.btnKaydol.UseVisualStyleBackColor = false;
             // 
