@@ -45,7 +45,7 @@ namespace ProjeDeneme_2
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.YellowGreen;
+            this.label1.ForeColor = System.Drawing.Color.OliveDrab;
             this.label1.Location = new System.Drawing.Point(155, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(208, 40);
@@ -116,12 +116,12 @@ namespace ProjeDeneme_2
             this.btnKaydol.Text = "Kaydol";
             this.btnKaydol.UseVisualStyleBackColor = false;
             // 
-            // EczacıGiris
+            // EczaciGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.PaleGreen;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(242)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(505, 365);
             this.Controls.Add(this.btnKaydol);
             this.Controls.Add(this.btnEczacıG);
@@ -134,7 +134,7 @@ namespace ProjeDeneme_2
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.MaximizeBox = false;
-            this.Name = "EczacıGiris";
+            this.Name = "EczaciGiris";
             this.Text = "EczacıGiris";
             this.ResumeLayout(false);
             this.PerformLayout();

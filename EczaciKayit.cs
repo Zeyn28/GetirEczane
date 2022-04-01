@@ -16,5 +16,14 @@ namespace ProjeDeneme_2
         {
             InitializeComponent();
         }
+
+        private void EczaciKayit_Load(object sender, EventArgs e)
+        {
+            string[] Sehir = {"Adana","İstanbul","Ankara","İzmir","Bursa"};
+            for(int i = 0; i < Sehir.Length - 1; i++)
+            {
+                cmbSehir.Items.Add(Sehir[i]);
+            }
+        }
     }
 }
