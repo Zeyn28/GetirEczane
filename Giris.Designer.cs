@@ -64,6 +64,7 @@ namespace ProjeDeneme_2
             this.btnHastaG.TabIndex = 2;
             this.btnHastaG.Text = "Hasta Giriş";
             this.btnHastaG.UseVisualStyleBackColor = false;
+            this.btnHastaG.Click += new System.EventHandler(this.btnHastaG_Click);
             // 
             // Giris
             // 

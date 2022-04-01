@@ -82,6 +82,18 @@
     <Compile Include="HastaPaneli.Designer.cs">
       <DependentUpon>HastaPaneli.cs</DependentUpon>
     </Compile>
+    <Compile Include="hasta_girisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hasta_girisi.Designer.cs">
+      <DependentUpon>hasta_girisi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hasta_kayıt_ekleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hasta_kayıt_ekleme.Designer.cs">
+      <DependentUpon>hasta_kayıt_ekleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EczaciGiris.resx">
@@ -98,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HastaPaneli.resx">
       <DependentUpon>HastaPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hasta_girisi.resx">
+      <DependentUpon>hasta_girisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hasta_kayıt_ekleme.resx">
+      <DependentUpon>hasta_kayıt_ekleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

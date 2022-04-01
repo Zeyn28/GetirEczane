@@ -10,25 +10,26 @@ using System.Windows.Forms;
 
 namespace ProjeDeneme_2
 {
-    public partial class Giris : Form
+    public partial class hasta_girisi : Form
     {
-        public Giris()
+        public hasta_girisi()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEczacıG_Click(object sender, EventArgs e)
         {
-            EczaciGiris frmg = new EczaciGiris();
-            frmg.Show();
+            HastaPaneli hstpanel = new HastaPaneli();
+            hstpanel.Show();
             this.Hide();
         }
 
-        private void btnHastaG_Click(object sender, EventArgs e)
+        private void btnhastaKaydol_Click(object sender, EventArgs e)
         {
-            hasta_girisi hst = new hasta_girisi();
-            hst.Show();
+            hasta_kayıt_ekleme hstkyt = new hasta_kayıt_ekleme();
+            hstkyt.Show();
             this.Hide();
+
         }
     }
 }
