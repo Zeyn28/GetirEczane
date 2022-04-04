@@ -100,6 +100,7 @@ namespace ProjeDeneme_2
             this.btnEczacıG.TabIndex = 5;
             this.btnEczacıG.Text = "Giriş";
             this.btnEczacıG.UseVisualStyleBackColor = false;
+            this.btnEczacıG.Click += new System.EventHandler(this.btnEczacıG_Click);
             // 
             // btnKaydol
             // 
@@ -115,6 +116,7 @@ namespace ProjeDeneme_2
             this.btnKaydol.TabIndex = 6;
             this.btnKaydol.Text = "Kaydol";
             this.btnKaydol.UseVisualStyleBackColor = false;
+            this.btnKaydol.Click += new System.EventHandler(this.btnKaydol_Click);
             // 
             // EczaciGiris
             // 

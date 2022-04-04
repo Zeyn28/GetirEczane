@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjeDeneme_2
 {
-    public partial class EczaciGiris : Form
+    public partial class YeniSiparis : Form
     {
-        public EczaciGiris()
+        public YeniSiparis()
         {
             InitializeComponent();
         }
 
-        private void btnEczacıG_Click(object sender, EventArgs e)
+        private void btnVazgec_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnKaydol_Click(object sender, EventArgs e)
-        {
-            EczaciKayit kayit = new EczaciKayit();
-            kayit.Show();
+            this.Hide();
         }
     }
 }
