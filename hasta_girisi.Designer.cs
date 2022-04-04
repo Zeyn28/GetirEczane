@@ -122,7 +122,7 @@ namespace ProjeDeneme_2
             this.btnhastagiris.TabIndex = 9;
             this.btnhastagiris.Text = "Giriş";
             this.btnhastagiris.UseVisualStyleBackColor = false;
-            this.btnhastagiris.Click += new System.EventHandler(this.btnEczacıG_Click);
+            this.btnhastagiris.Click += new System.EventHandler(this.btnhastagiris_Click_1);
             // 
             // hasta_girisi
             // 

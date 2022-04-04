@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProjeDeneme_2
 {
@@ -16,12 +17,38 @@ namespace ProjeDeneme_2
         {
             InitializeComponent();
         }
+        SQL bgl = new SQL();
 
         private void btn_vazgec_Click(object sender, EventArgs e)
         {
             hasta_girisi grs = new hasta_girisi();
             grs.Show();
             this.Hide();
+        }
+
+        private void btn_kayıt_ol_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("insert into Hastalar(Ad,Soyad,TelNo,TC,Sehir,Adresi,Sifre) values(@h1,@h2,@h3,@h4,@h5,@h6,@h7)",bgl.baglan());
+            if (txtbox_ad.Text!="" && txtbox_soyad.Text!=""&& txt_sifre.Text!=""&& rtxtbox_adres.Text!=""&&mskd_tc.Text!=""&&mskd_tel.Text!=""&&cmbbox_sehir.Text!="") {
+                komut.Parameters.AddWithValue("@h1", txtbox_ad.Text);
+                komut.Parameters.AddWithValue("@h2", txtbox_soyad.Text);
+                komut.Parameters.AddWithValue("@h3", mskd_tel.Text);
+                komut.Parameters.AddWithValue("@h4", mskd_tc.Text);
+                komut.Parameters.AddWithValue("@h5", cmbbox_sehir.Text);
+                komut.Parameters.AddWithValue("@h6", rtxtbox_adres.Text);
+                komut.Parameters.AddWithValue("@h7", txt_sifre.Text);
+                komut.ExecuteNonQuery();
+                MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                hasta_girisi hg = new hasta_girisi();
+                hg.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            bgl.baglan().Close();
+            
         }
     }
 }

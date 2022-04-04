@@ -31,6 +31,7 @@ namespace ProjeDeneme_2
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_bilgi_güncelle = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,8 +44,8 @@ namespace ProjeDeneme_2
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.pnlyenirecete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -55,7 +56,7 @@ namespace ProjeDeneme_2
             // 
             this.panel3.BackColor = System.Drawing.Color.Teal;
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btn_bilgi_güncelle);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
@@ -75,6 +76,20 @@ namespace ProjeDeneme_2
             this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 4;
             this.label4.Text = "label4";
+            // 
+            // btn_bilgi_güncelle
+            // 
+            this.btn_bilgi_güncelle.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_bilgi_güncelle.FlatAppearance.BorderSize = 0;
+            this.btn_bilgi_güncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_bilgi_güncelle.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_bilgi_güncelle.Location = new System.Drawing.Point(517, 29);
+            this.btn_bilgi_güncelle.Name = "btn_bilgi_güncelle";
+            this.btn_bilgi_güncelle.Size = new System.Drawing.Size(186, 30);
+            this.btn_bilgi_güncelle.TabIndex = 6;
+            this.btn_bilgi_güncelle.Text = "Bilgilerimi Güncelle";
+            this.btn_bilgi_güncelle.UseVisualStyleBackColor = false;
+            this.btn_bilgi_güncelle.Click += new System.EventHandler(this.btn_bilgi_güncelle_Click);
             // 
             // label3
             // 
@@ -108,6 +123,7 @@ namespace ProjeDeneme_2
             // 
             // pnlyenirecete
             // 
+            this.pnlyenirecete.Controls.Add(this.comboBox1);
             this.pnlyenirecete.Controls.Add(this.btnrecetegoster);
             this.pnlyenirecete.Controls.Add(this.dataGridView1);
             this.pnlyenirecete.Controls.Add(this.btnrecetegönder);
@@ -127,6 +143,7 @@ namespace ProjeDeneme_2
             this.btnrecetegoster.TabIndex = 5;
             this.btnrecetegoster.Text = "Göster";
             this.btnrecetegoster.UseVisualStyleBackColor = true;
+            this.btnrecetegoster.Click += new System.EventHandler(this.btnrecetegoster_Click);
             // 
             // dataGridView1
             // 
@@ -143,12 +160,13 @@ namespace ProjeDeneme_2
             this.btnrecetegönder.FlatAppearance.BorderSize = 0;
             this.btnrecetegönder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnrecetegönder.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrecetegönder.Location = new System.Drawing.Point(130, 242);
+            this.btnrecetegönder.Location = new System.Drawing.Point(236, 242);
             this.btnrecetegönder.Name = "btnrecetegönder";
             this.btnrecetegönder.Size = new System.Drawing.Size(152, 39);
             this.btnrecetegönder.TabIndex = 3;
             this.btnrecetegönder.Text = "Reçetemi Gönder";
             this.btnrecetegönder.UseVisualStyleBackColor = false;
+            this.btnrecetegönder.Click += new System.EventHandler(this.btnrecetegönder_Click);
             // 
             // txtrecetekodu
             // 
@@ -201,19 +219,6 @@ namespace ProjeDeneme_2
             this.label7.TabIndex = 6;
             this.label7.Text = "ÖNCEKİ REÇETELERİM";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(517, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 30);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Bilgilerimi Güncelle";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
@@ -227,6 +232,15 @@ namespace ProjeDeneme_2
             this.button2.Text = "Çıkış";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(16, 242);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(177, 26);
+            this.comboBox1.TabIndex = 6;
             // 
             // HastaPaneli
             // 
@@ -269,7 +283,8 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_bilgi_güncelle;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
