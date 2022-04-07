@@ -36,6 +36,7 @@ namespace ProjeDeneme_2
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlyenirecete = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnrecetegoster = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnrecetegönder = new System.Windows.Forms.Button();
@@ -45,7 +46,10 @@ namespace ProjeDeneme_2
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EczaneAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceteKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeslimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.pnlyenirecete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,7 +68,7 @@ namespace ProjeDeneme_2
             this.panel3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(790, 88);
+            this.panel3.Size = new System.Drawing.Size(924, 88);
             this.panel3.TabIndex = 1;
             // 
             // label4
@@ -83,7 +87,7 @@ namespace ProjeDeneme_2
             this.btn_bilgi_güncelle.FlatAppearance.BorderSize = 0;
             this.btn_bilgi_güncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_bilgi_güncelle.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_bilgi_güncelle.Location = new System.Drawing.Point(517, 29);
+            this.btn_bilgi_güncelle.Location = new System.Drawing.Point(605, 20);
             this.btn_bilgi_güncelle.Name = "btn_bilgi_güncelle";
             this.btn_bilgi_güncelle.Size = new System.Drawing.Size(186, 30);
             this.btn_bilgi_güncelle.TabIndex = 6;
@@ -129,10 +133,19 @@ namespace ProjeDeneme_2
             this.pnlyenirecete.Controls.Add(this.btnrecetegönder);
             this.pnlyenirecete.Controls.Add(this.txtrecetekodu);
             this.pnlyenirecete.Controls.Add(this.label5);
-            this.pnlyenirecete.Location = new System.Drawing.Point(12, 137);
+            this.pnlyenirecete.Location = new System.Drawing.Point(0, 133);
             this.pnlyenirecete.Name = "pnlyenirecete";
             this.pnlyenirecete.Size = new System.Drawing.Size(413, 308);
             this.pnlyenirecete.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(16, 242);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(177, 26);
+            this.comboBox1.TabIndex = 6;
             // 
             // btnrecetegoster
             // 
@@ -147,11 +160,15 @@ namespace ProjeDeneme_2
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 55);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(372, 150);
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(372, 169);
             this.dataGridView1.TabIndex = 4;
             // 
             // btnrecetegönder
@@ -201,19 +218,29 @@ namespace ProjeDeneme_2
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(431, 150);
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Hasta,
+            this.EczaneAd,
+            this.ReceteKodu,
+            this.TeslimTarihi});
+            this.dataGridView2.Location = new System.Drawing.Point(419, 146);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(333, 197);
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(493, 211);
             this.dataGridView2.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Demi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(461, 100);
+            this.label7.Location = new System.Drawing.Point(535, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(256, 30);
             this.label7.TabIndex = 6;
@@ -225,7 +252,7 @@ namespace ProjeDeneme_2
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(557, 379);
+            this.button2.Location = new System.Drawing.Point(809, 375);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 39);
             this.button2.TabIndex = 7;
@@ -233,21 +260,43 @@ namespace ProjeDeneme_2
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // Hasta
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 242);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 26);
-            this.comboBox1.TabIndex = 6;
+            this.Hasta.DataPropertyName = "Hasta";
+            this.Hasta.HeaderText = "Hasta Ad-Soyad";
+            this.Hasta.Name = "Hasta";
+            this.Hasta.ReadOnly = true;
+            this.Hasta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // EczaneAd
+            // 
+            this.EczaneAd.DataPropertyName = "EczaneAd";
+            this.EczaneAd.HeaderText = "Eczane Adı";
+            this.EczaneAd.Name = "EczaneAd";
+            this.EczaneAd.ReadOnly = true;
+            this.EczaneAd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ReceteKodu
+            // 
+            this.ReceteKodu.DataPropertyName = "ReceteKodu";
+            this.ReceteKodu.HeaderText = "Reçete Kodu";
+            this.ReceteKodu.Name = "ReceteKodu";
+            this.ReceteKodu.ReadOnly = true;
+            this.ReceteKodu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeslimTarihi
+            // 
+            this.TeslimTarihi.DataPropertyName = "TeslimTarihi";
+            this.TeslimTarihi.HeaderText = "Sipariş Tarihi";
+            this.TeslimTarihi.Name = "TeslimTarihi";
+            this.TeslimTarihi.ReadOnly = true;
             // 
             // HastaPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(790, 457);
+            this.ClientSize = new System.Drawing.Size(924, 457);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView2);
@@ -286,5 +335,9 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Button btn_bilgi_güncelle;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EczaneAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceteKodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeslimTarihi;
     }
 }

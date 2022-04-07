@@ -93,6 +93,12 @@
     <Compile Include="HastaPaneli.Designer.cs">
       <DependentUpon>HastaPaneli.cs</DependentUpon>
     </Compile>
+    <Compile Include="HastaReceteler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HastaReceteler.Designer.cs">
+      <DependentUpon>HastaReceteler.cs</DependentUpon>
+    </Compile>
     <Compile Include="hasta_bilgi_güncelleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HastaPaneli.resx">
       <DependentUpon>HastaPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HastaReceteler.resx">
+      <DependentUpon>HastaReceteler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hasta_bilgi_güncelleme.resx">
       <DependentUpon>hasta_bilgi_güncelleme.cs</DependentUpon>
