@@ -133,24 +133,41 @@ namespace ProjeDeneme_2
             bgl.baglan().Close();
             // tarih çekme 
             string tarih="";
-            SqlCommand tarihcekme = new SqlCommand("select GETDATE()", bgl.baglan());
+            SqlCommand tarihcekme = new SqlCommand("SELECT CONVERT (date, SYSDATETIMEOFFSET())", bgl.baglan());
             SqlDataReader date = tarihcekme.ExecuteReader();
             while (date.Read())
             {
                 tarih = date[0].ToString();
             }
             //sipariş ekleme
+            SqlCommand kmtrecetekodu = new SqlCommand("Select * from Recete where ReceteKodu='"+txtrecetekodu.Text+"'", bgl.baglan());
+            SqlDataReader drrecete = kmtrecetekodu.ExecuteReader();
+            if (drrecete.Read())
+            {
 
-           
-
-
-            SqlCommand komut4 = new SqlCommand("insert into Siparisler (Hasta,Eczane,RecID,TeslimTarihi)values (@s1,@s2,@s3,@s4)",bgl.baglan());
-            komut4.Parameters.AddWithValue("@s1", hastaid);
-            komut4.Parameters.AddWithValue("@s2", eczacid);
-            komut4.Parameters.AddWithValue("@s3", receteid);
-            komut4.Parameters.AddWithValue("@s4", tarih);
-            komut4.ExecuteNonQuery();
-            bgl.baglan().Close();
+                SqlCommand komut4 = new SqlCommand("insert into Siparisler (Hasta,Eczane,RecID,TeslimTarihi,SiparişDurumu)values (@s1,@s2,@s3,@s4,@s5)", bgl.baglan());
+                komut4.Parameters.AddWithValue("@s1", hastaid);
+                komut4.Parameters.AddWithValue("@s2", eczacid);
+                komut4.Parameters.AddWithValue("@s3", receteid);
+                komut4.Parameters.AddWithValue("@s4", tarih);
+                komut4.Parameters.AddWithValue("@s5", "False");
+                komut4.ExecuteNonQuery();
+                bgl.baglan().Close();
+                Random rnd = new Random();
+                string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
+                string ex = "";
+                for(int i=0;i<6;i++)
+                {
+                    ex += havuz[rnd.Next(havuz.Length-1)];
+                }
+                SqlCommand kodguncelleme = new SqlCommand("update Recete set ReceteKodu='"+ex+"'where ReceteID='"+receteid+"'", bgl.baglan());
+                kodguncelleme.ExecuteNonQuery();
+                bgl.baglan().Close();
+            }
+            else
+            {
+                MessageBox.Show("");
+            }
             //ÖNCEKİ Reçete Güncelle
             SqlCommand komut6 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
             SqlDataReader dr3 = komut6.ExecuteReader();
