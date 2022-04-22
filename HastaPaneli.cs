@@ -141,8 +141,7 @@ namespace ProjeDeneme_2
             }
             //sipariş ekleme
 
-            SqlCommand kontrol = new SqlCommand("");
-            SqlDataReader ktr = kontrol.ExecuteReader();
+           
 
 
             SqlCommand komut4 = new SqlCommand("insert into Siparisler (Hasta,Eczane,RecID,TeslimTarihi)values (@s1,@s2,@s3,@s4)",bgl.baglan());
