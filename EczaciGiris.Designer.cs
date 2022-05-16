@@ -33,8 +33,8 @@ namespace ProjeDeneme_2
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.mskTC = new System.Windows.Forms.MaskedTextBox();
-            this.txtSifre = new System.Windows.Forms.TextBox();
+            this.eczmskTC = new System.Windows.Forms.MaskedTextBox();
+            this.ecztxtSifre = new System.Windows.Forms.TextBox();
             this.btnEczacıG = new System.Windows.Forms.Button();
             this.btnKaydol = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -70,21 +70,22 @@ namespace ProjeDeneme_2
             this.label3.TabIndex = 2;
             this.label3.Text = "Şifre :";
             // 
-            // mskTC
+            // eczmskTC
             // 
-            this.mskTC.Location = new System.Drawing.Point(174, 123);
-            this.mskTC.Mask = "00000000000";
-            this.mskTC.Name = "mskTC";
-            this.mskTC.Size = new System.Drawing.Size(189, 39);
-            this.mskTC.TabIndex = 3;
-            this.mskTC.ValidatingType = typeof(int);
+            this.eczmskTC.Location = new System.Drawing.Point(174, 123);
+            this.eczmskTC.Mask = "00000000000";
+            this.eczmskTC.Name = "eczmskTC";
+            this.eczmskTC.Size = new System.Drawing.Size(189, 39);
+            this.eczmskTC.TabIndex = 3;
+            this.eczmskTC.ValidatingType = typeof(int);
+            
             // 
-            // txtSifre
+            // ecztxtSifre
             // 
-            this.txtSifre.Location = new System.Drawing.Point(174, 176);
-            this.txtSifre.Name = "txtSifre";
-            this.txtSifre.Size = new System.Drawing.Size(189, 39);
-            this.txtSifre.TabIndex = 4;
+            this.ecztxtSifre.Location = new System.Drawing.Point(174, 176);
+            this.ecztxtSifre.Name = "ecztxtSifre";
+            this.ecztxtSifre.Size = new System.Drawing.Size(189, 39);
+            this.ecztxtSifre.TabIndex = 4;
             // 
             // btnEczacıG
             // 
@@ -127,8 +128,8 @@ namespace ProjeDeneme_2
             this.ClientSize = new System.Drawing.Size(505, 365);
             this.Controls.Add(this.btnKaydol);
             this.Controls.Add(this.btnEczacıG);
-            this.Controls.Add(this.txtSifre);
-            this.Controls.Add(this.mskTC);
+            this.Controls.Add(this.ecztxtSifre);
+            this.Controls.Add(this.eczmskTC);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -148,8 +149,8 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox mskTC;
-        private System.Windows.Forms.TextBox txtSifre;
+        private System.Windows.Forms.MaskedTextBox eczmskTC;
+        private System.Windows.Forms.TextBox ecztxtSifre;
         private System.Windows.Forms.Button btnEczacıG;
         private System.Windows.Forms.Button btnKaydol;
     }

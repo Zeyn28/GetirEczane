@@ -151,7 +151,7 @@ namespace ProjeDeneme_2
                 komut4.Parameters.AddWithValue("@s3", receteid);
                 komut4.Parameters.AddWithValue("@s4", tarih);
                 komut4.Parameters.AddWithValue("@s5", "False");
-                komut4.ExecuteNonQuery();
+                komut4.ExecuteReader();
                 bgl.baglan().Close();
                 Random rnd = new Random();
                 string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
