@@ -8,6 +8,7 @@ namespace ProjeDeneme_2
 {
     class SQL
     {
+        //sql bağlantısı her seferinde uzun uzun yazmamak için sql bağlantı fonksiyonu
         public SqlConnection baglan()
         {
             SqlConnection baglanti = new SqlConnection("Data Source=DESKTOP-VJ9JK8E;Initial Catalog=getireczane;Integrated Security=True");

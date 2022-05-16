@@ -45,6 +45,7 @@ namespace ProjeDeneme_2
                 sehir = dr2[0].ToString();
             }
             bgl.baglan().Close();
+            //hastanın şehrindeki eczaneleri comboboxa çekme
             SqlCommand komut3 = new SqlCommand("Select EczaneAd from Eczane where EczacıSehir='"+sehir+"'",bgl.baglan());
             SqlDataReader dr3 = komut3.ExecuteReader();
             while (dr3.Read())
@@ -77,14 +78,14 @@ namespace ProjeDeneme_2
             DataTable dt1 = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select İlaç1 as '1.İlaç',İlaç2 as '2.İlaç',İlaç3 as '3.İlaç',İlaç4 as '4.İlaç',İlaç5 as '5.İlaç',İlaç6 as '6.İlaç',İlaç7 as '7.İlaç',İlaç8 as '8.İlaç',İlaç9 as '9.İlaç',İlaç10 as '10.İlaç' from Recete where ReceteKodu='" + txtrecetekodu.Text+"'", bgl.baglan());
             da.Fill(dt1);
-            DataTable dt2 = new DataTable();
+            DataTable dt2 = new DataTable();// veritabanından gelen tabloyu düzenlemek için ikinci bir tablo oluşturduk
             dt2.Columns.Add("Reçete");
-            for(int i = 0; i < dt1.Rows.Count; i++)
+            for(int i = 0; i < dt1.Rows.Count; i++)// kolon adlarını düzeltiyor
             {
                 dt2.Columns.Add("İlaç Adı");
             }
             
-                for(int i = 0; i < dt1.Columns.Count; i++)
+                for(int i = 0; i < dt1.Columns.Count; i++) // burada tablo daha iyi gözükmesi için transpoze ediliyor
             {
                 DataRow newRow = dt2.NewRow();
                 newRow[0] = dt1.Columns[i].Caption;
@@ -103,7 +104,7 @@ namespace ProjeDeneme_2
         private void btn_bilgi_güncelle_Click(object sender, EventArgs e)
         {
             hasta_bilgi_güncelleme hbg = new hasta_bilgi_güncelleme();
-            hbg.tc2 = tc;
+            hbg.tc2 = tc;// tc yi id olarak kullarak güncelleme paneline veri çekmek için
             hbg.Show();
         }
 
@@ -114,21 +115,21 @@ namespace ProjeDeneme_2
             SqlDataReader dr = komut1.ExecuteReader();
             while (dr.Read())
             {
-                hastaid = dr[0].ToString();
+                hastaid = dr[0].ToString(); //burada hastanın tc sinden id sine ulaşılıyor
             }
             bgl.baglan().Close();
             SqlCommand komut2 = new SqlCommand("Select EczaneID from Eczane where EczaneAd='" + comboBox1.Text + "'", bgl.baglan());
             SqlDataReader dr1 = komut2.ExecuteReader();
             while (dr1.Read())
             {
-                eczacid = dr1[0].ToString();
+                eczacid = dr1[0].ToString();// burada sipariş tablosuna reçetenin hangi eczaneden alındığı bilgisi için eczane id sine ulaşılıyor
             }
             bgl.baglan().Close();
             SqlCommand komut3 = new SqlCommand("Select ReceteID from Recete where ReceteKodu='" + txtrecetekodu.Text + "'", bgl.baglan());
             SqlDataReader dr2= komut3.ExecuteReader();
             while (dr2.Read())
             {
-                receteid = dr2[0].ToString();
+                receteid = dr2[0].ToString();//reçete id si çekme
             }
             bgl.baglan().Close();
             // tarih çekme 
@@ -139,7 +140,7 @@ namespace ProjeDeneme_2
             {
                 tarih = date[0].ToString();
             }
-            //sipariş ekleme
+            // sipariş ekleme
             SqlCommand kmtrecetekodu = new SqlCommand("Select * from Recete where ReceteKodu='"+txtrecetekodu.Text+"'", bgl.baglan());
             SqlDataReader drrecete = kmtrecetekodu.ExecuteReader();
             if (drrecete.Read())
@@ -153,6 +154,7 @@ namespace ProjeDeneme_2
                 komut4.Parameters.AddWithValue("@s5", "False");
                 komut4.ExecuteReader();
                 bgl.baglan().Close();
+                // reçete kodlarını rastgele kodlarla değiştiriyor
                 Random rnd = new Random();
                 string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
                 string ex = "";
@@ -168,7 +170,8 @@ namespace ProjeDeneme_2
             {
                 MessageBox.Show("");
             }
-            //ÖNCEKİ Reçete Güncelle
+            //formda ÖNCEKİ Reçete tablosunu Güncelleme
+            //burada reçete kodu güncelleme hatası var (önceki tablosunda da değişiyor)
             SqlCommand komut6 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
             SqlDataReader dr3 = komut6.ExecuteReader();
             while (dr3.Read())
@@ -180,9 +183,6 @@ namespace ProjeDeneme_2
             komut5.Fill(dt1);
             dataGridView2.DataSource = dt1;
             bgl.baglan().Close();
-
-        }
-
-       
+        }      
     }
 }

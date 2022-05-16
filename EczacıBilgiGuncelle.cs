@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 namespace ProjeDeneme_2
 {
     public partial class EczacıBilgiGuncelle : Form
@@ -25,7 +26,7 @@ namespace ProjeDeneme_2
         public string ecztc;
         private void EczacıBilgiGuncelle_Load(object sender, EventArgs e)
         {
-            
+            //tc yi id gibi kullanarak bilgileri güncellemek için alanları dolduruyor
             SqlCommand komut = new SqlCommand("Select EczacıAd,EczacıSoyad,EczacıTelNo,EczacıBarkod,EczacıTC,EczacıSifre,EczacıSehir,EczacıAdres,EczaneAd from Eczane where EczacıTC=@q1", bgl.baglan());
             komut.Parameters.AddWithValue("@q1", ecztc);
             SqlDataReader ddr = komut.ExecuteReader();
@@ -46,8 +47,9 @@ namespace ProjeDeneme_2
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+            //güncelleme kısmı
             SqlCommand ecz_yeni = new SqlCommand("update Eczane set EczacıAd=@y1,EczacıSoyad=@y2,EczacıTelNo=@y3,EczacıBarkod=@y4,EczacıTC=@y5,EczacıSifre=@y6,EczacıSehir=@y7,EczacıAdres=@y8,EczaneAd=@y9 where EczacıTC='" + mskTC.Text + "'", bgl.baglan());
-            if (txtAd.Text != "" && txtSoyad.Text != "" && mskTelefon.Text != "" && mskDiploma.Text != "" && mskTC.Text != "" && txtsifre.Text != "" && comboBox1.Text != "  "&& rtxtAdres.Text!=""&& txtEczaneAd.Text!="")
+            if (txtAd.Text != "" && txtSoyad.Text != "" && mskTelefon.Text != "" && mskDiploma.Text != "" && mskTC.Text != "" && txtsifre.Text != "" && comboBox1.Text != ""&& rtxtAdres.Text!=""&& txtEczaneAd.Text!="")
             {
                 ecz_yeni.Parameters.AddWithValue("@y1", txtAd.Text);
                 ecz_yeni.Parameters.AddWithValue("@y2", txtSoyad.Text);

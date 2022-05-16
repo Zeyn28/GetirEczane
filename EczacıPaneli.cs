@@ -32,7 +32,7 @@ namespace ProjeDeneme_2
         private void btnBilgiGuncelle_Click(object sender, EventArgs e)
         {
             EczacıBilgiGuncelle frmb = new EczacıBilgiGuncelle();
-            frmb.ecztc = ecz_tc;
+            frmb.ecztc = ecz_tc;// tc değişmez olduğu için tcyi id gibi kullanma amacıyla güncelleme formuna gönderme
             frmb.Show();
         }
 

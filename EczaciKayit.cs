@@ -20,6 +20,7 @@ namespace ProjeDeneme_2
         SQL bgl = new SQL();
         private void EczaciKayit_Load(object sender, EventArgs e)
         {
+            //şehir comboboxını doldurma
             string[] Sehir = {"Adana","İstanbul","Ankara","İzmir","Bursa"};
             for(int i = 0; i < Sehir.Length - 1; i++)
             {
@@ -32,8 +33,9 @@ namespace ProjeDeneme_2
 
             if (txtAd.Text != "" && txtSoyad.Text != "" && txteczacisifre.Text != "" && richAdres.Text != "" && mskTC.Text != "" && mskTel.Text != "" && cmbSehir.Text != "" && mskDiploma.Text != "" && txtEczanead.Text != "")
             {
-                if (dogrulandi.Visible == true)
+                if (dogrulandi.Visible == true)//kontrolden geçerse eczacı kaydı yapılır
                 {
+                    //update kullanılma sebebi zaten barkodu eczacıya kaydederken kayıt açılmış olması yani aslında burada barkod id gibi kullanılıyor
                         SqlCommand komut = new SqlCommand("update Eczane set EczacıAd=@h1,EczacıSoyad=@h2,EczacıTelNo=@h3,EczacıTC=@h4,EczacıSehir=@h5,EczacıAdres=@h6,EczaneAd=@h8,EczacıSifre=@h9 where EczacıBarkod='"+ mskDiploma.Text+"'", bgl.baglan());
                         komut.Parameters.AddWithValue("@h1", txtAd.Text);
                         komut.Parameters.AddWithValue("@h2", txtSoyad.Text);
@@ -66,18 +68,21 @@ namespace ProjeDeneme_2
 
         private void btnKontrol_Click(object sender, EventArgs e)
         {
+            // eczacı diploma barkod kontrolü
             SqlCommand komut = new SqlCommand("Select * from DiplomaBarkodlar where Barkod=@a",bgl.baglan());
             komut.Parameters.AddWithValue("@a", mskDiploma.Text);
             SqlDataReader dr = komut.ExecuteReader();
             bgl.baglan().Close();
             if (dr.Read())
             {
+                //alınan barkodun ilgili tabloda eczacının bilgilerine eklenmesi
                 SqlCommand komutbarkod = new SqlCommand("insert into Eczane(EczacıBarkod) values (@d)", bgl.baglan());
                 komutbarkod.Parameters.AddWithValue("@d", mskDiploma.Text);
                 komutbarkod.ExecuteNonQuery();
                 bgl.baglan().Close();
                 dogrulandi.Visible = true;
                 dogrulanmadi.Visible = false;
+                //alınan barkodun veritabanından silinmesi
                 SqlCommand komutsil = new SqlCommand("Delete from DiplomaBarkodlar where Barkod=@b",bgl.baglan());
                 komutsil.Parameters.AddWithValue("@b", mskDiploma.Text);
                 komutsil.ExecuteNonQuery();
