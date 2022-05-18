@@ -22,8 +22,9 @@ namespace ProjeDeneme_2
         }
         SQL bgl = new SQL();
         public string tc;
-
         public string sehir;
+
+       
         private void HastaPaneli_Load(object sender, EventArgs e)
         {
             // ad soyad çekme
@@ -99,6 +100,12 @@ namespace ProjeDeneme_2
 
             dataGridView1.DataSource = dt2;
             bgl.baglan().Close();
+            SqlCommand fiyat = new SqlCommand("Select Tutar from Recete where ReceteKodu='"+txtrecetekodu.Text+"'",bgl.baglan());
+            SqlDataReader drfiy=fiyat.ExecuteReader();
+            while (drfiy.Read())
+            {
+                label9.Text = drfiy[0].ToString();
+            }
         }
 
         private void btn_bilgi_güncelle_Click(object sender, EventArgs e)
@@ -107,10 +114,12 @@ namespace ProjeDeneme_2
             hbg.tc2 = tc;// tc yi id olarak kullarak güncelleme paneline veri çekmek için
             hbg.Show();
         }
+        
 
         private void btnrecetegönder_Click(object sender, EventArgs e)
         {
             string hastaid="", eczacid="", receteid="";
+
             SqlCommand komut1 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'",bgl.baglan());
             SqlDataReader dr = komut1.ExecuteReader();
             while (dr.Read())
@@ -134,7 +143,7 @@ namespace ProjeDeneme_2
             bgl.baglan().Close();
             // tarih çekme 
             string tarih="";
-            SqlCommand tarihcekme = new SqlCommand("SELECT CONVERT (date, SYSDATETIMEOFFSET())", bgl.baglan());
+            SqlCommand tarihcekme = new SqlCommand("SELECT CONVERT (varchar,getdate(),104)", bgl.baglan());
             SqlDataReader date = tarihcekme.ExecuteReader();
             while (date.Read())
             {
@@ -145,26 +154,29 @@ namespace ProjeDeneme_2
             SqlDataReader drrecete = kmtrecetekodu.ExecuteReader();
             if (drrecete.Read())
             {
+                    SqlCommand komut4 = new SqlCommand("insert into Siparisler (Hasta,Eczane,RecID,TeslimTarihi,SiparişDurumu)values (@s1,@s2,@s3,@s4,@s5)", bgl.baglan());
+                    komut4.Parameters.AddWithValue("@s1", hastaid);
+                    komut4.Parameters.AddWithValue("@s2", eczacid);
+                    komut4.Parameters.AddWithValue("@s3", receteid);
+                    komut4.Parameters.AddWithValue("@s4", tarih);
+                    komut4.Parameters.AddWithValue("@s5", "False");
+                    komut4.ExecuteReader();
+                    bgl.baglan().Close();
+                    // reçete kodlarını rastgele kodlarla değiştiriyor
+                    Random rnd = new Random();
+                    string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
+                    string ex = "";
+                    for (int i = 0; i < 6; i++)
+                    {
+                        ex += havuz[rnd.Next(havuz.Length - 1)];
+                    }
+                    SqlCommand kodguncelleme = new SqlCommand("update Recete set ReceteKodu='" + ex + "'where ReceteID='" + receteid + "'", bgl.baglan());
+                    kodguncelleme.ExecuteNonQuery();
+                    bgl.baglan().Close();
+                Odeme ode = new Odeme();
+                ode.Show();
+                SqlCommand sipid = new SqlCommand("");
 
-                SqlCommand komut4 = new SqlCommand("insert into Siparisler (Hasta,Eczane,RecID,TeslimTarihi,SiparişDurumu)values (@s1,@s2,@s3,@s4,@s5)", bgl.baglan());
-                komut4.Parameters.AddWithValue("@s1", hastaid);
-                komut4.Parameters.AddWithValue("@s2", eczacid);
-                komut4.Parameters.AddWithValue("@s3", receteid);
-                komut4.Parameters.AddWithValue("@s4", tarih);
-                komut4.Parameters.AddWithValue("@s5", "False");
-                komut4.ExecuteReader();
-                bgl.baglan().Close();
-                // reçete kodlarını rastgele kodlarla değiştiriyor
-                Random rnd = new Random();
-                string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
-                string ex = "";
-                for(int i=0;i<6;i++)
-                {
-                    ex += havuz[rnd.Next(havuz.Length-1)];
-                }
-                SqlCommand kodguncelleme = new SqlCommand("update Recete set ReceteKodu='"+ex+"'where ReceteID='"+receteid+"'", bgl.baglan());
-                kodguncelleme.ExecuteNonQuery();
-                bgl.baglan().Close();
             }
             else
             {

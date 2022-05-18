@@ -50,5 +50,7 @@ namespace ProjeDeneme_2
             bgl.baglan().Close();
 
         }
+
+       
     }
 }

@@ -44,12 +44,14 @@ namespace ProjeDeneme_2
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EczaneAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReceteKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeslimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.pnlyenirecete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -127,6 +129,8 @@ namespace ProjeDeneme_2
             // 
             // pnlyenirecete
             // 
+            this.pnlyenirecete.Controls.Add(this.label9);
+            this.pnlyenirecete.Controls.Add(this.label8);
             this.pnlyenirecete.Controls.Add(this.comboBox1);
             this.pnlyenirecete.Controls.Add(this.btnrecetegoster);
             this.pnlyenirecete.Controls.Add(this.dataGridView1);
@@ -135,7 +139,7 @@ namespace ProjeDeneme_2
             this.pnlyenirecete.Controls.Add(this.label5);
             this.pnlyenirecete.Location = new System.Drawing.Point(0, 133);
             this.pnlyenirecete.Name = "pnlyenirecete";
-            this.pnlyenirecete.Size = new System.Drawing.Size(413, 308);
+            this.pnlyenirecete.Size = new System.Drawing.Size(413, 331);
             this.pnlyenirecete.TabIndex = 2;
             // 
             // comboBox1
@@ -236,30 +240,6 @@ namespace ProjeDeneme_2
             this.dataGridView2.Size = new System.Drawing.Size(493, 211);
             this.dataGridView2.TabIndex = 5;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Franklin Gothic Demi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(535, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(256, 30);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "ÖNCEKİ REÇETELERİM";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(809, 375);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 39);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Çıkış";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Hasta
             // 
             this.Hasta.DataPropertyName = "Hasta";
@@ -291,12 +271,55 @@ namespace ProjeDeneme_2
             this.TeslimTarihi.Name = "TeslimTarihi";
             this.TeslimTarihi.ReadOnly = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Demi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(535, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(256, 30);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "ÖNCEKİ REÇETELERİM";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Location = new System.Drawing.Point(809, 375);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 39);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Çıkış";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(12, 293);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 20);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Ödenecek Tutar :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(154, 293);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 17);
+            this.label9.TabIndex = 8;
+            // 
             // HastaPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(924, 457);
+            this.ClientSize = new System.Drawing.Size(924, 464);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView2);
@@ -339,5 +362,7 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.DataGridViewTextBoxColumn EczaneAd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceteKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeslimTarihi;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -31,19 +31,19 @@ namespace ProjeDeneme_2
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EczacıPaneli));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnBilgiGuncelle = new System.Windows.Forms.Button();
             this.btnCıkıs = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,6 +64,47 @@ namespace ProjeDeneme_2
             this.panel1.Size = new System.Drawing.Size(971, 100);
             this.panel1.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(183, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 24);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "label7";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(64, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 24);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Ad-Soyad :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(183, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 24);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "label5";
+           
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(92, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "T.C. No :";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
@@ -73,15 +114,15 @@ namespace ProjeDeneme_2
             this.panel2.Size = new System.Drawing.Size(435, 339);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(12, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Yeni Siparişler ;";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(13, 287);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(256, 18);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Siparişlere ulaşmak için çift tıklayın !";
             // 
             // dataGridView1
             // 
@@ -92,6 +133,16 @@ namespace ProjeDeneme_2
             this.dataGridView1.Size = new System.Drawing.Size(435, 261);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(12, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Yeni Siparişler ;";
             // 
             // panel3
             // 
@@ -142,56 +193,6 @@ namespace ProjeDeneme_2
             this.label2.Size = new System.Drawing.Size(181, 24);
             this.label2.TabIndex = 6;
             this.label2.Text = "Önceki Siparişler ;";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(13, 287);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(256, 18);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Siparişlere ulaşmak için çift tıklayın !";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(92, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "T.C. No :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(183, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 24);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(64, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 24);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Ad-Soyad :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(183, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 24);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "label7";
             // 
             // EczacıPaneli
             // 
