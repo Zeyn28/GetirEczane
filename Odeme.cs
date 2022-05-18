@@ -26,14 +26,25 @@ namespace ProjeDeneme_2
             SqlDataReader dr = kontrol.ExecuteReader();
             if (dr.Read()!=true)
             {
-                SqlCommand sil = new SqlCommand("Delete ",bgl.baglan());
+                MessageBox.Show("Bilgileriniz yanlış. Kontrol ediniz.", "UYARI", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                MessageBox.Show("Siparişiniz başarıyla oluşturuldu.","Bilgilendirme",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.Hide();
             }
         }
 
-        
+        public int sip,sip2;
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            SqlCommand komut = new SqlCommand("delete from Siparisler where SiparisID='"+sip+"'",bgl.baglan());
+            komut.ExecuteNonQuery();
+            SqlCommand komut2 = new SqlCommand("delete from oncekisiparisler where OncekisipID='" + sip2 + "'", bgl.baglan());
+            komut2.ExecuteNonQuery();
             this.Hide();
         }
     }

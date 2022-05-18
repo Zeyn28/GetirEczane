@@ -48,9 +48,19 @@ namespace ProjeDeneme_2
                 label7.Text = drr[0].ToString();
             }
             bgl.baglan().Close();
+            string eczid="";
+            SqlCommand kmt = new SqlCommand("select EczaneID from Eczane where EczacıTC='"+ecz_tc+"'",bgl.baglan());
+            SqlDataReader drecz = kmt.ExecuteReader();
+            while (drecz.Read())
+            {
+                eczid = drecz[0].ToString();
+            }
 
+            SqlDataAdapter yeni = new SqlDataAdapter("select Ad+' '+Soyad as 'Hasta',EczaneAd as 'Eczane Adı',Recete,TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='"+eczid+"' and SiparişDurumu='"+false+"'",bgl.baglan());
+            DataTable dt1 = new DataTable();
+            yeni.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+            bgl.baglan().Close();
         }
-
-       
     }
 }

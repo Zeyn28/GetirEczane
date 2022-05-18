@@ -162,8 +162,16 @@ namespace ProjeDeneme_2
                     komut4.Parameters.AddWithValue("@s5", "False");
                     komut4.ExecuteReader();
                     bgl.baglan().Close();
-                    // reçete kodlarını rastgele kodlarla değiştiriyor
-                    Random rnd = new Random();
+                SqlCommand komuto = new SqlCommand("insert into oncekisiparisler (Hasta,Eczane,Recete,TeslimTarihi,SiparişDurumu)values (@s1,@s2,@s3,@s4,@s5)", bgl.baglan());
+                komuto.Parameters.AddWithValue("@s1", hastaid);
+                komuto.Parameters.AddWithValue("@s2", eczacid);
+                komuto.Parameters.AddWithValue("@s3", txtrecetekodu.Text);
+                komuto.Parameters.AddWithValue("@s4", tarih);
+                komuto.Parameters.AddWithValue("@s5", "False");
+                komuto.ExecuteReader();
+                bgl.baglan().Close();
+                // reçete kodlarını rastgele kodlarla değiştiriyor
+                Random rnd = new Random();
                     string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
                     string ex = "";
                     for (int i = 0; i < 6; i++)
@@ -175,7 +183,19 @@ namespace ProjeDeneme_2
                     bgl.baglan().Close();
                 Odeme ode = new Odeme();
                 ode.Show();
-                SqlCommand sipid = new SqlCommand("");
+                SqlCommand sipid = new SqlCommand("SELECT SiparisID from Siparisler where RecID='"+receteid+"' and TeslimTarihi='"+tarih+"'",bgl.baglan());
+                SqlDataReader drsip = sipid.ExecuteReader();
+                while (drsip.Read())
+                {
+                    ode.sip = Convert.ToInt32(drsip[0]);
+                }
+
+                SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + txtrecetekodu.Text + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
+                SqlDataReader drsip2 = sipid2.ExecuteReader();
+                while (drsip2.Read())
+                {
+                    ode.sip2 = Convert.ToInt32(drsip2[0]);
+                }
 
             }
             else

@@ -160,6 +160,7 @@ namespace ProjeDeneme_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Aquamarine;
             this.ClientSize = new System.Drawing.Size(554, 296);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -175,6 +176,7 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Odeme";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Odeme";
             this.ResumeLayout(false);
             this.PerformLayout();
