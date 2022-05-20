@@ -29,7 +29,6 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EczacıPaneli));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -37,19 +36,24 @@ namespace ProjeDeneme_2
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceteKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeslimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnBilgiGuncelle = new System.Windows.Forms.Button();
             this.btnCıkıs = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.getireczaneDataSet = new ProjeDeneme_2.getireczaneDataSet();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getireczaneDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,7 +67,7 @@ namespace ProjeDeneme_2
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(851, 74);
+            this.panel1.Size = new System.Drawing.Size(956, 74);
             this.panel1.TabIndex = 0;
             // 
             // label7
@@ -112,13 +116,56 @@ namespace ProjeDeneme_2
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(11, 116);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(412, 345);
+            this.panel2.Size = new System.Drawing.Size(476, 345);
             this.panel2.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Hasta,
+            this.ReceteKodu,
+            this.TeslimTarihi});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(470, 260);
+            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // Hasta
+            // 
+            this.Hasta.DataPropertyName = "Hasta";
+            this.Hasta.HeaderText = "Hasta Ad-Soyad";
+            this.Hasta.Name = "Hasta";
+            this.Hasta.ReadOnly = true;
+            this.Hasta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ReceteKodu
+            // 
+            this.ReceteKodu.DataPropertyName = "Recete";
+            this.ReceteKodu.HeaderText = "Reçete Kodu";
+            this.ReceteKodu.Name = "ReceteKodu";
+            this.ReceteKodu.ReadOnly = true;
+            this.ReceteKodu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeslimTarihi
+            // 
+            this.TeslimTarihi.DataPropertyName = "TeslimTarihi";
+            this.TeslimTarihi.HeaderText = "Sipariş Tarihi";
+            this.TeslimTarihi.Name = "TeslimTarihi";
+            this.TeslimTarihi.ReadOnly = true;
             // 
             // label3
             // 
@@ -130,33 +177,6 @@ namespace ProjeDeneme_2
             this.label3.Size = new System.Drawing.Size(290, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Sipariş detayı için siparişlere çift tıklayın !";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 12);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.Size = new System.Drawing.Size(403, 260);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // label1
             // 
@@ -172,10 +192,10 @@ namespace ProjeDeneme_2
             // panel3
             // 
             this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Location = new System.Drawing.Point(427, 128);
+            this.panel3.Location = new System.Drawing.Point(491, 128);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(413, 260);
+            this.panel3.Size = new System.Drawing.Size(457, 260);
             this.panel3.TabIndex = 3;
             // 
             // dataGridView2
@@ -190,13 +210,13 @@ namespace ProjeDeneme_2
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(413, 260);
+            this.dataGridView2.Size = new System.Drawing.Size(457, 260);
             this.dataGridView2.TabIndex = 0;
             // 
             // btnBilgiGuncelle
             // 
             this.btnBilgiGuncelle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBilgiGuncelle.Location = new System.Drawing.Point(427, 415);
+            this.btnBilgiGuncelle.Location = new System.Drawing.Point(599, 415);
             this.btnBilgiGuncelle.Margin = new System.Windows.Forms.Padding(2);
             this.btnBilgiGuncelle.Name = "btnBilgiGuncelle";
             this.btnBilgiGuncelle.Size = new System.Drawing.Size(190, 35);
@@ -208,7 +228,7 @@ namespace ProjeDeneme_2
             // btnCıkıs
             // 
             this.btnCıkıs.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCıkıs.Location = new System.Drawing.Point(670, 415);
+            this.btnCıkıs.Location = new System.Drawing.Point(819, 415);
             this.btnCıkıs.Margin = new System.Windows.Forms.Padding(2);
             this.btnCıkıs.Name = "btnCıkıs";
             this.btnCıkıs.Size = new System.Drawing.Size(118, 35);
@@ -221,12 +241,17 @@ namespace ProjeDeneme_2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(423, 90);
+            this.label2.Location = new System.Drawing.Point(491, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 24);
             this.label2.TabIndex = 6;
             this.label2.Text = "Önceki Siparişler ;";
+            // 
+            // getireczaneDataSet
+            // 
+            this.getireczaneDataSet.DataSetName = "getireczaneDataSet";
+            this.getireczaneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EczacıPaneli
             // 
@@ -234,7 +259,7 @@ namespace ProjeDeneme_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(851, 472);
+            this.ClientSize = new System.Drawing.Size(956, 472);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCıkıs);
             this.Controls.Add(this.btnBilgiGuncelle);
@@ -256,6 +281,7 @@ namespace ProjeDeneme_2
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getireczaneDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +292,6 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -277,5 +302,10 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private getireczaneDataSet getireczaneDataSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceteKodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeslimTarihi;
     }
 }

@@ -29,14 +29,13 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHastaAdSoy = new System.Windows.Forms.TextBox();
             this.rtxtHastaAdres = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mskReceteKod = new System.Windows.Forms.MaskedTextBox();
             this.btnVazgec = new System.Windows.Forms.Button();
             this.btnGonder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -52,17 +51,6 @@ namespace ProjeDeneme_2
             this.label1.Size = new System.Drawing.Size(168, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hasta Adı-Soyadı :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(64, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Reçete Kodu :";
             // 
             // label3
             // 
@@ -88,16 +76,16 @@ namespace ProjeDeneme_2
             // 
             // txtHastaAdSoy
             // 
-            this.txtHastaAdSoy.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtHastaAdSoy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtHastaAdSoy.Location = new System.Drawing.Point(207, 30);
             this.txtHastaAdSoy.Name = "txtHastaAdSoy";
             this.txtHastaAdSoy.ReadOnly = true;
-            this.txtHastaAdSoy.Size = new System.Drawing.Size(152, 32);
+            this.txtHastaAdSoy.Size = new System.Drawing.Size(251, 27);
             this.txtHastaAdSoy.TabIndex = 4;
             // 
             // rtxtHastaAdres
             // 
-            this.rtxtHastaAdres.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rtxtHastaAdres.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rtxtHastaAdres.Location = new System.Drawing.Point(207, 106);
             this.rtxtHastaAdres.Name = "rtxtHastaAdres";
             this.rtxtHastaAdres.ReadOnly = true;
@@ -111,21 +99,19 @@ namespace ProjeDeneme_2
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(550, 34);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(379, 209);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // mskReceteKod
-            // 
-            this.mskReceteKod.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.mskReceteKod.Location = new System.Drawing.Point(207, 68);
-            this.mskReceteKod.Mask = "LLLLLLLL";
-            this.mskReceteKod.Name = "mskReceteKod";
-            this.mskReceteKod.ReadOnly = true;
-            this.mskReceteKod.Size = new System.Drawing.Size(152, 32);
-            this.mskReceteKod.TabIndex = 8;
             // 
             // btnVazgec
             // 
@@ -156,18 +142,17 @@ namespace ProjeDeneme_2
             this.ClientSize = new System.Drawing.Size(946, 305);
             this.Controls.Add(this.btnGonder);
             this.Controls.Add(this.btnVazgec);
-            this.Controls.Add(this.mskReceteKod);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.rtxtHastaAdres);
             this.Controls.Add(this.txtHastaAdSoy);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "YeniSiparis";
             this.Text = "YeniSiparis";
+            this.Load += new System.EventHandler(this.YeniSiparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,13 +162,11 @@ namespace ProjeDeneme_2
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtHastaAdSoy;
         private System.Windows.Forms.RichTextBox rtxtHastaAdres;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MaskedTextBox mskReceteKod;
         private System.Windows.Forms.Button btnVazgec;
         private System.Windows.Forms.Button btnGonder;
     }

@@ -126,6 +126,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
+    <Compile Include="veri_aktarma.cs" />
     <Compile Include="YeniSiparis.cs">
       <SubType>Form</SubType>
     </Compile>
