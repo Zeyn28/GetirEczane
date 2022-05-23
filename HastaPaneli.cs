@@ -23,11 +23,12 @@ namespace ProjeDeneme_2
         SQL bgl = new SQL();
         public string tc;
         public string sehir;
-
+        public static Label statichasta;
        
         private void HastaPaneli_Load(object sender, EventArgs e)
         {
             // ad soyad çekme
+            statichasta = label4;
             label2.Text = tc;
             SqlCommand komut = new SqlCommand("Select (Ad+' '+Soyad) from Hastalar where TC=@q1",bgl.baglan());
             komut.Parameters.AddWithValue("@q1", label2.Text);
@@ -63,7 +64,7 @@ namespace ProjeDeneme_2
                 hastaid = dr4[0].ToString();
             }
             DataTable dt1 = new DataTable();
-            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,ReceteKodu,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumu FROM Siparisler INNER JOIN Eczane ON Siparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON Siparisler.RecID=Recete.ReceteID INNER JOIN Hastalar ON Siparisler.Hasta=Hastalar.HastaID where Hasta='"+hastaid+"'", bgl.baglan());
+            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA' FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='"+hastaid+"' and SiparişDurumu='True'", bgl.baglan());
             komut5.Fill(dt1);
             dataGridView2.DataSource = dt1;
             bgl.baglan().Close();
@@ -86,7 +87,7 @@ namespace ProjeDeneme_2
                 dt2.Columns.Add("İlaç Adı");
             }
             
-                for(int i = 0; i < dt1.Columns.Count; i++) // burada tablo daha iyi gözükmesi için transpoze ediliyor
+            for(int i = 0; i < dt1.Columns.Count; i++) // burada tablo daha iyi gözükmesi için transpoze ediliyor
             {
                 DataRow newRow = dt2.NewRow();
                 newRow[0] = dt1.Columns[i].Caption;
@@ -107,7 +108,7 @@ namespace ProjeDeneme_2
                 label9.Text = drfiy[0].ToString();
             }
         }
-
+        public string oncekireckod;
         private void btn_bilgi_güncelle_Click(object sender, EventArgs e)
         {
             hasta_bilgi_güncelleme hbg = new hasta_bilgi_güncelleme();
@@ -170,12 +171,13 @@ namespace ProjeDeneme_2
                     komut4.Parameters.AddWithValue("@s5", "False");
                     komut4.ExecuteReader();
                     bgl.baglan().Close();
-                SqlCommand komuto = new SqlCommand("insert into oncekisiparisler (Hasta,Eczane,Recete,TeslimTarihi,SiparişDurumu)values (@s1,@s2,@s3,@s4,@s5)", bgl.baglan());
+                SqlCommand komuto = new SqlCommand("insert into oncekisiparisler (Hasta,Eczane,Recete,TeslimTarihi,SiparişDurumu,OncekiReceteKod)values (@s1,@s2,@s3,@s4,@s5,@s6)", bgl.baglan());
                 komuto.Parameters.AddWithValue("@s1", hastaid);
                 komuto.Parameters.AddWithValue("@s2", eczacid);
                 komuto.Parameters.AddWithValue("@s3", receteid);
                 komuto.Parameters.AddWithValue("@s4", tarih);
                 komuto.Parameters.AddWithValue("@s5", "False");
+                komuto.Parameters.AddWithValue("@s6", txtrecetekodu.Text);
                 komuto.ExecuteReader();
                 bgl.baglan().Close();
                 // reçete kodlarını rastgele kodlarla değiştiriyor
@@ -196,7 +198,7 @@ namespace ProjeDeneme_2
                 {
                     adres = hastadr[0].ToString();
                 }
-                SqlCommand adres3 = new SqlCommand("update oncekisiparisler set HastaAdresi='"+adres+"' where Recete='"+txtrecetekodu.Text+"'",bgl.baglan());
+                SqlCommand adres3 = new SqlCommand("update oncekisiparisler set HastaAdresi='"+adres+"' where Recete='"+receteid+"'",bgl.baglan());
                 adres3.ExecuteNonQuery();
                 bgl.baglan().Close();
                 
@@ -208,7 +210,7 @@ namespace ProjeDeneme_2
                 {
                     ode.sip = Convert.ToInt32(drsip[0]);
                 }
-                SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + txtrecetekodu.Text + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
+                SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + receteid + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
                 SqlDataReader drsip2 = sipid2.ExecuteReader();
                 while (drsip2.Read())
                 {
@@ -228,12 +230,31 @@ namespace ProjeDeneme_2
                 hastaid = dr3[0].ToString();
             }
             DataTable dt1 = new DataTable();
-            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,ReceteKodu,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumu FROM Siparisler INNER JOIN Eczane ON Siparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON Siparisler.RecID=Recete.ReceteID INNER JOIN Hastalar ON Siparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "'", bgl.baglan());
+            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumu FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumu='True'", bgl.baglan());
             komut5.Fill(dt1);
             dataGridView2.DataSource = dt1;
             bgl.baglan().Close();
 
+            label9.Text = "-";
+            txtrecetekodu.Text = "";
+            comboBox1.Text = "";
 
+        }
+
+        private void btnYenile_Click(object sender, EventArgs e)
+        {
+            string hastaid = "";
+            SqlCommand komut6 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
+            SqlDataReader dr3 = komut6.ExecuteReader();
+            while (dr3.Read())
+            {
+                hastaid = dr3[0].ToString();
+            }
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumu FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumu='True'", bgl.baglan());
+            komut5.Fill(dt1);
+            dataGridView2.DataSource = dt1;
+            bgl.baglan().Close();
         }
     }
 }

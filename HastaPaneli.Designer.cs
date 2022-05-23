@@ -29,6 +29,7 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HastaPaneli));
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_bilgi_güncelle = new System.Windows.Forms.Button();
@@ -46,12 +47,14 @@ namespace ProjeDeneme_2
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EczaneAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReceteKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeslimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnYenile = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.pnlyenirecete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,7 +73,7 @@ namespace ProjeDeneme_2
             this.panel3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(924, 88);
+            this.panel3.Size = new System.Drawing.Size(921, 88);
             this.panel3.TabIndex = 1;
             // 
             // label4
@@ -129,6 +132,7 @@ namespace ProjeDeneme_2
             // 
             // pnlyenirecete
             // 
+            this.pnlyenirecete.Controls.Add(this.label10);
             this.pnlyenirecete.Controls.Add(this.label9);
             this.pnlyenirecete.Controls.Add(this.label8);
             this.pnlyenirecete.Controls.Add(this.comboBox1);
@@ -145,11 +149,12 @@ namespace ProjeDeneme_2
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.Location = new System.Drawing.Point(154, 293);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 17);
+            this.label9.Size = new System.Drawing.Size(15, 20);
             this.label9.TabIndex = 8;
+            this.label9.Text = "-";
             // 
             // label8
             // 
@@ -190,6 +195,7 @@ namespace ProjeDeneme_2
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 55);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(372, 169);
             this.dataGridView1.TabIndex = 4;
@@ -259,37 +265,6 @@ namespace ProjeDeneme_2
             this.dataGridView2.Size = new System.Drawing.Size(493, 211);
             this.dataGridView2.TabIndex = 5;
             // 
-            // Hasta
-            // 
-            this.Hasta.DataPropertyName = "Hasta";
-            this.Hasta.HeaderText = "Hasta Ad-Soyad";
-            this.Hasta.Name = "Hasta";
-            this.Hasta.ReadOnly = true;
-            this.Hasta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // EczaneAd
-            // 
-            this.EczaneAd.DataPropertyName = "EczaneAd";
-            this.EczaneAd.HeaderText = "Eczane Adı";
-            this.EczaneAd.Name = "EczaneAd";
-            this.EczaneAd.ReadOnly = true;
-            this.EczaneAd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ReceteKodu
-            // 
-            this.ReceteKodu.DataPropertyName = "ReceteKodu";
-            this.ReceteKodu.HeaderText = "Reçete Kodu";
-            this.ReceteKodu.Name = "ReceteKodu";
-            this.ReceteKodu.ReadOnly = true;
-            this.ReceteKodu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeslimTarihi
-            // 
-            this.TeslimTarihi.DataPropertyName = "TeslimTarihi";
-            this.TeslimTarihi.HeaderText = "Sipariş Tarihi";
-            this.TeslimTarihi.Name = "TeslimTarihi";
-            this.TeslimTarihi.ReadOnly = true;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -314,12 +289,68 @@ namespace ProjeDeneme_2
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(187, 293);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(18, 20);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "₺";
+            // 
+            // Hasta
+            // 
+            this.Hasta.DataPropertyName = "Hasta";
+            this.Hasta.HeaderText = "Hasta Ad-Soyad";
+            this.Hasta.Name = "Hasta";
+            this.Hasta.ReadOnly = true;
+            this.Hasta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // EczaneAd
+            // 
+            this.EczaneAd.DataPropertyName = "EczaneAd";
+            this.EczaneAd.HeaderText = "Eczane Adı";
+            this.EczaneAd.Name = "EczaneAd";
+            this.EczaneAd.ReadOnly = true;
+            this.EczaneAd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ReceteKodu
+            // 
+            this.ReceteKodu.DataPropertyName = "OncekiReceteKod";
+            this.ReceteKodu.HeaderText = "Reçete Kodu";
+            this.ReceteKodu.Name = "ReceteKodu";
+            this.ReceteKodu.ReadOnly = true;
+            this.ReceteKodu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeslimTarihi
+            // 
+            this.TeslimTarihi.DataPropertyName = "TeslimTarihi";
+            this.TeslimTarihi.HeaderText = "Sipariş Tarihi";
+            this.TeslimTarihi.Name = "TeslimTarihi";
+            this.TeslimTarihi.ReadOnly = true;
+            // 
+            // btnYenile
+            // 
+            this.btnYenile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnYenile.BackgroundImage")));
+            this.btnYenile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnYenile.FlatAppearance.BorderSize = 0;
+            this.btnYenile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
+            this.btnYenile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnYenile.Location = new System.Drawing.Point(850, 114);
+            this.btnYenile.Name = "btnYenile";
+            this.btnYenile.Size = new System.Drawing.Size(71, 26);
+            this.btnYenile.TabIndex = 8;
+            this.btnYenile.UseVisualStyleBackColor = true;
+            this.btnYenile.Click += new System.EventHandler(this.btnYenile_Click);
+            // 
             // HastaPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(924, 464);
+            this.ClientSize = new System.Drawing.Size(921, 469);
+            this.Controls.Add(this.btnYenile);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView2);
@@ -358,11 +389,13 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.Button btn_bilgi_güncelle;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
         private System.Windows.Forms.DataGridViewTextBoxColumn EczaneAd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceteKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeslimTarihi;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnYenile;
     }
 }

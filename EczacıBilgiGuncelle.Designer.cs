@@ -253,7 +253,7 @@ namespace ProjeDeneme_2
             // btnCık
             // 
             this.btnCık.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCık.Location = new System.Drawing.Point(99, 287);
+            this.btnCık.Location = new System.Drawing.Point(123, 287);
             this.btnCık.Name = "btnCık";
             this.btnCık.Size = new System.Drawing.Size(127, 37);
             this.btnCık.TabIndex = 6;

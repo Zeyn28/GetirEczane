@@ -38,7 +38,8 @@ namespace ProjeDeneme_2
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceteKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeslimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +49,10 @@ namespace ProjeDeneme_2
             this.btnCıkıs = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.getireczaneDataSet = new ProjeDeneme_2.getireczaneDataSet();
+            this.column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -134,7 +139,8 @@ namespace ProjeDeneme_2
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Hasta,
-            this.ReceteKodu,
+            this.Column1,
+            this.Column2,
             this.TeslimTarihi});
             this.dataGridView1.Location = new System.Drawing.Point(0, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -152,13 +158,21 @@ namespace ProjeDeneme_2
             this.Hasta.ReadOnly = true;
             this.Hasta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // ReceteKodu
+            // Column1
             // 
-            this.ReceteKodu.DataPropertyName = "Recete";
-            this.ReceteKodu.HeaderText = "Reçete Kodu";
-            this.ReceteKodu.Name = "ReceteKodu";
-            this.ReceteKodu.ReadOnly = true;
-            this.ReceteKodu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.DataPropertyName = "Recete";
+            this.Column1.HeaderText = "recete";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "OncekisipID";
+            this.Column2.HeaderText = "onceki_id";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
             // 
             // TeslimTarihi
             // 
@@ -203,8 +217,14 @@ namespace ProjeDeneme_2
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.column,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
@@ -252,6 +272,36 @@ namespace ProjeDeneme_2
             // 
             this.getireczaneDataSet.DataSetName = "getireczaneDataSet";
             this.getireczaneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // column
+            // 
+            this.column.DataPropertyName = "Hasta";
+            this.column.HeaderText = "Hasta Ad-Soyad";
+            this.column.Name = "column";
+            this.column.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TeslimTarihi";
+            this.Column3.HeaderText = "Sipariş Tarihi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "OncekisipID";
+            this.Column4.HeaderText = "Oncekisipid";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Recete";
+            this.Column5.HeaderText = "Recete";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
             // 
             // EczacıPaneli
             // 
@@ -305,7 +355,12 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.DataGridView dataGridView1;
         private getireczaneDataSet getireczaneDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceteKodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeslimTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

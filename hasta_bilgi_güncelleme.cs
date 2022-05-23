@@ -61,6 +61,7 @@ namespace ProjeDeneme_2
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            HastaPaneli.statichasta.Text = txtbox_ad.Text + " " + txtbox_soyad.Text;
             bgl.baglan().Close();
         }
     }

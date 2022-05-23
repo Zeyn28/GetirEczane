@@ -44,7 +44,7 @@ namespace ProjeDeneme_2
             }
             bgl.baglan().Close();
         }
-
+        public string yeniadsoyad = "";
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             //güncelleme kısmı
@@ -62,6 +62,7 @@ namespace ProjeDeneme_2
                 ecz_yeni.Parameters.AddWithValue("@y9", txtEczaneAd.Text);
                 ecz_yeni.ExecuteNonQuery();
                 MessageBox.Show("Kaydınız Güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                EczacıPaneli.staticlbl.Text = txtAd.Text + " " + txtSoyad.Text;
                 this.Hide();
             }
             else
