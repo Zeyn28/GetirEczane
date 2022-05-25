@@ -19,6 +19,7 @@ namespace ProjeDeneme_2
         }
         SQL bgl = new SQL();
         public string tutar;
+        Veri_aktarma control = new Veri_aktarma();
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -37,6 +38,32 @@ namespace ProjeDeneme_2
         }
 
         public int sip,sip2;
+
+        private void txtKartisim_TextChanged(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtKartisim);
+        }
+
+        private void Odeme_Load(object sender, EventArgs e)
+        {
+            string[] ay = { "01","02","03","04","05","06","07","08","09","10",
+                                "11","12","13","14","15","16","17","18","19","20",
+                                "21","22","23","24","25","26","27","28","29","30","31"};
+            for(int i = 0; i < ay.Length - 1; i++)
+            {
+                cmbay.Items.Add(ay[i]);
+            }
+
+            string[] yıl = { "2022","2023","2024","2025","2026","2027","2028","2029","2030",
+                             "2031","2032","2033","2034","2035","2036","2037","2038","2039","2040","2041"};
+
+            for (int i = 0; i < yıl.Length - 1; i++)
+            {
+                cmbyil.Items.Add(yıl[i]);
+            }
+
+
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

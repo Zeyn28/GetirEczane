@@ -18,6 +18,7 @@ namespace ProjeDeneme_2
             InitializeComponent();
         }
         SQL bgl = new SQL();
+        Veri_aktarma control = new Veri_aktarma();
         private void btn_vazgec_Click(object sender, EventArgs e)
         {
             HastaPaneli hst = new HastaPaneli();
@@ -27,6 +28,22 @@ namespace ProjeDeneme_2
         public string tc2;
         private void hasta_bilgi_güncelleme_Load(object sender, EventArgs e)
         {
+
+            string[] Sehir = { "Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
+                "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
+                "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari",
+                "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli",
+                "Kırşehir", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Kahramanmaraş", "Mardin", "Muğla", "Muş",
+                "Nevşehir", "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat", "Trabzon",
+                "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman", "Kırıkkale", "Batman",
+                "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye", "Düzce" };
+            for (int i = 0; i < Sehir.Length - 1; i++)
+            {
+                cmbbox_sehir.Items.Add(Sehir[i]);
+            }
+
+
+
             SqlCommand komut = new SqlCommand("Select Ad,Soyad,TelNo,Sehir,TC,Adresi,Sifre from Hastalar where TC=@q1", bgl.baglan());
             komut.Parameters.AddWithValue("@q1", tc2);
             SqlDataReader dr = komut.ExecuteReader();
@@ -63,6 +80,16 @@ namespace ProjeDeneme_2
             }
             HastaPaneli.statichasta.Text = txtbox_ad.Text + " " + txtbox_soyad.Text;
             bgl.baglan().Close();
+        }
+
+        private void txtbox_ad_TextChanged(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtbox_ad);
+        }
+
+        private void txtbox_soyad_TextChanged(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtbox_soyad);
         }
     }
 }

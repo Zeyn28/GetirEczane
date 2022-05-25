@@ -90,6 +90,7 @@ namespace ProjeDeneme_2
             this.txtKartisim.Name = "txtKartisim";
             this.txtKartisim.Size = new System.Drawing.Size(227, 27);
             this.txtKartisim.TabIndex = 4;
+            this.txtKartisim.TextChanged += new System.EventHandler(this.txtKartisim_TextChanged);
             // 
             // mtxtKartno
             // 
@@ -104,6 +105,7 @@ namespace ProjeDeneme_2
             // 
             this.mtxtGuvenlikkod.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.mtxtGuvenlikkod.Location = new System.Drawing.Point(251, 130);
+            this.mtxtGuvenlikkod.Mask = "000";
             this.mtxtGuvenlikkod.Name = "mtxtGuvenlikkod";
             this.mtxtGuvenlikkod.Size = new System.Drawing.Size(100, 27);
             this.mtxtGuvenlikkod.TabIndex = 6;
@@ -178,6 +180,7 @@ namespace ProjeDeneme_2
             this.Name = "Odeme";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Odeme";
+            this.Load += new System.EventHandler(this.Odeme_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

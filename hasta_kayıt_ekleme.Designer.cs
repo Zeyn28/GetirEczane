@@ -138,6 +138,7 @@ namespace ProjeDeneme_2
             this.txtbox_soyad.Name = "txtbox_soyad";
             this.txtbox_soyad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_soyad.TabIndex = 2;
+            this.txtbox_soyad.TextChanged += new System.EventHandler(this.txtbox_soyad_TextChanged);
             // 
             // txtbox_ad
             // 
@@ -146,6 +147,7 @@ namespace ProjeDeneme_2
             this.txtbox_ad.Name = "txtbox_ad";
             this.txtbox_ad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_ad.TabIndex = 1;
+            this.txtbox_ad.TextChanged += new System.EventHandler(this.txtbox_ad_TextChanged);
             // 
             // label5
             // 
@@ -280,6 +282,7 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.panel3);
             this.Name = "hasta_kayıt_ekleme";
             this.Text = "hasta_kayıt_ekleme";
+            this.Load += new System.EventHandler(this.hasta_kayıt_ekleme_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
