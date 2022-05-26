@@ -88,6 +88,7 @@ namespace ProjeDeneme_2
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(167, 26);
             this.txtAd.TabIndex = 1;
+            this.txtAd.TextChanged += new System.EventHandler(this.txtAd_TextChanged);
             // 
             // txtSoyad
             // 
@@ -97,6 +98,7 @@ namespace ProjeDeneme_2
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(167, 26);
             this.txtSoyad.TabIndex = 2;
+            this.txtSoyad.TextChanged += new System.EventHandler(this.txtSoyad_TextChanged);
             // 
             // mskTC
             // 
@@ -108,6 +110,7 @@ namespace ProjeDeneme_2
             this.mskTC.Size = new System.Drawing.Size(167, 26);
             this.mskTC.TabIndex = 3;
             this.mskTC.ValidatingType = typeof(int);
+
             // 
             // mskTel
             // 
@@ -118,6 +121,7 @@ namespace ProjeDeneme_2
             this.mskTel.Name = "mskTel";
             this.mskTel.Size = new System.Drawing.Size(167, 26);
             this.mskTel.TabIndex = 4;
+
             // 
             // btnKontrol
             // 
@@ -325,6 +329,7 @@ namespace ProjeDeneme_2
             this.txtEczanead.Name = "txtEczanead";
             this.txtEczanead.Size = new System.Drawing.Size(247, 26);
             this.txtEczanead.TabIndex = 20;
+            this.txtEczanead.TextChanged += new System.EventHandler(this.txtEczanead_TextChanged);
             // 
             // label11
             // 

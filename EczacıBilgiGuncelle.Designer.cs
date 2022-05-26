@@ -101,6 +101,7 @@ namespace ProjeDeneme_2
             this.mskTC.ReadOnly = true;
             this.mskTC.Size = new System.Drawing.Size(166, 32);
             this.mskTC.TabIndex = 9;
+
             // 
             // mskDiploma
             // 
@@ -137,6 +138,7 @@ namespace ProjeDeneme_2
             this.mskTelefon.Name = "mskTelefon";
             this.mskTelefon.Size = new System.Drawing.Size(166, 32);
             this.mskTelefon.TabIndex = 3;
+ 
             // 
             // txtSoyad
             // 
@@ -144,6 +146,7 @@ namespace ProjeDeneme_2
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(166, 32);
             this.txtSoyad.TabIndex = 2;
+            this.txtSoyad.TextChanged += new System.EventHandler(this.txtSoyad_TextChanged);
             // 
             // txtAd
             // 
@@ -151,6 +154,7 @@ namespace ProjeDeneme_2
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(166, 32);
             this.txtAd.TabIndex = 1;
+            this.txtAd.TextChanged += new System.EventHandler(this.txtAd_TextChanged);
             // 
             // label3
             // 
@@ -211,6 +215,7 @@ namespace ProjeDeneme_2
             this.txtEczaneAd.Name = "txtEczaneAd";
             this.txtEczaneAd.Size = new System.Drawing.Size(166, 32);
             this.txtEczaneAd.TabIndex = 12;
+            this.txtEczaneAd.TextChanged += new System.EventHandler(this.txtEczaneAd_TextChanged);
             // 
             // label9
             // 

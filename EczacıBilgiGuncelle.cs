@@ -18,7 +18,7 @@ namespace ProjeDeneme_2
             InitializeComponent();
         }
         SQL bgl = new SQL();
-        
+        Veri_aktarma control = new Veri_aktarma();
         private void btnCık_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -70,6 +70,21 @@ namespace ProjeDeneme_2
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             bgl.baglan().Close();
+        }
+
+        private void txtAd_TextChanged(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtAd);
+        }
+
+        private void txtSoyad_TextChanged(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtSoyad);
+        }
+
+        private void txtEczaneAd_TextChanged(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtEczaneAd);
         }
 
        
