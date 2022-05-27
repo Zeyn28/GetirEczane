@@ -27,6 +27,7 @@ namespace ProjeDeneme_2
        
         private void HastaPaneli_Load(object sender, EventArgs e)
         {
+            Yenile(dataGridView2);
             // ad soyad çekme
             statichasta = label4;
             label2.Text = tc;
@@ -205,7 +206,7 @@ namespace ProjeDeneme_2
             }
             else
             {
-                MessageBox.Show("");
+                MessageBox.Show("Lütfen reçete kodunu girin.","Uyarı",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             //formda ÖNCEKİ Reçete tablosunu Güncelleme
             //burada reçete kodu güncelleme hatası var (önceki tablosunda da değişiyor)
@@ -226,8 +227,7 @@ namespace ProjeDeneme_2
             comboBox1.Text = "";
 
         }
-
-        private void btnYenile_Click(object sender, EventArgs e)
+        public void Yenile(DataGridView dgw)
         {
             string hastaid = "";
             SqlCommand komut6 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
@@ -239,8 +239,13 @@ namespace ProjeDeneme_2
             DataTable dt1 = new DataTable();
             SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumu FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumu='True'", bgl.baglan());
             komut5.Fill(dt1);
-            dataGridView2.DataSource = dt1;
+            dgw.DataSource = dt1;
             bgl.baglan().Close();
+        }
+
+        private void btnYenile_Click(object sender, EventArgs e)
+        {
+            Yenile(dataGridView2);
         }
     }
 }

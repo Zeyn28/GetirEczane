@@ -90,7 +90,7 @@ namespace ProjeDeneme_2
             this.txtKartisim.Name = "txtKartisim";
             this.txtKartisim.Size = new System.Drawing.Size(227, 27);
             this.txtKartisim.TabIndex = 4;
-            this.txtKartisim.TextChanged += new System.EventHandler(this.txtKartisim_TextChanged);
+            this.txtKartisim.Leave += new System.EventHandler(this.txtKartisim_Leave);
             // 
             // mtxtKartno
             // 
@@ -112,7 +112,6 @@ namespace ProjeDeneme_2
             // 
             // cmbay
             // 
-            this.cmbay.FormattingEnabled = true;
             this.cmbay.Location = new System.Drawing.Point(251, 175);
             this.cmbay.Name = "cmbay";
             this.cmbay.Size = new System.Drawing.Size(35, 21);
@@ -120,7 +119,6 @@ namespace ProjeDeneme_2
             // 
             // cmbyil
             // 
-            this.cmbyil.FormattingEnabled = true;
             this.cmbyil.Location = new System.Drawing.Point(316, 175);
             this.cmbyil.Name = "cmbyil";
             this.cmbyil.Size = new System.Drawing.Size(35, 21);

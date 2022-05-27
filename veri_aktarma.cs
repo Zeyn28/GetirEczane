@@ -29,7 +29,7 @@ namespace ProjeDeneme_2
         }
         public bool regex_sifre(string str)
         {
-            Regex rgx = new Regex(@"[a-z]+[A-Z]+[0-9]+");
+            Regex rgx = new Regex(@"([a-z]+[A-Z]+[0-9]+) || ([A-Z]+[a-z]+[0-9]+)||([0-9]+[A-Z]+[a-z]+)||([A-Z]+[0-9]+[a-z]+)||([a-z]+[0-9]+[A-Z]+)||([0-9]+[a-z]+[A-Z]+)");
             Match m = rgx.Match(str);
             if (m.Success)
             {

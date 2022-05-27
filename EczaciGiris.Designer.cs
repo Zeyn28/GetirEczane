@@ -78,7 +78,6 @@ namespace ProjeDeneme_2
             this.eczmskTC.Size = new System.Drawing.Size(189, 39);
             this.eczmskTC.TabIndex = 3;
             this.eczmskTC.ValidatingType = typeof(int);
-            
             // 
             // ecztxtSifre
             // 
@@ -86,6 +85,7 @@ namespace ProjeDeneme_2
             this.ecztxtSifre.Name = "ecztxtSifre";
             this.ecztxtSifre.Size = new System.Drawing.Size(189, 39);
             this.ecztxtSifre.TabIndex = 4;
+            this.ecztxtSifre.UseSystemPasswordChar = true;
             // 
             // btnEczacıG
             // 

@@ -46,20 +46,29 @@ namespace ProjeDeneme_2
                     {
                         if (dogrulandi.Visible == true)//kontrolden geçerse eczacı kaydı yapılır
                         {
-                            //update kullanılma sebebi zaten barkodu eczacıya kaydederken kayıt açılmış olması yani aslında burada barkod id gibi kullanılıyor
-                            SqlCommand komut = new SqlCommand("update Eczane set EczacıAd=@h1,EczacıSoyad=@h2,EczacıTelNo=@h3,EczacıTC=@h4,EczacıSehir=@h5,EczacıAdres=@h6,EczaneAd=@h8,EczacıSifre=@h9 where EczacıBarkod='" + mskDiploma.Text + "'", bgl.baglan());
-                            komut.Parameters.AddWithValue("@h1", txtAd.Text);
-                            komut.Parameters.AddWithValue("@h2", txtSoyad.Text);
-                            komut.Parameters.AddWithValue("@h3", mskTel.Text);
-                            komut.Parameters.AddWithValue("@h4", mskTC.Text);
-                            komut.Parameters.AddWithValue("@h5", cmbSehir.Text);
-                            komut.Parameters.AddWithValue("@h6", richAdres.Text);
-                            komut.Parameters.AddWithValue("@h8", txtEczanead.Text);
-                            komut.Parameters.AddWithValue("@h9", txteczacisifre.Text);
-                            komut.ExecuteNonQuery();
-                            bgl.baglan().Close();
-                            MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Hide();
+                            SqlCommand tc = new SqlCommand("select EczacıTC from Eczane where EczacıTC='"+mskTC.Text+"'",bgl.baglan());
+                            SqlDataReader tcdr = tc.ExecuteReader();
+                            if (tcdr.Read())
+                            {
+                                MessageBox.Show("TC'niz daha önce kullanılmıştır.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                //update kullanılma sebebi zaten barkodu eczacıya kaydederken kayıt açılmış olması yani aslında burada barkod id gibi kullanılıyor
+                                SqlCommand komut = new SqlCommand("update Eczane set EczacıAd=@h1,EczacıSoyad=@h2,EczacıTelNo=@h3,EczacıTC=@h4,EczacıSehir=@h5,EczacıAdres=@h6,EczaneAd=@h8,EczacıSifre=@h9 where EczacıBarkod='" + mskDiploma.Text + "'", bgl.baglan());
+                                komut.Parameters.AddWithValue("@h1", txtAd.Text);
+                                komut.Parameters.AddWithValue("@h2", txtSoyad.Text);
+                                komut.Parameters.AddWithValue("@h3", mskTel.Text);
+                                komut.Parameters.AddWithValue("@h4", mskTC.Text);
+                                komut.Parameters.AddWithValue("@h5", cmbSehir.Text);
+                                komut.Parameters.AddWithValue("@h6", richAdres.Text);
+                                komut.Parameters.AddWithValue("@h8", txtEczanead.Text);
+                                komut.Parameters.AddWithValue("@h9", txteczacisifre.Text);
+                                komut.ExecuteNonQuery();
+                                bgl.baglan().Close();
+                                MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Hide();
+                            }
                         }
                         else
                         {
@@ -87,6 +96,9 @@ namespace ProjeDeneme_2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlCommand sil = new SqlCommand("delete from Eczane where EczacıBarkod='"+mskDiploma.Text+"'",bgl.baglan());
+            sil.ExecuteNonQuery();
+
             this.Hide();
         }
 

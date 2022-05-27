@@ -39,11 +39,6 @@ namespace ProjeDeneme_2
 
         public int sip,sip2;
 
-        private void txtKartisim_TextChanged(object sender, EventArgs e)
-        {
-            control.Buyuk_Harfe_Donusturme(txtKartisim);
-        }
-
         private void Odeme_Load(object sender, EventArgs e)
         {
             string[] ay = { "01","02","03","04","05","06","07","08","09","10",
@@ -54,8 +49,8 @@ namespace ProjeDeneme_2
                 cmbay.Items.Add(ay[i]);
             }
 
-            string[] yıl = { "2022","2023","2024","2025","2026","2027","2028","2029","2030",
-                             "2031","2032","2033","2034","2035","2036","2037","2038","2039","2040","2041"};
+            string[] yıl = { "22","23","24","25","26","27","28","29","30",
+                             "31","32","33","34","35","36","37","38","39","40","41"};
 
             for (int i = 0; i < yıl.Length - 1; i++)
             {
@@ -63,6 +58,11 @@ namespace ProjeDeneme_2
             }
 
 
+        }
+
+        private void txtKartisim_Leave(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtKartisim);
         }
 
         private void button2_Click(object sender, EventArgs e)
