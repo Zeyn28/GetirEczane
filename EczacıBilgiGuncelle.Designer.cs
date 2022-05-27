@@ -82,7 +82,7 @@ namespace ProjeDeneme_2
             this.txtsifre.Location = new System.Drawing.Point(201, 258);
             this.txtsifre.Name = "txtsifre";
             this.txtsifre.Size = new System.Drawing.Size(166, 32);
-            this.txtsifre.TabIndex = 4;
+            this.txtsifre.TabIndex = 6;
             // 
             // label7
             // 
@@ -101,7 +101,7 @@ namespace ProjeDeneme_2
             this.mskTC.Name = "mskTC";
             this.mskTC.ReadOnly = true;
             this.mskTC.Size = new System.Drawing.Size(166, 32);
-            this.mskTC.TabIndex = 9;
+            this.mskTC.TabIndex = 5;
             // 
             // mskDiploma
             // 
@@ -111,7 +111,7 @@ namespace ProjeDeneme_2
             this.mskDiploma.Name = "mskDiploma";
             this.mskDiploma.ReadOnly = true;
             this.mskDiploma.Size = new System.Drawing.Size(166, 32);
-            this.mskDiploma.TabIndex = 8;
+            this.mskDiploma.TabIndex = 4;
             // 
             // label6
             // 
@@ -213,7 +213,7 @@ namespace ProjeDeneme_2
             this.txtEczaneAd.Location = new System.Drawing.Point(123, 199);
             this.txtEczaneAd.Name = "txtEczaneAd";
             this.txtEczaneAd.Size = new System.Drawing.Size(166, 32);
-            this.txtEczaneAd.TabIndex = 7;
+            this.txtEczaneAd.TabIndex = 9;
             this.txtEczaneAd.Leave += new System.EventHandler(this.txtEczaneAd_Leave);
             // 
             // label9
@@ -233,7 +233,7 @@ namespace ProjeDeneme_2
             this.comboBox1.Location = new System.Drawing.Point(123, 45);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(221, 25);
-            this.comboBox1.TabIndex = 5;
+            this.comboBox1.TabIndex = 7;
             // 
             // label8
             // 
@@ -250,7 +250,7 @@ namespace ProjeDeneme_2
             this.btnKaydet.Location = new System.Drawing.Point(310, 287);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(127, 37);
-            this.btnKaydet.TabIndex = 8;
+            this.btnKaydet.TabIndex = 10;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -261,7 +261,7 @@ namespace ProjeDeneme_2
             this.btnCık.Location = new System.Drawing.Point(123, 287);
             this.btnCık.Name = "btnCık";
             this.btnCık.Size = new System.Drawing.Size(127, 37);
-            this.btnCık.TabIndex = 9;
+            this.btnCık.TabIndex = 11;
             this.btnCık.Text = "Çık";
             this.btnCık.UseVisualStyleBackColor = true;
             this.btnCık.Click += new System.EventHandler(this.btnCık_Click);
@@ -271,11 +271,12 @@ namespace ProjeDeneme_2
             this.rtxtAdres.Location = new System.Drawing.Point(123, 83);
             this.rtxtAdres.Name = "rtxtAdres";
             this.rtxtAdres.Size = new System.Drawing.Size(338, 91);
-            this.rtxtAdres.TabIndex = 6;
+            this.rtxtAdres.TabIndex = 8;
             this.rtxtAdres.Text = "";
             // 
             // EczacıBilgiGuncelle
             // 
+            this.AcceptButton = this.btnKaydet;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

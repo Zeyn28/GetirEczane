@@ -29,6 +29,7 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Odeme));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,7 +91,7 @@ namespace ProjeDeneme_2
             this.txtKartisim.Location = new System.Drawing.Point(251, 48);
             this.txtKartisim.Name = "txtKartisim";
             this.txtKartisim.Size = new System.Drawing.Size(227, 27);
-            this.txtKartisim.TabIndex = 4;
+            this.txtKartisim.TabIndex = 1;
             this.txtKartisim.Leave += new System.EventHandler(this.txtKartisim_Leave);
             // 
             // mtxtKartno
@@ -100,7 +101,7 @@ namespace ProjeDeneme_2
             this.mtxtKartno.Mask = "0000-0000-0000-0000";
             this.mtxtKartno.Name = "mtxtKartno";
             this.mtxtKartno.Size = new System.Drawing.Size(227, 27);
-            this.mtxtKartno.TabIndex = 5;
+            this.mtxtKartno.TabIndex = 2;
             // 
             // mtxtGuvenlikkod
             // 
@@ -109,21 +110,21 @@ namespace ProjeDeneme_2
             this.mtxtGuvenlikkod.Mask = "000";
             this.mtxtGuvenlikkod.Name = "mtxtGuvenlikkod";
             this.mtxtGuvenlikkod.Size = new System.Drawing.Size(100, 27);
-            this.mtxtGuvenlikkod.TabIndex = 6;
+            this.mtxtGuvenlikkod.TabIndex = 3;
             // 
             // cmbay
             // 
             this.cmbay.Location = new System.Drawing.Point(251, 175);
             this.cmbay.Name = "cmbay";
             this.cmbay.Size = new System.Drawing.Size(35, 21);
-            this.cmbay.TabIndex = 7;
+            this.cmbay.TabIndex = 4;
             // 
             // cmbyil
             // 
             this.cmbyil.Location = new System.Drawing.Point(316, 175);
             this.cmbyil.Name = "cmbyil";
             this.cmbyil.Size = new System.Drawing.Size(35, 21);
-            this.cmbyil.TabIndex = 8;
+            this.cmbyil.TabIndex = 5;
             // 
             // label5
             // 
@@ -141,7 +142,7 @@ namespace ProjeDeneme_2
             this.button1.Location = new System.Drawing.Point(365, 214);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 32);
-            this.button1.TabIndex = 10;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Ödemeyi Tamamla";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -152,7 +153,7 @@ namespace ProjeDeneme_2
             this.button2.Location = new System.Drawing.Point(365, 252);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 32);
-            this.button2.TabIndex = 11;
+            this.button2.TabIndex = 7;
             this.button2.Text = "Vazgeç";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -188,6 +189,7 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Odeme";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Odeme";

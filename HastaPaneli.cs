@@ -114,7 +114,12 @@ namespace ProjeDeneme_2
         {
             hasta_bilgi_güncelleme hbg = new hasta_bilgi_güncelleme();
             hbg.tc2 = tc;// tc yi id olarak kullarak güncelleme paneline veri çekmek için
+            hbg.Name = "deneme";
+            if (Application.OpenForms["deneme"] == null)
+            {
             hbg.Show();
+            }
+
         }
 
         public string adres;
@@ -197,7 +202,12 @@ namespace ProjeDeneme_2
                 bgl.baglan().Close();
                 
                 Odeme ode = new Odeme();
+                ode.Name = "deneme";
+                if (Application.OpenForms["deneme"] == null)
+                {
                 ode.Show();
+                }
+
                 SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + receteid + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
                 SqlDataReader drsip2 = sipid2.ExecuteReader();
                 while (drsip2.Read())
@@ -253,7 +263,12 @@ namespace ProjeDeneme_2
         {
             SiparisDurumu hstr = new SiparisDurumu();
             hstr.tc = tc;
+            hstr.Name = "deneme";
+            if (Application.OpenForms["deneme"] == null)
+            {
             hstr.Show();
+            }
+
         }
     }
 }

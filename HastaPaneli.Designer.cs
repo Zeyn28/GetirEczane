@@ -96,7 +96,7 @@ namespace ProjeDeneme_2
             this.btn_bilgi_güncelle.Location = new System.Drawing.Point(605, 20);
             this.btn_bilgi_güncelle.Name = "btn_bilgi_güncelle";
             this.btn_bilgi_güncelle.Size = new System.Drawing.Size(186, 30);
-            this.btn_bilgi_güncelle.TabIndex = 6;
+            this.btn_bilgi_güncelle.TabIndex = 7;
             this.btn_bilgi_güncelle.Text = "Bilgilerimi Güncelle";
             this.btn_bilgi_güncelle.UseVisualStyleBackColor = false;
             this.btn_bilgi_güncelle.Click += new System.EventHandler(this.btn_bilgi_güncelle_Click);
@@ -184,7 +184,7 @@ namespace ProjeDeneme_2
             this.comboBox1.Location = new System.Drawing.Point(16, 242);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(177, 26);
-            this.comboBox1.TabIndex = 6;
+            this.comboBox1.TabIndex = 3;
             // 
             // btnrecetegoster
             // 
@@ -192,7 +192,7 @@ namespace ProjeDeneme_2
             this.btnrecetegoster.Location = new System.Drawing.Point(307, 13);
             this.btnrecetegoster.Name = "btnrecetegoster";
             this.btnrecetegoster.Size = new System.Drawing.Size(81, 36);
-            this.btnrecetegoster.TabIndex = 5;
+            this.btnrecetegoster.TabIndex = 2;
             this.btnrecetegoster.Text = "Göster";
             this.btnrecetegoster.UseVisualStyleBackColor = true;
             this.btnrecetegoster.Click += new System.EventHandler(this.btnrecetegoster_Click);
@@ -220,7 +220,7 @@ namespace ProjeDeneme_2
             this.btnrecetegönder.Location = new System.Drawing.Point(236, 242);
             this.btnrecetegönder.Name = "btnrecetegönder";
             this.btnrecetegönder.Size = new System.Drawing.Size(152, 39);
-            this.btnrecetegönder.TabIndex = 3;
+            this.btnrecetegönder.TabIndex = 4;
             this.btnrecetegönder.Text = "Reçetemi Gönder";
             this.btnrecetegönder.UseVisualStyleBackColor = false;
             this.btnrecetegönder.Click += new System.EventHandler(this.btnrecetegönder_Click);
@@ -232,7 +232,7 @@ namespace ProjeDeneme_2
             this.txtrecetekodu.MaxLength = 8;
             this.txtrecetekodu.Name = "txtrecetekodu";
             this.txtrecetekodu.Size = new System.Drawing.Size(164, 22);
-            this.txtrecetekodu.TabIndex = 2;
+            this.txtrecetekodu.TabIndex = 1;
             // 
             // label5
             // 
@@ -326,7 +326,7 @@ namespace ProjeDeneme_2
             this.button2.Location = new System.Drawing.Point(809, 375);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 39);
-            this.button2.TabIndex = 7;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Çıkış";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -354,7 +354,7 @@ namespace ProjeDeneme_2
             this.button1.Location = new System.Drawing.Point(419, 375);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 39);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Sipariş Durumu";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -373,6 +373,7 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pnlyenirecete);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HastaPaneli";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.HastaPaneli_Load);

@@ -99,7 +99,7 @@ namespace ProjeDeneme_2
             this.txt_sifre.Location = new System.Drawing.Point(90, 247);
             this.txt_sifre.Name = "txt_sifre";
             this.txt_sifre.Size = new System.Drawing.Size(162, 24);
-            this.txt_sifre.TabIndex = 4;
+            this.txt_sifre.TabIndex = 5;
             // 
             // label8
             // 
@@ -189,14 +189,14 @@ namespace ProjeDeneme_2
             this.cmbbox_sehir.Location = new System.Drawing.Point(104, 40);
             this.cmbbox_sehir.Name = "cmbbox_sehir";
             this.cmbbox_sehir.Size = new System.Drawing.Size(210, 30);
-            this.cmbbox_sehir.TabIndex = 5;
+            this.cmbbox_sehir.TabIndex = 6;
             // 
             // rtxtbox_adres
             // 
             this.rtxtbox_adres.Location = new System.Drawing.Point(104, 87);
             this.rtxtbox_adres.Name = "rtxtbox_adres";
             this.rtxtbox_adres.Size = new System.Drawing.Size(261, 108);
-            this.rtxtbox_adres.TabIndex = 6;
+            this.rtxtbox_adres.TabIndex = 7;
             this.rtxtbox_adres.Text = "";
             // 
             // label6
@@ -250,7 +250,7 @@ namespace ProjeDeneme_2
             this.btn_vazgec.Location = new System.Drawing.Point(441, 378);
             this.btn_vazgec.Name = "btn_vazgec";
             this.btn_vazgec.Size = new System.Drawing.Size(126, 45);
-            this.btn_vazgec.TabIndex = 8;
+            this.btn_vazgec.TabIndex = 9;
             this.btn_vazgec.Text = "Vazgeç";
             this.btn_vazgec.UseVisualStyleBackColor = false;
             this.btn_vazgec.Click += new System.EventHandler(this.btn_vazgec_Click);
@@ -265,13 +265,14 @@ namespace ProjeDeneme_2
             this.btn_guncelle.Location = new System.Drawing.Point(606, 378);
             this.btn_guncelle.Name = "btn_guncelle";
             this.btn_guncelle.Size = new System.Drawing.Size(126, 45);
-            this.btn_guncelle.TabIndex = 7;
+            this.btn_guncelle.TabIndex = 8;
             this.btn_guncelle.Text = "Güncelle";
             this.btn_guncelle.UseVisualStyleBackColor = false;
             this.btn_guncelle.Click += new System.EventHandler(this.btn_guncelle_Click_1);
             // 
             // hasta_bilgi_güncelleme
             // 
+            this.AcceptButton = this.btn_guncelle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

@@ -92,7 +92,7 @@ namespace ProjeDeneme_2
         public string rct_fiyat="";
         private void btnGonder_Click(object sender, EventArgs e)
         {
-                SqlCommand gonder = new SqlCommand("update oncekisiparisler set SiparişDurumu='True' where OncekisipID='" + onceid + "'", bgl.baglan());
+                SqlCommand gonder = new SqlCommand("update oncekisiparisler set SiparişDurumuHasta='True' where OncekisipID='" + onceid + "'", bgl.baglan());
                 gonder.ExecuteNonQuery();
                 bgl.baglan().Close();
 

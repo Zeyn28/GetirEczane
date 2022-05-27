@@ -83,7 +83,7 @@ namespace ProjeDeneme_2
             this.txtHastaAdSoy.Name = "txtHastaAdSoy";
             this.txtHastaAdSoy.ReadOnly = true;
             this.txtHastaAdSoy.Size = new System.Drawing.Size(201, 27);
-            this.txtHastaAdSoy.TabIndex = 4;
+            this.txtHastaAdSoy.TabIndex = 1;
             // 
             // rtxtHastaAdres
             // 
@@ -94,7 +94,7 @@ namespace ProjeDeneme_2
             this.rtxtHastaAdres.Name = "rtxtHastaAdres";
             this.rtxtHastaAdres.ReadOnly = true;
             this.rtxtHastaAdres.Size = new System.Drawing.Size(201, 111);
-            this.rtxtHastaAdres.TabIndex = 6;
+            this.rtxtHastaAdres.TabIndex = 2;
             this.rtxtHastaAdres.Text = "";
             // 
             // btnVazgec
@@ -104,7 +104,7 @@ namespace ProjeDeneme_2
             this.btnVazgec.Margin = new System.Windows.Forms.Padding(2);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(96, 41);
-            this.btnVazgec.TabIndex = 9;
+            this.btnVazgec.TabIndex = 4;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.UseVisualStyleBackColor = true;
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
@@ -116,7 +116,7 @@ namespace ProjeDeneme_2
             this.btnGonder.Margin = new System.Windows.Forms.Padding(2);
             this.btnGonder.Name = "btnGonder";
             this.btnGonder.Size = new System.Drawing.Size(97, 41);
-            this.btnGonder.TabIndex = 10;
+            this.btnGonder.TabIndex = 3;
             this.btnGonder.Text = "Gönder";
             this.btnGonder.UseVisualStyleBackColor = true;
             this.btnGonder.Click += new System.EventHandler(this.btnGonder_Click);
@@ -134,10 +134,11 @@ namespace ProjeDeneme_2
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(294, 255);
-            this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.TabIndex = 5;
             // 
             // YeniSiparis
             // 
+            this.AcceptButton = this.btnGonder;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

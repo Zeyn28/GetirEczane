@@ -34,7 +34,7 @@ namespace ProjeDeneme_2
         public static void Yeni_siparistable()
         {
             SQL bgl = new SQL();
-            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + ecz_id + "' and SiparişDurumu='False'", bgl.baglan());
+            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + ecz_id + "' and SiparişDurumuHasta='False'", bgl.baglan());
             DataTable dt1 = new DataTable();
             yeni.Fill(dt1);
             dgw.DataSource = dt1;
@@ -43,7 +43,7 @@ namespace ProjeDeneme_2
         public static void Onceki_siparistable()
         {
             SQL bgl = new SQL();
-            SqlDataAdapter onceki = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where SiparişDurumu='True' and Eczane='" + ecz_id + "' ", bgl.baglan());
+            SqlDataAdapter onceki = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where SiparişDurumuHasta='True' and Eczane='" + ecz_id + "' ", bgl.baglan());
             DataTable dt2 = new DataTable();
             onceki.Fill(dt2);
             dgw2.DataSource = dt2;
@@ -79,7 +79,12 @@ namespace ProjeDeneme_2
         {
             EczacıBilgiGuncelle frmb = new EczacıBilgiGuncelle();
             frmb.ecztc = ecz_tc;// tc değişmez olduğu için tcyi id gibi kullanma amacıyla güncelleme formuna gönderme
-            frmb.Show();
+            frmb.Name = "deneme";
+            if (Application.OpenForms["deneme"] == null)
+            {
+                  frmb.Show();
+            }
+            
         }
         public static int i=0;
         public static Label staticlbl;
@@ -112,7 +117,7 @@ namespace ProjeDeneme_2
             bgl.baglan().Close();
 
             //yeni siparişler
-            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + eczid + "' and SiparişDurumu='False'", bgl.baglan());
+            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + eczid + "' and SiparişDurumuEczane='True' and SiparişDurumuHasta='False'", bgl.baglan());
             DataTable dt1 = new DataTable();
             yeni.Fill(dt1);
             dataGridView1.DataSource = dt1;
@@ -120,7 +125,7 @@ namespace ProjeDeneme_2
 
             //önceki siparişler
 
-            SqlDataAdapter onceki = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where SiparişDurumu='True' and Eczane='" + eczid + "' ", bgl.baglan());
+            SqlDataAdapter onceki = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where SiparişDurumuEczane='True' and SiparişDurumuHasta='True' and Eczane='" + eczid + "' ", bgl.baglan());
             DataTable dt2 = new DataTable();
             onceki.Fill(dt2);
             dataGridView2.DataSource = dt2;
@@ -132,12 +137,14 @@ namespace ProjeDeneme_2
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             YeniSiparis frm = new YeniSiparis();
-            //FileStream fs = new FileStream(@"C: \Users\w10\Desktop\recetekodu.txt",FileMode.Open,FileAccess.Read);
-            //StreamReader sr=new StreamReader(fs);
-            //string recid = sr.ReadLine();
             frm.onceid=dataGridView1.CurrentRow.Cells[0].Value.ToString();
             frm.receteid=dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            frm.Show();
+            frm.Name = "deneme";
+            if (Application.OpenForms["deneme"] == null)
+            {
+                       frm.Show();
+            }
+            
         }
         
     }

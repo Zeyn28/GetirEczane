@@ -30,9 +30,10 @@ namespace ProjeDeneme_2
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SiparisDurumu));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +66,14 @@ namespace ProjeDeneme_2
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "OncekisipID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -75,14 +84,6 @@ namespace ProjeDeneme_2
             this.label1.TabIndex = 1;
             this.label1.Text = "Sipariş detayı için siparişe çift tıklayın !!";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "OncekisipID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
             // SiparisDurumu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,6 +91,7 @@ namespace ProjeDeneme_2
             this.ClientSize = new System.Drawing.Size(667, 355);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SiparisDurumu";
             this.Text = "HastaReceteler";
             this.Load += new System.EventHandler(this.HastaReceteler_Load);
