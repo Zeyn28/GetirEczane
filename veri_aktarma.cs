@@ -15,20 +15,32 @@ namespace ProjeDeneme_2
         public void Buyuk_Harfe_Donusturme(TextBox t)
         {
 
-            if (t.Text.Length == 0)
+            string yeni_kelime = "";
+            string[] kelimeler = t.Text.Split(' ');
+            if (t.Text != "")
             {
-                MessageBox.Show("Boş girdiniz", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                for (int i = 0; i < kelimeler.Length; i++)
+                {
+                    yeni_kelime += kelimeler[i].Substring(0, 1).ToUpper() + kelimeler[i].Substring(1, kelimeler[i].Length - 1).ToLower() + " ";
+
+                }
+                t.Text = yeni_kelime.TrimEnd(' ');
+            }
+        }
+        public bool regex_sifre(string str)
+        {
+            Regex rgx = new Regex(@"[a-z]+[A-Z]+[0-9]+");
+            Match m = rgx.Match(str);
+            if (m.Success)
+            {
+                return true;  
             }
             else
             {
-
-                t.Text = char.ToUpper(t.Text[0]).ToString() + t.Text.Substring(1);
-                t.SelectionStart = t.TextLength;
+                return false;
             }
-
         }
-       
-       
-       
+
+
     }
 }

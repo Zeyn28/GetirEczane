@@ -28,38 +28,47 @@ namespace ProjeDeneme_2
 
         private void btn_kayıt_ol_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("insert into Hastalar(Ad,Soyad,TelNo,TC,Sehir,Adresi,Sifre) values(@h1,@h2,@h3,@h4,@h5,@h6,@h7)",bgl.baglan());
-            if (txtbox_ad.Text!="" && txtbox_soyad.Text!=""&& txt_sifre.Text!=""&& rtxtbox_adres.Text!=""&&mskd_tc.Text!=""&&mskd_tel.Text!=""&&cmbbox_sehir.Text!="") {
-                komut.Parameters.AddWithValue("@h1", txtbox_ad.Text);
-                komut.Parameters.AddWithValue("@h2", txtbox_soyad.Text);
-                komut.Parameters.AddWithValue("@h3", mskd_tel.Text);
-                komut.Parameters.AddWithValue("@h4", mskd_tc.Text);
-                komut.Parameters.AddWithValue("@h5", cmbbox_sehir.Text);
-                komut.Parameters.AddWithValue("@h6", rtxtbox_adres.Text);
-                komut.Parameters.AddWithValue("@h7", txt_sifre.Text);
-                komut.ExecuteNonQuery();
-                MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                hasta_girisi hg = new hasta_girisi();
-                hg.Show();
-                this.Hide();
+            if (txtbox_ad.Text != "" && txtbox_soyad.Text != "" && txt_sifre.Text != "" && rtxtbox_adres.Text != "" && mskd_tc.Text != "" && mskd_tel.Text != "" && cmbbox_sehir.Text != "")
+            {
+                if (txt_sifre.Text.Length >= 4)
+                {
+                    SqlCommand komut = new SqlCommand("insert into Hastalar(Ad,Soyad,TelNo,TC,Sehir,Adresi,Sifre) values(@h1,@h2,@h3,@h4,@h5,@h6,@h7)", bgl.baglan());
+                    if (control.regex_sifre(txt_sifre.Text))
+                    {
+                        komut.Parameters.AddWithValue("@h1", txtbox_ad.Text);
+                        komut.Parameters.AddWithValue("@h2", txtbox_soyad.Text);
+                        komut.Parameters.AddWithValue("@h3", mskd_tel.Text);
+                        komut.Parameters.AddWithValue("@h4", mskd_tc.Text);
+                        komut.Parameters.AddWithValue("@h5", cmbbox_sehir.Text);
+                        komut.Parameters.AddWithValue("@h6", rtxtbox_adres.Text);
+                        komut.Parameters.AddWithValue("@h7", txt_sifre.Text);
+                        komut.ExecuteNonQuery();
+                        MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        hasta_girisi hg = new hasta_girisi();
+                        hg.Show();
+                        this.Hide();
+                        bgl.baglan().Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Şifreniz en az 1 tane büyük harf,1 tane küçük harf ve 1 tane rakam içermeli", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Şifreniz en az 4 karakterden fazla olmalı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            bgl.baglan().Close();
-            
         }
 
-        private void txtbox_ad_TextChanged(object sender, EventArgs e)
-        {
-            control.Buyuk_Harfe_Donusturme(txtbox_ad);
-        }
 
-        private void txtbox_soyad_TextChanged(object sender, EventArgs e)
-        {
-            control.Buyuk_Harfe_Donusturme(txtbox_soyad);
-        }
 
         private void hasta_kayıt_ekleme_Load(object sender, EventArgs e)
         {
@@ -75,6 +84,16 @@ namespace ProjeDeneme_2
             {
                 cmbbox_sehir.Items.Add(Sehir[i]);
             }
+        }
+
+        private void txtbox_ad_Leave(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtbox_ad);
+        }
+
+        private void txtbox_soyad_Leave(object sender, EventArgs e)
+        {
+            control.Buyuk_Harfe_Donusturme(txtbox_soyad);
         }
     }
 }

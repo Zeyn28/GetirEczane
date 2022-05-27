@@ -38,34 +38,50 @@ namespace ProjeDeneme_2
 
         private void btnEczacıK_Click(object sender, EventArgs e)
         {
-
             if (txtAd.Text != "" && txtSoyad.Text != "" && txteczacisifre.Text != "" && richAdres.Text != "" && mskTC.Text != "" && mskTel.Text != "" && cmbSehir.Text != "" && mskDiploma.Text != "" && txtEczanead.Text != "")
             {
-                if (dogrulandi.Visible == true)//kontrolden geçerse eczacı kaydı yapılır
+                if (txteczacisifre.Text.Length >= 4) 
                 {
-                    //update kullanılma sebebi zaten barkodu eczacıya kaydederken kayıt açılmış olması yani aslında burada barkod id gibi kullanılıyor
-                        SqlCommand komut = new SqlCommand("update Eczane set EczacıAd=@h1,EczacıSoyad=@h2,EczacıTelNo=@h3,EczacıTC=@h4,EczacıSehir=@h5,EczacıAdres=@h6,EczaneAd=@h8,EczacıSifre=@h9 where EczacıBarkod='"+ mskDiploma.Text+"'", bgl.baglan());
-                        komut.Parameters.AddWithValue("@h1", txtAd.Text);
-                        komut.Parameters.AddWithValue("@h2", txtSoyad.Text);
-                        komut.Parameters.AddWithValue("@h3", mskTel.Text);
-                        komut.Parameters.AddWithValue("@h4", mskTC.Text);
-                        komut.Parameters.AddWithValue("@h5", cmbSehir.Text);
-                        komut.Parameters.AddWithValue("@h6", richAdres.Text);
-                        komut.Parameters.AddWithValue("@h8", txtEczanead.Text);
-                        komut.Parameters.AddWithValue("@h9", txteczacisifre.Text);
-                        komut.ExecuteNonQuery();
-                        bgl.baglan().Close();
-                        MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
+                    if (control.regex_sifre(txteczacisifre.Text))
+                    {
+                        if (dogrulandi.Visible == true)//kontrolden geçerse eczacı kaydı yapılır
+                        {
+                            //update kullanılma sebebi zaten barkodu eczacıya kaydederken kayıt açılmış olması yani aslında burada barkod id gibi kullanılıyor
+                            SqlCommand komut = new SqlCommand("update Eczane set EczacıAd=@h1,EczacıSoyad=@h2,EczacıTelNo=@h3,EczacıTC=@h4,EczacıSehir=@h5,EczacıAdres=@h6,EczaneAd=@h8,EczacıSifre=@h9 where EczacıBarkod='" + mskDiploma.Text + "'", bgl.baglan());
+                            komut.Parameters.AddWithValue("@h1", txtAd.Text);
+                            komut.Parameters.AddWithValue("@h2", txtSoyad.Text);
+                            komut.Parameters.AddWithValue("@h3", mskTel.Text);
+                            komut.Parameters.AddWithValue("@h4", mskTC.Text);
+                            komut.Parameters.AddWithValue("@h5", cmbSehir.Text);
+                            komut.Parameters.AddWithValue("@h6", richAdres.Text);
+                            komut.Parameters.AddWithValue("@h8", txtEczanead.Text);
+                            komut.Parameters.AddWithValue("@h9", txteczacisifre.Text);
+                            komut.ExecuteNonQuery();
+                            bgl.baglan().Close();
+                            MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lütfen geçerli bir diploma barkodu giriniz.", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Şifreniz en az 1 tane büyük harf,1 tane küçük harf ve 1 tane rakam içermeli", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen geçerli bir diploma barkodu giriniz.", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Şifreniz en az 4 karakterden fazla olmalı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -106,21 +122,20 @@ namespace ProjeDeneme_2
             }
         }
 
-        private void txtAd_TextChanged(object sender, EventArgs e)
+        private void txtAd_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtAd);
         }
 
-        private void txtSoyad_TextChanged(object sender, EventArgs e)
+        private void txtSoyad_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtSoyad);
         }
 
-        private void txtEczanead_TextChanged(object sender, EventArgs e)
+        private void txtEczanead_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtEczanead);
         }
-
-        
     }
+
 }

@@ -26,6 +26,18 @@ namespace ProjeDeneme_2
         public string ecztc;
         private void EczacıBilgiGuncelle_Load(object sender, EventArgs e)
         {
+            string[] Sehir = { "Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
+                "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
+                "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari",
+                "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli",
+                "Kırşehir", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Kahramanmaraş", "Mardin", "Muğla", "Muş",
+                "Nevşehir", "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat", "Trabzon",
+                "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman", "Kırıkkale", "Batman",
+                "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye", "Düzce" };
+            for (int i = 0; i < Sehir.Length - 1; i++)
+            {
+                comboBox1.Items.Add(Sehir[i]);
+            }
             //tc yi id gibi kullanarak bilgileri güncellemek için alanları dolduruyor
             SqlCommand komut = new SqlCommand("Select EczacıAd,EczacıSoyad,EczacıTelNo,EczacıBarkod,EczacıTC,EczacıSifre,EczacıSehir,EczacıAdres,EczaneAd from Eczane where EczacıTC=@q1", bgl.baglan());
             komut.Parameters.AddWithValue("@q1", ecztc);
@@ -51,42 +63,55 @@ namespace ProjeDeneme_2
             SqlCommand ecz_yeni = new SqlCommand("update Eczane set EczacıAd=@y1,EczacıSoyad=@y2,EczacıTelNo=@y3,EczacıBarkod=@y4,EczacıTC=@y5,EczacıSifre=@y6,EczacıSehir=@y7,EczacıAdres=@y8,EczaneAd=@y9 where EczacıTC='" + mskTC.Text + "'", bgl.baglan());
             if (txtAd.Text != "" && txtSoyad.Text != "" && mskTelefon.Text != "" && mskDiploma.Text != "" && mskTC.Text != "" && txtsifre.Text != "" && comboBox1.Text != ""&& rtxtAdres.Text!=""&& txtEczaneAd.Text!="")
             {
-                ecz_yeni.Parameters.AddWithValue("@y1", txtAd.Text);
-                ecz_yeni.Parameters.AddWithValue("@y2", txtSoyad.Text);
-                ecz_yeni.Parameters.AddWithValue("@y3", mskTelefon.Text);
-                ecz_yeni.Parameters.AddWithValue("@y4", mskDiploma.Text);
-                ecz_yeni.Parameters.AddWithValue("@y5", mskTC.Text);
-                ecz_yeni.Parameters.AddWithValue("@y6", txtsifre.Text);
-                ecz_yeni.Parameters.AddWithValue("@y7", comboBox1.Text);
-                ecz_yeni.Parameters.AddWithValue("@y8", rtxtAdres.Text);
-                ecz_yeni.Parameters.AddWithValue("@y9", txtEczaneAd.Text);
-                ecz_yeni.ExecuteNonQuery();
-                MessageBox.Show("Kaydınız Güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                EczacıPaneli.staticlbl.Text = txtAd.Text + " " + txtSoyad.Text;
-                this.Hide();
+                if (txtsifre.Text.Length >= 4)
+                {
+                    if (control.regex_sifre(txtsifre.Text))
+                    {
+                        ecz_yeni.Parameters.AddWithValue("@y1", txtAd.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y2", txtSoyad.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y3", mskTelefon.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y4", mskDiploma.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y5", mskTC.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y6", txtsifre.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y7", comboBox1.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y8", rtxtAdres.Text);
+                        ecz_yeni.Parameters.AddWithValue("@y9", txtEczaneAd.Text);
+                        ecz_yeni.ExecuteNonQuery();
+                        MessageBox.Show("Kaydınız Güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        EczacıPaneli.staticlbl.Text = txtAd.Text + " " + txtSoyad.Text;
+                        this.Hide();
+                        bgl.baglan().Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Şifreniz en az 1 tane büyük harf,1 tane küçük harf ve 1 tane rakam içermeli", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Şifreniz en az 4 karakterden fazla olmalı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            bgl.baglan().Close();
+
         }
 
-        private void txtAd_TextChanged(object sender, EventArgs e)
+        private void txtAd_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtAd);
         }
 
-        private void txtSoyad_TextChanged(object sender, EventArgs e)
+        private void txtSoyad_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtSoyad);
         }
 
-        private void txtEczaneAd_TextChanged(object sender, EventArgs e)
+        private void txtEczaneAd_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtEczaneAd);
         }
-
-       
     }
 }

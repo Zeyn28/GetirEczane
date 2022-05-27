@@ -61,33 +61,48 @@ namespace ProjeDeneme_2
         }
         private void btn_guncelle_Click_1(object sender, EventArgs e)
         {
-            SqlCommand yeni = new SqlCommand("update Hastalar set Ad=@y1,Soyad=@y2,TelNo=@y3,Sehir=@y4,Adresi=@y5,Sifre=@y6 where TC='" + mskd_tc.Text + "'",bgl.baglan());
-            if (txtbox_ad.Text != "" && txtbox_soyad.Text != "" && txt_sifre.Text != "" && rtxtbox_adres.Text != "" && mskd_tc.Text != "" && mskd_tel.Text != "" && cmbbox_sehir.Text != "")
-            {
-                yeni.Parameters.AddWithValue("@y1", txtbox_ad.Text);
-                yeni.Parameters.AddWithValue("@y2", txtbox_soyad.Text);
-                yeni.Parameters.AddWithValue("@y3", mskd_tel.Text);
-                yeni.Parameters.AddWithValue("@y4", cmbbox_sehir.Text);
-                yeni.Parameters.AddWithValue("@y5", rtxtbox_adres.Text);
-                yeni.Parameters.AddWithValue("@y6", txt_sifre.Text);
-                yeni.ExecuteNonQuery();
-                MessageBox.Show("Kaydınız Güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
+            if (txtbox_ad.Text != "" && txtbox_soyad.Text != "" && txt_sifre.Text != "" && rtxtbox_adres.Text != "" && mskd_tc.Text != "" && mskd_tel.Text != "" && cmbbox_sehir.Text != "") {
+                if (txt_sifre.Text.Length >= 4)
+                {
+                    SqlCommand yeni = new SqlCommand("update Hastalar set Ad=@y1,Soyad=@y2,TelNo=@y3,Sehir=@y4,Adresi=@y5,Sifre=@y6 where TC='" + mskd_tc.Text + "'", bgl.baglan());
+                    if (control.regex_sifre(txt_sifre.Text))
+                    {
+                        yeni.Parameters.AddWithValue("@y1", txtbox_ad.Text);
+                        yeni.Parameters.AddWithValue("@y2", txtbox_soyad.Text);
+                        yeni.Parameters.AddWithValue("@y3", mskd_tel.Text);
+                        yeni.Parameters.AddWithValue("@y4", cmbbox_sehir.Text);
+                        yeni.Parameters.AddWithValue("@y5", rtxtbox_adres.Text);
+                        yeni.Parameters.AddWithValue("@y6", txt_sifre.Text);
+                        yeni.ExecuteNonQuery();
+                        HastaPaneli.statichasta.Text = txtbox_ad.Text + " " + txtbox_soyad.Text;
+                        bgl.baglan().Close();
+                        MessageBox.Show("Kaydınız Güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Şifreniz en az 1 tane büyük harf,1 tane küçük harf ve 1 tane rakam içermeli", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Şifreniz en az 4 karakterden fazla olmalı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            HastaPaneli.statichasta.Text = txtbox_ad.Text + " " + txtbox_soyad.Text;
-            bgl.baglan().Close();
         }
 
-        private void txtbox_ad_TextChanged(object sender, EventArgs e)
+        private void txtbox_ad_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtbox_ad);
         }
 
-        private void txtbox_soyad_TextChanged(object sender, EventArgs e)
+        private void txtbox_soyad_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtbox_soyad);
         }

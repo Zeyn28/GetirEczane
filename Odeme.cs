@@ -67,9 +67,6 @@ namespace ProjeDeneme_2
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            SqlCommand komut = new SqlCommand("delete from Siparisler where SiparisID='"+sip+"'",bgl.baglan());
-            komut.ExecuteNonQuery();
             SqlCommand komut2 = new SqlCommand("delete from oncekisiparisler where OncekisipID='" + sip2 + "'", bgl.baglan());
             komut2.ExecuteNonQuery();
             this.Hide();

@@ -101,7 +101,6 @@ namespace ProjeDeneme_2
             this.mskTC.ReadOnly = true;
             this.mskTC.Size = new System.Drawing.Size(166, 32);
             this.mskTC.TabIndex = 9;
-
             // 
             // mskDiploma
             // 
@@ -138,7 +137,6 @@ namespace ProjeDeneme_2
             this.mskTelefon.Name = "mskTelefon";
             this.mskTelefon.Size = new System.Drawing.Size(166, 32);
             this.mskTelefon.TabIndex = 3;
- 
             // 
             // txtSoyad
             // 
@@ -146,7 +144,7 @@ namespace ProjeDeneme_2
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(166, 32);
             this.txtSoyad.TabIndex = 2;
-            this.txtSoyad.TextChanged += new System.EventHandler(this.txtSoyad_TextChanged);
+            this.txtSoyad.Leave += new System.EventHandler(this.txtSoyad_Leave);
             // 
             // txtAd
             // 
@@ -154,7 +152,7 @@ namespace ProjeDeneme_2
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(166, 32);
             this.txtAd.TabIndex = 1;
-            this.txtAd.TextChanged += new System.EventHandler(this.txtAd_TextChanged);
+            this.txtAd.Leave += new System.EventHandler(this.txtAd_Leave);
             // 
             // label3
             // 
@@ -215,7 +213,7 @@ namespace ProjeDeneme_2
             this.txtEczaneAd.Name = "txtEczaneAd";
             this.txtEczaneAd.Size = new System.Drawing.Size(166, 32);
             this.txtEczaneAd.TabIndex = 12;
-            this.txtEczaneAd.TextChanged += new System.EventHandler(this.txtEczaneAd_TextChanged);
+            this.txtEczaneAd.Leave += new System.EventHandler(this.txtEczaneAd_Leave);
             // 
             // label9
             // 
@@ -229,10 +227,11 @@ namespace ProjeDeneme_2
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(123, 45);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(221, 32);
+            this.comboBox1.Size = new System.Drawing.Size(221, 25);
             this.comboBox1.TabIndex = 8;
             // 
             // label8

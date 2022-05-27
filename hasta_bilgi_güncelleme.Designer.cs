@@ -117,7 +117,7 @@ namespace ProjeDeneme_2
             this.txtbox_soyad.Name = "txtbox_soyad";
             this.txtbox_soyad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_soyad.TabIndex = 2;
-            this.txtbox_soyad.TextChanged += new System.EventHandler(this.txtbox_soyad_TextChanged);
+            this.txtbox_soyad.Leave += new System.EventHandler(this.txtbox_soyad_Leave);
             // 
             // txtbox_ad
             // 
@@ -126,7 +126,7 @@ namespace ProjeDeneme_2
             this.txtbox_ad.Name = "txtbox_ad";
             this.txtbox_ad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_ad.TabIndex = 1;
-            this.txtbox_ad.TextChanged += new System.EventHandler(this.txtbox_ad_TextChanged);
+            this.txtbox_ad.Leave += new System.EventHandler(this.txtbox_ad_Leave);
             // 
             // label5
             // 

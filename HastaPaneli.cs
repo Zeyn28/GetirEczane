@@ -163,14 +163,6 @@ namespace ProjeDeneme_2
             if (drrecete.Read())
             {
                // SqlCommand adres = new SqlCommand("update oncekisiparisler set HastaAdresi='""'");
-                    SqlCommand komut4 = new SqlCommand("insert into Siparisler (Hasta,Eczane,RecID,TeslimTarihi,SiparişDurumu)values (@s1,@s2,@s3,@s4,@s5)", bgl.baglan());
-                    komut4.Parameters.AddWithValue("@s1", hastaid);
-                    komut4.Parameters.AddWithValue("@s2", eczacid);
-                    komut4.Parameters.AddWithValue("@s3", receteid);
-                    komut4.Parameters.AddWithValue("@s4", tarih);
-                    komut4.Parameters.AddWithValue("@s5", "False");
-                    komut4.ExecuteReader();
-                    bgl.baglan().Close();
                 SqlCommand komuto = new SqlCommand("insert into oncekisiparisler (Hasta,Eczane,Recete,TeslimTarihi,SiparişDurumu,OncekiReceteKod)values (@s1,@s2,@s3,@s4,@s5,@s6)", bgl.baglan());
                 komuto.Parameters.AddWithValue("@s1", hastaid);
                 komuto.Parameters.AddWithValue("@s2", eczacid);
@@ -204,12 +196,6 @@ namespace ProjeDeneme_2
                 
                 Odeme ode = new Odeme();
                 ode.Show();
-                SqlCommand sipid = new SqlCommand("SELECT SiparisID from Siparisler where RecID='"+receteid+"' and TeslimTarihi='"+tarih+"'",bgl.baglan());
-                SqlDataReader drsip = sipid.ExecuteReader();
-                while (drsip.Read())
-                {
-                    ode.sip = Convert.ToInt32(drsip[0]);
-                }
                 SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + receteid + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
                 SqlDataReader drsip2 = sipid2.ExecuteReader();
                 while (drsip2.Read())
