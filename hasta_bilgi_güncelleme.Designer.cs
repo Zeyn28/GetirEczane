@@ -29,6 +29,7 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hasta_bilgi_güncelleme));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mskd_tc = new System.Windows.Forms.MaskedTextBox();
             this.mskd_tel = new System.Windows.Forms.MaskedTextBox();
@@ -98,7 +99,7 @@ namespace ProjeDeneme_2
             this.txt_sifre.Location = new System.Drawing.Point(90, 247);
             this.txt_sifre.Name = "txt_sifre";
             this.txt_sifre.Size = new System.Drawing.Size(162, 24);
-            this.txt_sifre.TabIndex = 6;
+            this.txt_sifre.TabIndex = 4;
             // 
             // label8
             // 
@@ -273,6 +274,7 @@ namespace ProjeDeneme_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_vazgec);
@@ -280,6 +282,8 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "hasta_bilgi_güncelleme";
             this.Text = "hasta_bilgi_güncelleme";
             this.Load += new System.EventHandler(this.hasta_bilgi_güncelleme_Load);

@@ -64,6 +64,28 @@ namespace ProjeDeneme_2
         {
             control.Buyuk_Harfe_Donusturme(txtKartisim);
         }
+        int Movem;
+        int Mouse_X;
+        int Mouse_Y;
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            Movem = 0;
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Movem = 1;
+            Mouse_X = e.X;
+            Mouse_Y = e.Y;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Movem == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - Mouse_X, MousePosition.Y - Mouse_Y);
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

@@ -29,6 +29,7 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hasta_girisi));
             this.label1 = new System.Windows.Forms.Label();
             this.mskTC = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@ namespace ProjeDeneme_2
             this.mskTC.Mask = "00000000000";
             this.mskTC.Name = "mskTC";
             this.mskTC.Size = new System.Drawing.Size(208, 38);
-            this.mskTC.TabIndex = 4;
+            this.mskTC.TabIndex = 1;
             this.mskTC.ValidatingType = typeof(int);
             // 
             // label2
@@ -87,7 +88,7 @@ namespace ProjeDeneme_2
             this.txtSifre.Location = new System.Drawing.Point(163, 188);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(208, 38);
-            this.txtSifre.TabIndex = 7;
+            this.txtSifre.TabIndex = 2;
             this.txtSifre.UseSystemPasswordChar = true;
             // 
             // btnhastaKaydol
@@ -102,7 +103,7 @@ namespace ProjeDeneme_2
             this.btnhastaKaydol.Location = new System.Drawing.Point(123, 262);
             this.btnhastaKaydol.Name = "btnhastaKaydol";
             this.btnhastaKaydol.Size = new System.Drawing.Size(115, 40);
-            this.btnhastaKaydol.TabIndex = 10;
+            this.btnhastaKaydol.TabIndex = 4;
             this.btnhastaKaydol.Text = "Kaydol";
             this.btnhastaKaydol.UseVisualStyleBackColor = false;
             this.btnhastaKaydol.Click += new System.EventHandler(this.btnhastaKaydol_Click);
@@ -119,7 +120,7 @@ namespace ProjeDeneme_2
             this.btnhastagiris.Location = new System.Drawing.Point(265, 262);
             this.btnhastagiris.Name = "btnhastagiris";
             this.btnhastagiris.Size = new System.Drawing.Size(121, 40);
-            this.btnhastagiris.TabIndex = 9;
+            this.btnhastagiris.TabIndex = 3;
             this.btnhastagiris.Text = "Giriş";
             this.btnhastagiris.UseVisualStyleBackColor = false;
             this.btnhastagiris.Click += new System.EventHandler(this.btnhastagiris_Click_1);
@@ -128,6 +129,7 @@ namespace ProjeDeneme_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(505, 365);
             this.Controls.Add(this.btnhastagiris);
@@ -137,6 +139,8 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.label2);
             this.Controls.Add(this.mskTC);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "hasta_girisi";
             this.Text = "hasta_girisi";
             this.ResumeLayout(false);

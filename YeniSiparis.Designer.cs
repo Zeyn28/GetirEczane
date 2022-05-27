@@ -29,6 +29,7 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YeniSiparis));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -78,7 +79,7 @@ namespace ProjeDeneme_2
             this.txtHastaAdSoy.BackColor = System.Drawing.Color.White;
             this.txtHastaAdSoy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtHastaAdSoy.Location = new System.Drawing.Point(188, 20);
-            this.txtHastaAdSoy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHastaAdSoy.Margin = new System.Windows.Forms.Padding(2);
             this.txtHastaAdSoy.Name = "txtHastaAdSoy";
             this.txtHastaAdSoy.ReadOnly = true;
             this.txtHastaAdSoy.Size = new System.Drawing.Size(201, 27);
@@ -89,7 +90,7 @@ namespace ProjeDeneme_2
             this.rtxtHastaAdres.BackColor = System.Drawing.Color.White;
             this.rtxtHastaAdres.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rtxtHastaAdres.Location = new System.Drawing.Point(188, 68);
-            this.rtxtHastaAdres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtxtHastaAdres.Margin = new System.Windows.Forms.Padding(2);
             this.rtxtHastaAdres.Name = "rtxtHastaAdres";
             this.rtxtHastaAdres.ReadOnly = true;
             this.rtxtHastaAdres.Size = new System.Drawing.Size(201, 111);
@@ -100,7 +101,7 @@ namespace ProjeDeneme_2
             // 
             this.btnVazgec.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnVazgec.Location = new System.Drawing.Point(188, 234);
-            this.btnVazgec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVazgec.Margin = new System.Windows.Forms.Padding(2);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(96, 41);
             this.btnVazgec.TabIndex = 9;
@@ -112,7 +113,7 @@ namespace ProjeDeneme_2
             // 
             this.btnGonder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGonder.Location = new System.Drawing.Point(292, 234);
-            this.btnGonder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGonder.Margin = new System.Windows.Forms.Padding(2);
             this.btnGonder.Name = "btnGonder";
             this.btnGonder.Size = new System.Drawing.Size(97, 41);
             this.btnGonder.TabIndex = 10;
@@ -128,7 +129,7 @@ namespace ProjeDeneme_2
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(471, 20);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -139,6 +140,7 @@ namespace ProjeDeneme_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(776, 307);
             this.Controls.Add(this.dataGridView1);
@@ -150,7 +152,9 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "YeniSiparis";
             this.Text = "YeniSiparis";
             this.Load += new System.EventHandler(this.YeniSiparis_Load);

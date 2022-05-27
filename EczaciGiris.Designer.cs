@@ -76,7 +76,7 @@ namespace ProjeDeneme_2
             this.eczmskTC.Mask = "00000000000";
             this.eczmskTC.Name = "eczmskTC";
             this.eczmskTC.Size = new System.Drawing.Size(189, 39);
-            this.eczmskTC.TabIndex = 3;
+            this.eczmskTC.TabIndex = 1;
             this.eczmskTC.ValidatingType = typeof(int);
             // 
             // ecztxtSifre
@@ -84,7 +84,7 @@ namespace ProjeDeneme_2
             this.ecztxtSifre.Location = new System.Drawing.Point(174, 176);
             this.ecztxtSifre.Name = "ecztxtSifre";
             this.ecztxtSifre.Size = new System.Drawing.Size(189, 39);
-            this.ecztxtSifre.TabIndex = 4;
+            this.ecztxtSifre.TabIndex = 2;
             this.ecztxtSifre.UseSystemPasswordChar = true;
             // 
             // btnEczacıG
@@ -98,7 +98,7 @@ namespace ProjeDeneme_2
             this.btnEczacıG.Location = new System.Drawing.Point(242, 248);
             this.btnEczacıG.Name = "btnEczacıG";
             this.btnEczacıG.Size = new System.Drawing.Size(121, 40);
-            this.btnEczacıG.TabIndex = 5;
+            this.btnEczacıG.TabIndex = 3;
             this.btnEczacıG.Text = "Giriş";
             this.btnEczacıG.UseVisualStyleBackColor = false;
             this.btnEczacıG.Click += new System.EventHandler(this.btnEczacıG_Click);
@@ -114,13 +114,14 @@ namespace ProjeDeneme_2
             this.btnKaydol.Location = new System.Drawing.Point(88, 248);
             this.btnKaydol.Name = "btnKaydol";
             this.btnKaydol.Size = new System.Drawing.Size(115, 40);
-            this.btnKaydol.TabIndex = 6;
+            this.btnKaydol.TabIndex = 4;
             this.btnKaydol.Text = "Kaydol";
             this.btnKaydol.UseVisualStyleBackColor = false;
             this.btnKaydol.Click += new System.EventHandler(this.btnKaydol_Click);
             // 
             // EczaciGiris
             // 
+            this.AcceptButton = this.btnEczacıG;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

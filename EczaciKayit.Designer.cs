@@ -75,7 +75,7 @@ namespace ProjeDeneme_2
             this.btnEczacıK.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnEczacıK.Name = "btnEczacıK";
             this.btnEczacıK.Size = new System.Drawing.Size(119, 38);
-            this.btnEczacıK.TabIndex = 6;
+            this.btnEczacıK.TabIndex = 11;
             this.btnEczacıK.Text = "Kayıt Ol";
             this.btnEczacıK.UseVisualStyleBackColor = false;
             this.btnEczacıK.Click += new System.EventHandler(this.btnEczacıK_Click);
@@ -134,7 +134,7 @@ namespace ProjeDeneme_2
             this.btnKontrol.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnKontrol.Name = "btnKontrol";
             this.btnKontrol.Size = new System.Drawing.Size(100, 31);
-            this.btnKontrol.TabIndex = 6;
+            this.btnKontrol.TabIndex = 7;
             this.btnKontrol.Text = "Kontrol Et";
             this.btnKontrol.UseVisualStyleBackColor = false;
             this.btnKontrol.Click += new System.EventHandler(this.btnKontrol_Click);
@@ -216,7 +216,7 @@ namespace ProjeDeneme_2
             this.cmbSehir.Location = new System.Drawing.Point(118, 93);
             this.cmbSehir.Name = "cmbSehir";
             this.cmbSehir.Size = new System.Drawing.Size(248, 29);
-            this.cmbSehir.TabIndex = 7;
+            this.cmbSehir.TabIndex = 9;
             // 
             // richAdres
             // 
@@ -224,7 +224,7 @@ namespace ProjeDeneme_2
             this.richAdres.Location = new System.Drawing.Point(117, 132);
             this.richAdres.Name = "richAdres";
             this.richAdres.Size = new System.Drawing.Size(248, 146);
-            this.richAdres.TabIndex = 8;
+            this.richAdres.TabIndex = 10;
             this.richAdres.Text = "";
             // 
             // mskDiploma
@@ -235,7 +235,7 @@ namespace ProjeDeneme_2
             this.mskDiploma.Mask = "0000000000";
             this.mskDiploma.Name = "mskDiploma";
             this.mskDiploma.Size = new System.Drawing.Size(100, 26);
-            this.mskDiploma.TabIndex = 5;
+            this.mskDiploma.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -276,7 +276,7 @@ namespace ProjeDeneme_2
             this.txteczacisifre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txteczacisifre.Location = new System.Drawing.Point(186, 232);
             this.txteczacisifre.Margin = new System.Windows.Forms.Padding(2);
-            this.txteczacisifre.MaxLength = 10;
+            this.txteczacisifre.MaxLength = 5;
             this.txteczacisifre.Name = "txteczacisifre";
             this.txteczacisifre.Size = new System.Drawing.Size(167, 26);
             this.txteczacisifre.TabIndex = 20;
@@ -327,7 +327,7 @@ namespace ProjeDeneme_2
             this.txtEczanead.Margin = new System.Windows.Forms.Padding(2);
             this.txtEczanead.Name = "txtEczanead";
             this.txtEczanead.Size = new System.Drawing.Size(247, 26);
-            this.txtEczanead.TabIndex = 20;
+            this.txtEczanead.TabIndex = 8;
             this.txtEczanead.Leave += new System.EventHandler(this.txtEczanead_Leave);
             // 
             // label11
@@ -353,7 +353,7 @@ namespace ProjeDeneme_2
             this.button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 38);
-            this.button1.TabIndex = 20;
+            this.button1.TabIndex = 12;
             this.button1.Text = "Vazgeç";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);

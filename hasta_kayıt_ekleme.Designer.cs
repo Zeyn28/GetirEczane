@@ -29,6 +29,7 @@ namespace ProjeDeneme_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hasta_kayıt_ekleme));
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -119,7 +120,7 @@ namespace ProjeDeneme_2
             this.txt_sifre.Location = new System.Drawing.Point(90, 247);
             this.txt_sifre.Name = "txt_sifre";
             this.txt_sifre.Size = new System.Drawing.Size(162, 24);
-            this.txt_sifre.TabIndex = 6;
+            this.txt_sifre.TabIndex = 5;
             // 
             // label8
             // 
@@ -209,14 +210,14 @@ namespace ProjeDeneme_2
             this.cmbbox_sehir.Location = new System.Drawing.Point(104, 40);
             this.cmbbox_sehir.Name = "cmbbox_sehir";
             this.cmbbox_sehir.Size = new System.Drawing.Size(210, 30);
-            this.cmbbox_sehir.TabIndex = 5;
+            this.cmbbox_sehir.TabIndex = 6;
             // 
             // rtxtbox_adres
             // 
             this.rtxtbox_adres.Location = new System.Drawing.Point(104, 87);
             this.rtxtbox_adres.Name = "rtxtbox_adres";
             this.rtxtbox_adres.Size = new System.Drawing.Size(261, 108);
-            this.rtxtbox_adres.TabIndex = 6;
+            this.rtxtbox_adres.TabIndex = 7;
             this.rtxtbox_adres.Text = "";
             // 
             // label6
@@ -249,7 +250,7 @@ namespace ProjeDeneme_2
             this.btn_kayıt_ol.Location = new System.Drawing.Point(615, 355);
             this.btn_kayıt_ol.Name = "btn_kayıt_ol";
             this.btn_kayıt_ol.Size = new System.Drawing.Size(126, 45);
-            this.btn_kayıt_ol.TabIndex = 5;
+            this.btn_kayıt_ol.TabIndex = 8;
             this.btn_kayıt_ol.Text = "Kayıt Ol";
             this.btn_kayıt_ol.UseVisualStyleBackColor = false;
             this.btn_kayıt_ol.Click += new System.EventHandler(this.btn_kayıt_ol_Click);
@@ -257,6 +258,7 @@ namespace ProjeDeneme_2
             // btn_vazgec
             // 
             this.btn_vazgec.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_vazgec.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_vazgec.FlatAppearance.BorderSize = 0;
             this.btn_vazgec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vazgec.Font = new System.Drawing.Font("Arial Unicode MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -264,22 +266,27 @@ namespace ProjeDeneme_2
             this.btn_vazgec.Location = new System.Drawing.Point(450, 355);
             this.btn_vazgec.Name = "btn_vazgec";
             this.btn_vazgec.Size = new System.Drawing.Size(126, 45);
-            this.btn_vazgec.TabIndex = 6;
+            this.btn_vazgec.TabIndex = 9;
             this.btn_vazgec.Text = "Vazgeç";
             this.btn_vazgec.UseVisualStyleBackColor = false;
             this.btn_vazgec.Click += new System.EventHandler(this.btn_vazgec_Click);
             // 
             // hasta_kayıt_ekleme
             // 
+            this.AcceptButton = this.btn_kayıt_ol;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CancelButton = this.btn_vazgec;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_vazgec);
             this.Controls.Add(this.btn_kayıt_ol);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "hasta_kayıt_ekleme";
             this.Text = "hasta_kayıt_ekleme";
             this.Load += new System.EventHandler(this.hasta_kayıt_ekleme_Load);

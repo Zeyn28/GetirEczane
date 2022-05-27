@@ -45,14 +45,14 @@ namespace ProjeDeneme_2
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnBilgiGuncelle = new System.Windows.Forms.Button();
-            this.btnCıkıs = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.getireczaneDataSet = new ProjeDeneme_2.getireczaneDataSet();
             this.column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBilgiGuncelle = new System.Windows.Forms.Button();
+            this.btnCıkıs = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.getireczaneDataSet = new ProjeDeneme_2.getireczaneDataSet();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -148,6 +148,7 @@ namespace ProjeDeneme_2
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(470, 260);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // Hasta
@@ -232,46 +233,7 @@ namespace ProjeDeneme_2
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(457, 260);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // btnBilgiGuncelle
-            // 
-            this.btnBilgiGuncelle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBilgiGuncelle.Location = new System.Drawing.Point(599, 415);
-            this.btnBilgiGuncelle.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBilgiGuncelle.Name = "btnBilgiGuncelle";
-            this.btnBilgiGuncelle.Size = new System.Drawing.Size(190, 35);
-            this.btnBilgiGuncelle.TabIndex = 4;
-            this.btnBilgiGuncelle.Text = "Bilgilerimi güncelle";
-            this.btnBilgiGuncelle.UseVisualStyleBackColor = true;
-            this.btnBilgiGuncelle.Click += new System.EventHandler(this.btnBilgiGuncelle_Click);
-            // 
-            // btnCıkıs
-            // 
-            this.btnCıkıs.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCıkıs.Location = new System.Drawing.Point(819, 415);
-            this.btnCıkıs.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCıkıs.Name = "btnCıkıs";
-            this.btnCıkıs.Size = new System.Drawing.Size(118, 35);
-            this.btnCıkıs.TabIndex = 5;
-            this.btnCıkıs.Text = "Çıkış";
-            this.btnCıkıs.UseVisualStyleBackColor = true;
-            this.btnCıkıs.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(491, 90);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Önceki Siparişler ;";
-            // 
-            // getireczaneDataSet
-            // 
-            this.getireczaneDataSet.DataSetName = "getireczaneDataSet";
-            this.getireczaneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridView2.TabStop = false;
             // 
             // column
             // 
@@ -302,6 +264,46 @@ namespace ProjeDeneme_2
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Visible = false;
+            // 
+            // btnBilgiGuncelle
+            // 
+            this.btnBilgiGuncelle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBilgiGuncelle.Location = new System.Drawing.Point(599, 415);
+            this.btnBilgiGuncelle.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBilgiGuncelle.Name = "btnBilgiGuncelle";
+            this.btnBilgiGuncelle.Size = new System.Drawing.Size(190, 35);
+            this.btnBilgiGuncelle.TabIndex = 1;
+            this.btnBilgiGuncelle.Text = "Bilgilerimi güncelle";
+            this.btnBilgiGuncelle.UseVisualStyleBackColor = true;
+            this.btnBilgiGuncelle.Click += new System.EventHandler(this.btnBilgiGuncelle_Click);
+            // 
+            // btnCıkıs
+            // 
+            this.btnCıkıs.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCıkıs.Location = new System.Drawing.Point(819, 415);
+            this.btnCıkıs.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCıkıs.Name = "btnCıkıs";
+            this.btnCıkıs.Size = new System.Drawing.Size(118, 35);
+            this.btnCıkıs.TabIndex = 2;
+            this.btnCıkıs.Text = "Çıkış";
+            this.btnCıkıs.UseVisualStyleBackColor = true;
+            this.btnCıkıs.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(491, 90);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Önceki Siparişler ;";
+            // 
+            // getireczaneDataSet
+            // 
+            this.getireczaneDataSet.DataSetName = "getireczaneDataSet";
+            this.getireczaneDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EczacıPaneli
             // 
