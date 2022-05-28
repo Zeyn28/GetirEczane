@@ -306,6 +306,11 @@ namespace ProjeDeneme_2
             // 
             // btnBilgiGuncelle
             // 
+            this.btnBilgiGuncelle.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btnBilgiGuncelle.FlatAppearance.BorderSize = 0;
+            this.btnBilgiGuncelle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.btnBilgiGuncelle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
+            this.btnBilgiGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilgiGuncelle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBilgiGuncelle.Location = new System.Drawing.Point(599, 415);
             this.btnBilgiGuncelle.Margin = new System.Windows.Forms.Padding(2);
@@ -314,11 +319,16 @@ namespace ProjeDeneme_2
             this.btnBilgiGuncelle.TabIndex = 1;
             this.btnBilgiGuncelle.TabStop = false;
             this.btnBilgiGuncelle.Text = "Bilgilerimi güncelle";
-            this.btnBilgiGuncelle.UseVisualStyleBackColor = true;
+            this.btnBilgiGuncelle.UseVisualStyleBackColor = false;
             this.btnBilgiGuncelle.Click += new System.EventHandler(this.btnBilgiGuncelle_Click);
             // 
             // btnCıkıs
             // 
+            this.btnCıkıs.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btnCıkıs.FlatAppearance.BorderSize = 0;
+            this.btnCıkıs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.btnCıkıs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
+            this.btnCıkıs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCıkıs.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCıkıs.Location = new System.Drawing.Point(819, 415);
             this.btnCıkıs.Margin = new System.Windows.Forms.Padding(2);
@@ -327,7 +337,7 @@ namespace ProjeDeneme_2
             this.btnCıkıs.TabIndex = 2;
             this.btnCıkıs.TabStop = false;
             this.btnCıkıs.Text = "Çıkış";
-            this.btnCıkıs.UseVisualStyleBackColor = true;
+            this.btnCıkıs.UseVisualStyleBackColor = false;
             this.btnCıkıs.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2

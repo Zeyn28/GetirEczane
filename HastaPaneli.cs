@@ -21,15 +21,39 @@ namespace ProjeDeneme_2
             InitializeComponent();
         }
         SQL bgl = new SQL();
-        public string tc;
-        public string sehir;
+        public static string tc;
+        public static string sehir;
         public static Label statichasta;
+        public static ComboBox statichastacmb;
+        
+        public static void ComboboxGuncelleme()// Combobox a hastanın şehrindeki eczaneleri çekiyor
+        {
+            statichastacmb.Items.Clear();
+            SQL bgl = new SQL();
+            SqlCommand komut2 = new SqlCommand("Select Sehir from Hastalar where TC='" + tc + "'", bgl.baglan());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                sehir = dr2[0].ToString();
+            }
+            bgl.baglan().Close();
+
+            //hastanın şehrindeki eczaneleri comboboxa çekme
+            SqlCommand komut3 = new SqlCommand("Select EczaneAd from Eczane where EczacıSehir='" + sehir + "'", bgl.baglan());
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                statichastacmb.Items.Add(dr3[0].ToString());
+            }
+            bgl.baglan().Close();
+        }
        
         private void HastaPaneli_Load(object sender, EventArgs e)
         {
             Yenile(dataGridView2);
             txtrecetekodu.Focus();
-
+            statichastacmb = comboBox1;
+            
             // ad soyad çekme
             statichasta = label4;
             label2.Text = tc;
@@ -42,38 +66,10 @@ namespace ProjeDeneme_2
             }
             bgl.baglan().Close();
 
-            // Sipariş tablosu için id çekme
-            SqlCommand komut2 = new SqlCommand("Select Sehir from Hastalar where TC='"+tc+"'",bgl.baglan());
-            SqlDataReader dr2 = komut2.ExecuteReader();
-            while (dr2.Read())
-            {
-                sehir = dr2[0].ToString();
-            }
-            bgl.baglan().Close();
-
-            //hastanın şehrindeki eczaneleri comboboxa çekme
-            SqlCommand komut3 = new SqlCommand("Select EczaneAd from Eczane where EczacıSehir='"+sehir+"'",bgl.baglan());
-            SqlDataReader dr3 = komut3.ExecuteReader();
-            while (dr3.Read())
-            {
-                comboBox1.Items.Add(dr3[0].ToString());
-            }
-            bgl.baglan().Close();
-
-            string hastaid="";
+            ComboboxGuncelleme();
 
             //önceki reçeteler
-            SqlCommand komut4 = new SqlCommand("Select HastaID from Hastalar where TC='"+tc+"'",bgl.baglan());
-            SqlDataReader dr4 = komut4.ExecuteReader();
-            while (dr4.Read())
-            {
-                hastaid = dr4[0].ToString();
-            }
-            DataTable dt1 = new DataTable();
-            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA' FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='"+hastaid+"' and SiparişDurumuHasta='True' and SiparişDurumuEczane='True'", bgl.baglan());
-            komut5.Fill(dt1);
-            dataGridView2.DataSource = dt1;
-            bgl.baglan().Close();
+            Yenile(dataGridView2);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,36 +79,48 @@ namespace ProjeDeneme_2
 
         private void btnrecetegoster_Click(object sender, EventArgs e)
         {
-            DataTable dt1 = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select İlaç1 as '1.İlaç',İlaç2 as '2.İlaç',İlaç3 as '3.İlaç',İlaç4 as '4.İlaç',İlaç5 as '5.İlaç',İlaç6 as '6.İlaç',İlaç7 as '7.İlaç',İlaç8 as '8.İlaç',İlaç9 as '9.İlaç',İlaç10 as '10.İlaç' from Recete where ReceteKodu='" + txtrecetekodu.Text+"'", bgl.baglan());
-            da.Fill(dt1);
-            DataTable dt2 = new DataTable();// veritabanından gelen tabloyu düzenlemek için ikinci bir tablo oluşturduk
-            dt2.Columns.Add("Reçete");
-            for(int i = 0; i < dt1.Rows.Count; i++)// kolon adlarını düzeltiyor
+            string query= "select ReceteID from Recete where ReceteKodu=@s1";
+            SqlCommand kontrol = new SqlCommand(query, bgl.baglan());
+            kontrol.Parameters.AddWithValue("@s1", txtrecetekodu.Text);
+            SqlDataReader drk = kontrol.ExecuteReader();
+            if (drk.Read())
             {
-                dt2.Columns.Add("İlaç Adı");
-            }
-            
-            for(int i = 0; i < dt1.Columns.Count; i++) // burada tablo daha iyi gözükmesi için transpoze ediliyor
-            {
-                DataRow newRow = dt2.NewRow();
-                newRow[0] = dt1.Columns[i].Caption;
-                for(int j = 0; j < dt1.Rows.Count; j++)
+                DataTable dt1 = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter("Select İlaç1 as '1.İlaç',İlaç2 as '2.İlaç',İlaç3 as '3.İlaç',İlaç4 as '4.İlaç',İlaç5 as '5.İlaç',İlaç6 as '6.İlaç',İlaç7 as '7.İlaç',İlaç8 as '8.İlaç',İlaç9 as '9.İlaç',İlaç10 as '10.İlaç' from Recete where ReceteKodu='" + txtrecetekodu.Text + "'", bgl.baglan());
+                da.Fill(dt1);
+                DataTable dt2 = new DataTable();// veritabanından gelen tabloyu düzenlemek için ikinci bir tablo oluşturduk
+                dt2.Columns.Add("Reçete");
+                for (int i = 0; i < dt1.Rows.Count; i++)// kolon adlarını düzeltiyor
                 {
-                    newRow[j + 1] = dt1.Rows[j][i];
-                    dt2.Rows.Add(newRow);
+                    dt2.Columns.Add("İlaç Adı");
                 }
-            }
-            dataGridView1.DataSource = dt2;
-            bgl.baglan().Close();
 
-            SqlCommand fiyat = new SqlCommand("Select Tutar from Recete where ReceteKodu='"+txtrecetekodu.Text+"'",bgl.baglan());
-            SqlDataReader drfiy=fiyat.ExecuteReader();
-            while (drfiy.Read())
-            {
-                label9.Text = drfiy[0].ToString();
+                for (int i = 0; i < dt1.Columns.Count; i++) // burada tablo daha iyi gözükmesi için transpoze ediliyor
+                {
+                    DataRow newRow = dt2.NewRow();
+                    newRow[0] = dt1.Columns[i].Caption;
+                    for (int j = 0; j < dt1.Rows.Count; j++)
+                    {
+                        newRow[j + 1] = dt1.Rows[j][i];
+                        dt2.Rows.Add(newRow);
+                    }
+                }
+                dataGridView1.DataSource = dt2;
+                bgl.baglan().Close();
+
+                SqlCommand fiyat = new SqlCommand("Select Tutar from Recete where ReceteKodu='" + txtrecetekodu.Text + "'", bgl.baglan());
+                SqlDataReader drfiy = fiyat.ExecuteReader();
+                while (drfiy.Read())
+                {
+                    label9.Text = drfiy[0].ToString();
+                }
+                bgl.baglan().Close();
             }
-            bgl.baglan().Close();
+            else
+            {
+                MessageBox.Show("Lütfen geçerli bir reçete kodu girin !");
+                txtrecetekodu.Text = "";
+            }
         }
         public string oncekireckod;
         private void btn_bilgi_güncelle_Click(object sender, EventArgs e)
@@ -180,7 +188,7 @@ namespace ProjeDeneme_2
                 komuto.Parameters.AddWithValue("@s4", tarih);
                 komuto.Parameters.AddWithValue("@s5", "False");
                 komuto.Parameters.AddWithValue("@s6", txtrecetekodu.Text);
-                komuto.Parameters.AddWithValue("@s7", "True");
+                komuto.Parameters.AddWithValue("@s7", "False");
                 komuto.ExecuteReader();
                 bgl.baglan().Close();
 
@@ -232,17 +240,7 @@ namespace ProjeDeneme_2
             bgl.baglan().Close();
 
             //formda ÖNCEKİ Reçete tablosunu Güncelleme
-            SqlCommand komut6 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
-            SqlDataReader dr3 = komut6.ExecuteReader();
-            while (dr3.Read())
-            {
-                hastaid = dr3[0].ToString();
-            }
-            DataTable dt1 = new DataTable();
-            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumuHasta FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumuHasta='True'", bgl.baglan());
-            komut5.Fill(dt1);
-            dataGridView2.DataSource = dt1;
-            bgl.baglan().Close();
+            Yenile(dataGridView2);
 
             label9.Text = "-";
             txtrecetekodu.Text = "";
@@ -260,7 +258,7 @@ namespace ProjeDeneme_2
                 hastaid = dr3[0].ToString();
             }
             DataTable dt1 = new DataTable();
-            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA',SiparişDurumuHasta FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumuHasta='True' and SiparişDurumuEczane='True'", bgl.baglan());
+            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA' FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumuHasta='True' and SiparişDurumuEczane='True'", bgl.baglan());
             komut5.Fill(dt1);
             dgw.DataSource = dt1;
             bgl.baglan().Close();
@@ -271,7 +269,7 @@ namespace ProjeDeneme_2
             Yenile(dataGridView2);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//sipariş durumu formunu açıyor
         {
             SiparisDurumu hstr = new SiparisDurumu();
             hstr.tc = tc;

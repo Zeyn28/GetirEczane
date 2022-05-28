@@ -35,24 +35,33 @@ namespace ProjeDeneme_2
                     SqlCommand komut = new SqlCommand("insert into Hastalar(Ad,Soyad,TelNo,TC,Sehir,Adresi,Sifre) values(@h1,@h2,@h3,@h4,@h5,@h6,@h7)", bgl.baglan());
                     if (control.Regex_sifre(txt_sifre.Text))
                     {
-                        komut.Parameters.AddWithValue("@h1", txtbox_ad.Text);
-                        komut.Parameters.AddWithValue("@h2", txtbox_soyad.Text);
-                        komut.Parameters.AddWithValue("@h3", mskd_tel.Text);
-                        komut.Parameters.AddWithValue("@h4", mskd_tc.Text);
-                        komut.Parameters.AddWithValue("@h5", cmbbox_sehir.Text);
-                        komut.Parameters.AddWithValue("@h6", rtxtbox_adres.Text);
-                        komut.Parameters.AddWithValue("@h7", txt_sifre.Text);
-                        komut.ExecuteNonQuery();
-                        MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        hasta_girisi hg = new hasta_girisi();
-                        hg.Show();
-                        this.Hide();
-                        bgl.baglan().Close();
+                        SqlCommand tc = new SqlCommand("select TC from Hastalar where TC='" + mskd_tc.Text + "'", bgl.baglan());
+                        SqlDataReader tcdr = tc.ExecuteReader();
+                        if (tcdr.Read())
+                        {
+                            MessageBox.Show("TC'niz daha önce kullanılmıştır.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            mskd_tc.Text = "";
+                        }
+                        else
+                        {
+                            komut.Parameters.AddWithValue("@h1", txtbox_ad.Text);
+                            komut.Parameters.AddWithValue("@h2", txtbox_soyad.Text);
+                            komut.Parameters.AddWithValue("@h3", mskd_tel.Text);
+                            komut.Parameters.AddWithValue("@h4", mskd_tc.Text);
+                            komut.Parameters.AddWithValue("@h5", cmbbox_sehir.Text);
+                            komut.Parameters.AddWithValue("@h6", rtxtbox_adres.Text);
+                            komut.Parameters.AddWithValue("@h7", txt_sifre.Text);
+                            komut.ExecuteNonQuery();
+                            MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            hasta_girisi hg = new hasta_girisi();
+                            hg.Show();
+                            this.Hide();
+                            bgl.baglan().Close();
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Şifreniz en az 1 tane büyük harf,1 tane küçük harf ve 1 tane rakam içermeli", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                     }
 
                 }
@@ -64,11 +73,8 @@ namespace ProjeDeneme_2
             else
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
         }
-
-
 
         private void hasta_kayıt_ekleme_Load(object sender, EventArgs e)
         {

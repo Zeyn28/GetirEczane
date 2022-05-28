@@ -37,7 +37,7 @@ namespace ProjeDeneme_2
         public static void Yeni_siparistable()
         {
             SQL bgl = new SQL();
-            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + ecz_id + "' and SiparişDurumuHasta='False'", bgl.baglan());
+            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + ecz_id + "' and SiparişDurumuHasta='False' and SiparişDurumuEczane='False'", bgl.baglan());
             DataTable dt1 = new DataTable();
             yeni.Fill(dt1);
             dgw.DataSource = dt1;
@@ -100,7 +100,7 @@ namespace ProjeDeneme_2
             if (Application.OpenForms["guncelle"] == null)
             {
                   frmb.Show();
-            }     
+            }
         }
         public static int i=0;
         public static Label staticlbl;
@@ -153,12 +153,8 @@ namespace ProjeDeneme_2
         {
             YeniSiparis frm = new YeniSiparis();
             frm.onceid=dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            frm.receteid=dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            frm.Name = "siparis";
-            if (Application.OpenForms["siparis"] == null)
-            {
-                frm.Show();
-            }
+            YeniSiparis.receteid = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            frm.Show();
         }
     }
 }

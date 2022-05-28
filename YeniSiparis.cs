@@ -18,7 +18,7 @@ namespace ProjeDeneme_2
         }
 
         SQL bgl = new SQL();
-        public string receteid;
+        public static string receteid;
         public string onceid;
 
         private void btnVazgec_Click(object sender, EventArgs e)
@@ -88,43 +88,45 @@ namespace ProjeDeneme_2
             dataGridView1.DataSource = dt2;
             bgl.baglan().Close();
         }
+        public string ecz_kasa = "";
+        public string rct_fiyat = "";
 
-        public string ecz_kasa="";
-        public string rct_fiyat="";
 
         private void btnGonder_Click(object sender, EventArgs e)
         {
-                SqlCommand gonder = new SqlCommand("update oncekisiparisler set SiparişDurumuHasta='True' where OncekisipID='" + onceid + "'", bgl.baglan());
-                gonder.ExecuteNonQuery();
-                bgl.baglan().Close();
+            SqlCommand gonder = new SqlCommand("update oncekisiparisler set SiparişDurumuEczane='True'  where OncekisipID='" + onceid + "'", bgl.baglan());
+            gonder.ExecuteNonQuery();
+            bgl.baglan().Close();
+            
+            SqlCommand kasa = new SqlCommand("select EczacıKasa from Eczane where EczaneID='" + eczid + "'", bgl.baglan());
+            SqlDataReader kasadr = kasa.ExecuteReader();
+            while (kasadr.Read())
+            {
+                ecz_kasa = kasadr[0].ToString();
+            }
+            bgl.baglan().Close();
 
-                SqlCommand kasa = new SqlCommand("select EczacıKasa from Eczane where EczaneID='"+eczid+"'",bgl.baglan());
-                SqlDataReader kasadr = kasa.ExecuteReader();
-                while (kasadr.Read())
-                {
-                    ecz_kasa = kasadr[0].ToString();
-                }
-                bgl.baglan().Close();
+            float kasa_tutar = EczacıPaneli.Fiyatregex(ecz_kasa);
 
-                float kasa_tutar =EczacıPaneli.Fiyatregex(ecz_kasa);
-
-                SqlCommand rec_fiyat = new SqlCommand("select Tutar from Recete where ReceteID='"+receteid+"'",bgl.baglan());
-                SqlDataReader rec_dr = rec_fiyat.ExecuteReader();
-                while (rec_dr.Read())
-                {
-                    rct_fiyat = rec_dr[0].ToString();
-                }
-                bgl.baglan().Close();
-                float rec_tutar = EczacıPaneli.Fiyatregex(rct_fiyat);
-                kasa_tutar += rec_tutar;
-                SqlCommand kasaguncelleme = new SqlCommand("update Eczane set EczacıKasa='"+kasa_tutar.ToString()+"' where EczaneID='"+eczid+"'",bgl.baglan());
-                kasaguncelleme.ExecuteNonQuery();
-                bgl.baglan().Close();
-                this.Hide();
-                MessageBox.Show("Sipariş gönderildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                EczacıPaneli.Yeni_siparistable();
-                EczacıPaneli.Onceki_siparistable();
-                EczacıPaneli.Kasa();
+            SqlCommand rec_fiyat = new SqlCommand("select Tutar from Recete where ReceteID='" + receteid + "'", bgl.baglan());
+            SqlDataReader rec_dr = rec_fiyat.ExecuteReader();
+            while (rec_dr.Read())
+            {
+                rct_fiyat = rec_dr[0].ToString();
+            }
+            bgl.baglan().Close();
+            
+            float rec_tutar = EczacıPaneli.Fiyatregex(rct_fiyat);
+            kasa_tutar += rec_tutar;
+            
+            SqlCommand kasaguncelleme = new SqlCommand("update Eczane set EczacıKasa='" + kasa_tutar.ToString() + "' where EczaneID='" + EczacıPaneli.ecz_id + "'", bgl.baglan());
+            kasaguncelleme.ExecuteNonQuery();
+            bgl.baglan().Close();
+            this.Hide();
+            MessageBox.Show("Sipariş gönderildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            EczacıPaneli.Yeni_siparistable();
+            EczacıPaneli.Onceki_siparistable();
+            EczacıPaneli.Kasa();
         }
     }
 }

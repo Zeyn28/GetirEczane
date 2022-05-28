@@ -21,28 +21,32 @@ namespace ProjeDeneme_2
         public string tc;
         public string hasid="";
         public static DataGridView dtgr;
-
-
-        private void HastaReceteler_Load(object sender, EventArgs e)
+        public void TabloYukle()
         {
-            SqlCommand hastaid = new SqlCommand("select HastaID from Hastalar where TC='"+tc+"'",bgl.baglan());
+            SqlCommand hastaid = new SqlCommand("select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
             SqlDataReader drid = hastaid.ExecuteReader();
             while (drid.Read())
             {
                 hasid = drid[0].ToString();
             }
-            SqlDataAdapter da = new SqlDataAdapter("select OncekiReceteKod as 'Reçete Kodu',TeslimTarihi as 'Teslim Tarihi',OncekisipID from oncekisiparisler where Hasta='"+hasid+"' and SiparişDurumuHasta='False'",bgl.baglan());
+            SqlDataAdapter da = new SqlDataAdapter("select OncekiReceteKod as 'Reçete Kodu',TeslimTarihi as 'Sipariş Tarihi',OncekisipID from oncekisiparisler where Hasta='" + hasid + "' and SiparişDurumuHasta='False'", bgl.baglan());
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dtgr = dataGridView1;
+            dtgr.DataSource = dt;
         }
+
+        private void HastaReceteler_Load(object sender, EventArgs e)
+        {
+            dtgr = dataGridView1;
+            TabloYukle();
+        }
+
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string durum="";
             string sipaid = dtgr.CurrentRow.Cells[2].Value.ToString();
-            SqlCommand sipdurum = new SqlCommand("select SiparişDurumuEczane from oncekisiparisler where Hasta='"+hasid+"'",bgl.baglan());
+            SqlCommand sipdurum = new SqlCommand("select SiparişDurumuEczane from oncekisiparisler where OncekisipID='"+sipaid+"'",bgl.baglan());
             SqlDataReader dr = sipdurum.ExecuteReader();
             while (dr.Read())
             {
@@ -56,6 +60,7 @@ namespace ProjeDeneme_2
                 {
                     SqlCommand ctr = new SqlCommand("update oncekisiparisler set SiparişDurumuHasta='True' where OncekisipID='"+sipaid+"'",bgl.baglan());
                     ctr.ExecuteNonQuery();
+                    TabloYukle();
                 }
             }
             else

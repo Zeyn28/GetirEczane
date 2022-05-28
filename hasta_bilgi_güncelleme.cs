@@ -21,8 +21,6 @@ namespace ProjeDeneme_2
         Veri_aktarma control = new Veri_aktarma();
         private void btn_vazgec_Click(object sender, EventArgs e)
         {
-            HastaPaneli hst = new HastaPaneli();
-            hst.Show();
             this.Hide();
         }
         public string tc2;
@@ -76,6 +74,7 @@ namespace ProjeDeneme_2
                         bgl.baglan().Close();
                         MessageBox.Show("Kaydınız Güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
+                        HastaPaneli.ComboboxGuncelleme();
                     }
                     else
                     {

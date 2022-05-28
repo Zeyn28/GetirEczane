@@ -40,18 +40,19 @@ namespace ProjeDeneme_2
         private void btnEczacıK_Click(object sender, EventArgs e)
         {
             if (txtAd.Text != "" && txtSoyad.Text != "" && txteczacisifre.Text != "" && richAdres.Text != "" && mskTC.Text != "" && mskTel.Text != "" && cmbSehir.Text != "" && mskDiploma.Text != "" && txtEczanead.Text != "")
-            {
-                if (txteczacisifre.Text.Length >= 4) 
+            {     
+                if (txteczacisifre.Text.Length >= 4)
                 {
                     if (control.Regex_sifre(txteczacisifre.Text))
                     {
                         if (dogrulandi.Visible == true)//kontrolden geçerse eczacı kaydı yapılır
                         {
-                            SqlCommand tc = new SqlCommand("select EczacıTC from Eczane where EczacıTC='"+mskTC.Text+"'",bgl.baglan());
+                            SqlCommand tc = new SqlCommand("select EczacıTC from Eczane where EczacıTC='" + mskTC.Text + "'", bgl.baglan());
                             SqlDataReader tcdr = tc.ExecuteReader();
                             if (tcdr.Read())
                             {
                                 MessageBox.Show("TC'niz daha önce kullanılmıştır.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                mskTC.Text = "";
                             }
                             else
                             {
@@ -69,18 +70,18 @@ namespace ProjeDeneme_2
                                 bgl.baglan().Close();
                                 MessageBox.Show("Kaydınız Oluşturuldu.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Hide();
+                                EczaciGiris eczg = new EczaciGiris();
+                                eczg.Show();
                             }
                         }
                         else
                         {
                             MessageBox.Show("Lütfen geçerli bir diploma barkodu giriniz.", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-
                     }
                     else
                     {
                         MessageBox.Show("Şifreniz en az 1 tane büyük harf,1 tane küçük harf ve 1 tane rakam içermeli", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                     }
                 }
                 else
@@ -91,7 +92,6 @@ namespace ProjeDeneme_2
             else
             {
                 MessageBox.Show("Eksik Bilgi Girdiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
         }
 

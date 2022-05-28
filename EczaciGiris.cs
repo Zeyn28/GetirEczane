@@ -43,11 +43,8 @@ namespace ProjeDeneme_2
         {
             //Form içinde form açarken açılan formun sadece 1 kez açılabilmesi
             EczaciKayit kayit = new EczaciKayit();
-            kayit.Name = "deneme";
-            if (Application.OpenForms["deneme"] == null) 
-            {
-                     kayit.Show();
-            }
+            kayit.Show();
+            this.Hide();
            
            
         }

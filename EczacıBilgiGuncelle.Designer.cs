@@ -214,7 +214,7 @@ namespace ProjeDeneme_2
             // 
             this.txtEczaneAd.Location = new System.Drawing.Point(123, 199);
             this.txtEczaneAd.Name = "txtEczaneAd";
-            this.txtEczaneAd.Size = new System.Drawing.Size(166, 32);
+            this.txtEczaneAd.Size = new System.Drawing.Size(221, 32);
             this.txtEczaneAd.TabIndex = 9;
             this.txtEczaneAd.Leave += new System.EventHandler(this.txtEczaneAd_Leave);
             // 
@@ -248,24 +248,35 @@ namespace ProjeDeneme_2
             // 
             // btnKaydet
             // 
+            this.btnKaydet.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btnKaydet.FlatAppearance.BorderSize = 0;
+            this.btnKaydet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.btnKaydet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
+            this.btnKaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKaydet.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKaydet.Location = new System.Drawing.Point(310, 287);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(127, 37);
             this.btnKaydet.TabIndex = 10;
             this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.UseVisualStyleBackColor = false;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnCık
             // 
+            this.btnCık.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btnCık.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCık.FlatAppearance.BorderSize = 0;
+            this.btnCık.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.btnCık.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
+            this.btnCık.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCık.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCık.Location = new System.Drawing.Point(123, 287);
             this.btnCık.Name = "btnCık";
             this.btnCık.Size = new System.Drawing.Size(127, 37);
             this.btnCık.TabIndex = 11;
             this.btnCık.Text = "Çık";
-            this.btnCık.UseVisualStyleBackColor = true;
+            this.btnCık.UseVisualStyleBackColor = false;
             this.btnCık.Click += new System.EventHandler(this.btnCık_Click);
             // 
             // rtxtAdres
@@ -283,6 +294,7 @@ namespace ProjeDeneme_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CancelButton = this.btnCık;
             this.ClientSize = new System.Drawing.Size(917, 395);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

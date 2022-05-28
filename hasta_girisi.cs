@@ -19,34 +19,11 @@ namespace ProjeDeneme_2
         }
         SQL bgl = new SQL();
 
-        private void btnhastagiris_Click(object sender, EventArgs e)
-        {
-            SqlCommand komut = new SqlCommand("select * from Hastalar where TC=@g1 Sifre=@g2", bgl.baglan());
-            komut.Parameters.AddWithValue("@g1", mskTC.Text);
-            komut.Parameters.AddWithValue("@g2", txtSifre.Text);
-            SqlDataReader da = komut.ExecuteReader();
-            if (da.Read())
-            {
-                HastaPaneli hstpanel = new HastaPaneli();
-                hstpanel.tc = mskTC.Text;
-                hstpanel.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Kullanıcı adı ya da şifre hatalı!", "Giriş Yapılamadı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                mskTC.Text = "";
-                txtSifre.Text = "";
-                mskTC.Focus(); 
-            }
-        }
-
         private void btnhastaKaydol_Click(object sender, EventArgs e)
         {
             hasta_kayıt_ekleme hstkyt = new hasta_kayıt_ekleme();
             hstkyt.Show();
             this.Hide();
-
         }
 
         private void btnhastagiris_Click_1(object sender, EventArgs e)
@@ -58,7 +35,7 @@ namespace ProjeDeneme_2
             if (dr.Read())
             {
                 HastaPaneli hstpanel = new HastaPaneli();
-                hstpanel.tc = mskTC.Text;
+                HastaPaneli.tc = mskTC.Text;
                 hstpanel.Show();
                 this.Hide();
             }

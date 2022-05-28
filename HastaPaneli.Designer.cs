@@ -216,6 +216,8 @@ namespace ProjeDeneme_2
             // 
             this.btnrecetegönder.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btnrecetegönder.FlatAppearance.BorderSize = 0;
+            this.btnrecetegönder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.btnrecetegönder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
             this.btnrecetegönder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnrecetegönder.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnrecetegönder.Location = new System.Drawing.Point(236, 242);
@@ -323,6 +325,8 @@ namespace ProjeDeneme_2
             // 
             this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.Location = new System.Drawing.Point(809, 375);
@@ -353,6 +357,8 @@ namespace ProjeDeneme_2
             // 
             this.button1.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.Location = new System.Drawing.Point(419, 375);
