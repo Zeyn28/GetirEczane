@@ -97,6 +97,7 @@ namespace ProjeDeneme_2
             this.btn_bilgi_güncelle.Name = "btn_bilgi_güncelle";
             this.btn_bilgi_güncelle.Size = new System.Drawing.Size(186, 30);
             this.btn_bilgi_güncelle.TabIndex = 7;
+            this.btn_bilgi_güncelle.TabStop = false;
             this.btn_bilgi_güncelle.Text = "Bilgilerimi Güncelle";
             this.btn_bilgi_güncelle.UseVisualStyleBackColor = false;
             this.btn_bilgi_güncelle.Click += new System.EventHandler(this.btn_bilgi_güncelle_Click);
@@ -233,6 +234,7 @@ namespace ProjeDeneme_2
             this.txtrecetekodu.Name = "txtrecetekodu";
             this.txtrecetekodu.Size = new System.Drawing.Size(164, 22);
             this.txtrecetekodu.TabIndex = 1;
+            this.txtrecetekodu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrecetekodu_KeyPress);
             // 
             // label5
             // 
@@ -327,6 +329,7 @@ namespace ProjeDeneme_2
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 39);
             this.button2.TabIndex = 6;
+            this.button2.TabStop = false;
             this.button2.Text = "Çıkış";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -342,6 +345,7 @@ namespace ProjeDeneme_2
             this.btnYenile.Name = "btnYenile";
             this.btnYenile.Size = new System.Drawing.Size(71, 26);
             this.btnYenile.TabIndex = 8;
+            this.btnYenile.TabStop = false;
             this.btnYenile.UseVisualStyleBackColor = true;
             this.btnYenile.Click += new System.EventHandler(this.btnYenile_Click);
             // 
@@ -355,6 +359,7 @@ namespace ProjeDeneme_2
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 39);
             this.button1.TabIndex = 5;
+            this.button1.TabStop = false;
             this.button1.Text = "Sipariş Durumu";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -363,6 +368,7 @@ namespace ProjeDeneme_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(921, 469);
             this.Controls.Add(this.button1);
@@ -374,8 +380,9 @@ namespace ProjeDeneme_2
             this.Controls.Add(this.pnlyenirecete);
             this.Controls.Add(this.panel3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "HastaPaneli";
-            this.Text = "Form4";
+            this.Text = "Hasta Paneli";
             this.Load += new System.EventHandler(this.HastaPaneli_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

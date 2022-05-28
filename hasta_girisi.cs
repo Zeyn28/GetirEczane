@@ -70,5 +70,10 @@ namespace ProjeDeneme_2
                 mskTC.Focus();
             }
         }
+
+        private void hasta_girisi_Load(object sender, EventArgs e)
+        {
+            mskTC.Focus();
+        }
     }
 }

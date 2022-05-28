@@ -31,6 +31,9 @@ namespace ProjeDeneme_2
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EczacıPaneli));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Lblkasa = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,6 +67,9 @@ namespace ProjeDeneme_2
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.Lblkasa);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -74,6 +80,39 @@ namespace ProjeDeneme_2
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(956, 74);
             this.panel1.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(923, 36);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(22, 24);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "₺";
+            // 
+            // Lblkasa
+            // 
+            this.Lblkasa.AutoSize = true;
+            this.Lblkasa.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lblkasa.Location = new System.Drawing.Point(854, 36);
+            this.Lblkasa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lblkasa.Name = "Lblkasa";
+            this.Lblkasa.Size = new System.Drawing.Size(65, 24);
+            this.Lblkasa.TabIndex = 5;
+            this.Lblkasa.Text = "label9";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(765, 36);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 24);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Kasa :";
             // 
             // label7
             // 
@@ -273,6 +312,7 @@ namespace ProjeDeneme_2
             this.btnBilgiGuncelle.Name = "btnBilgiGuncelle";
             this.btnBilgiGuncelle.Size = new System.Drawing.Size(190, 35);
             this.btnBilgiGuncelle.TabIndex = 1;
+            this.btnBilgiGuncelle.TabStop = false;
             this.btnBilgiGuncelle.Text = "Bilgilerimi güncelle";
             this.btnBilgiGuncelle.UseVisualStyleBackColor = true;
             this.btnBilgiGuncelle.Click += new System.EventHandler(this.btnBilgiGuncelle_Click);
@@ -285,6 +325,7 @@ namespace ProjeDeneme_2
             this.btnCıkıs.Name = "btnCıkıs";
             this.btnCıkıs.Size = new System.Drawing.Size(118, 35);
             this.btnCıkıs.TabIndex = 2;
+            this.btnCıkıs.TabStop = false;
             this.btnCıkıs.Text = "Çıkış";
             this.btnCıkıs.UseVisualStyleBackColor = true;
             this.btnCıkıs.Click += new System.EventHandler(this.button2_Click);
@@ -307,7 +348,6 @@ namespace ProjeDeneme_2
             // 
             // EczacıPaneli
             // 
-            this.AcceptButton = this.btnBilgiGuncelle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -325,7 +365,7 @@ namespace ProjeDeneme_2
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "EczacıPaneli";
-            this.Text = "EczacıPaneli";
+            this.Text = "Eczacı Paneli";
             this.Load += new System.EventHandler(this.EczacıPaneli_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -365,5 +405,8 @@ namespace ProjeDeneme_2
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label Lblkasa;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -28,7 +28,7 @@ namespace ProjeDeneme_2
         public string tc2;
         private void hasta_bilgi_güncelleme_Load(object sender, EventArgs e)
         {
-
+            txtbox_ad.Focus();
             string[] Sehir = { "Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
                 "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
                 "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari",
@@ -41,8 +41,6 @@ namespace ProjeDeneme_2
             {
                 cmbbox_sehir.Items.Add(Sehir[i]);
             }
-
-
 
             SqlCommand komut = new SqlCommand("Select Ad,Soyad,TelNo,Sehir,TC,Adresi,Sifre from Hastalar where TC=@q1", bgl.baglan());
             komut.Parameters.AddWithValue("@q1", tc2);
@@ -65,7 +63,7 @@ namespace ProjeDeneme_2
                 if (txt_sifre.Text.Length >= 4)
                 {
                     SqlCommand yeni = new SqlCommand("update Hastalar set Ad=@y1,Soyad=@y2,TelNo=@y3,Sehir=@y4,Adresi=@y5,Sifre=@y6 where TC='" + mskd_tc.Text + "'", bgl.baglan());
-                    if (control.regex_sifre(txt_sifre.Text))
+                    if (control.Regex_sifre(txt_sifre.Text))
                     {
                         yeni.Parameters.AddWithValue("@y1", txtbox_ad.Text);
                         yeni.Parameters.AddWithValue("@y2", txtbox_soyad.Text);
@@ -105,6 +103,16 @@ namespace ProjeDeneme_2
         private void txtbox_soyad_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtbox_soyad);
+        }
+
+        private void txtbox_ad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
+        }
+
+        private void txtbox_soyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
         }
     }
 }

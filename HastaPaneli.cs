@@ -28,6 +28,8 @@ namespace ProjeDeneme_2
         private void HastaPaneli_Load(object sender, EventArgs e)
         {
             Yenile(dataGridView2);
+            txtrecetekodu.Focus();
+
             // ad soyad çekme
             statichasta = label4;
             label2.Text = tc;
@@ -48,6 +50,7 @@ namespace ProjeDeneme_2
                 sehir = dr2[0].ToString();
             }
             bgl.baglan().Close();
+
             //hastanın şehrindeki eczaneleri comboboxa çekme
             SqlCommand komut3 = new SqlCommand("Select EczaneAd from Eczane where EczacıSehir='"+sehir+"'",bgl.baglan());
             SqlDataReader dr3 = komut3.ExecuteReader();
@@ -56,7 +59,9 @@ namespace ProjeDeneme_2
                 comboBox1.Items.Add(dr3[0].ToString());
             }
             bgl.baglan().Close();
+
             string hastaid="";
+
             //önceki reçeteler
             SqlCommand komut4 = new SqlCommand("Select HastaID from Hastalar where TC='"+tc+"'",bgl.baglan());
             SqlDataReader dr4 = komut4.ExecuteReader();
@@ -98,26 +103,26 @@ namespace ProjeDeneme_2
                     dt2.Rows.Add(newRow);
                 }
             }
-            
-
             dataGridView1.DataSource = dt2;
             bgl.baglan().Close();
+
             SqlCommand fiyat = new SqlCommand("Select Tutar from Recete where ReceteKodu='"+txtrecetekodu.Text+"'",bgl.baglan());
             SqlDataReader drfiy=fiyat.ExecuteReader();
             while (drfiy.Read())
             {
                 label9.Text = drfiy[0].ToString();
             }
+            bgl.baglan().Close();
         }
         public string oncekireckod;
         private void btn_bilgi_güncelle_Click(object sender, EventArgs e)
         {
             hasta_bilgi_güncelleme hbg = new hasta_bilgi_güncelleme();
             hbg.tc2 = tc;// tc yi id olarak kullarak güncelleme paneline veri çekmek için
-            hbg.Name = "deneme";
-            if (Application.OpenForms["deneme"] == null)
+            hbg.Name = "guncelle";
+            if (Application.OpenForms["guncelle"] == null)
             {
-            hbg.Show();
+                hbg.Show();
             }
 
         }
@@ -136,6 +141,7 @@ namespace ProjeDeneme_2
                 hastaid = dr[0].ToString(); //burada hastanın tc sinden id sine ulaşılıyor
             }
             bgl.baglan().Close();
+
             SqlCommand komut2 = new SqlCommand("Select EczaneID from Eczane where EczaneAd='" + comboBox1.Text + "'", bgl.baglan());
             SqlDataReader dr1 = komut2.ExecuteReader();
             while (dr1.Read())
@@ -143,17 +149,15 @@ namespace ProjeDeneme_2
                 eczacid = dr1[0].ToString();// burada sipariş tablosuna reçetenin hangi eczaneden alındığı bilgisi için eczane id sine ulaşılıyor
             }
             bgl.baglan().Close();
+
             SqlCommand komut3 = new SqlCommand("Select ReceteID from Recete where ReceteKodu='" + txtrecetekodu.Text + "'", bgl.baglan());
             SqlDataReader dr2= komut3.ExecuteReader();
             while (dr2.Read())
             {
                 receteid = dr2[0].ToString();//reçete id si çekme
             }
-            StreamWriter sw;
-            sw=File.CreateText(@"C:\Users\w10\Desktop\recetekodu.txt");
-            sw.WriteLine(receteid);
-            sw.Close();
             bgl.baglan().Close();
+
             // tarih çekme 
             string tarih="";
             SqlCommand tarihcekme = new SqlCommand("SELECT CONVERT (varchar,getdate(),104)", bgl.baglan());
@@ -162,13 +166,13 @@ namespace ProjeDeneme_2
             {
                 tarih = date[0].ToString();
             }
+            bgl.baglan().Close();
+
             // sipariş ekleme
             SqlCommand kmtrecetekodu = new SqlCommand("Select * from Recete where ReceteKodu='"+txtrecetekodu.Text+"'", bgl.baglan());
             SqlDataReader drrecete = kmtrecetekodu.ExecuteReader();
-
             if (drrecete.Read())
             {
-               // SqlCommand adres = new SqlCommand("update oncekisiparisler set HastaAdresi='""'");
                 SqlCommand komuto = new SqlCommand("insert into oncekisiparisler (Hasta,Eczane,Recete,TeslimTarihi,SiparişDurumuHasta,OncekiReceteKod,SiparişDurumuEczane)values (@s1,@s2,@s3,@s4,@s5,@s6,@s7)", bgl.baglan());
                 komuto.Parameters.AddWithValue("@s1", hastaid);
                 komuto.Parameters.AddWithValue("@s2", eczacid);
@@ -179,17 +183,20 @@ namespace ProjeDeneme_2
                 komuto.Parameters.AddWithValue("@s7", "True");
                 komuto.ExecuteReader();
                 bgl.baglan().Close();
+
                 // reçete kodlarını rastgele kodlarla değiştiriyor
                 Random rnd = new Random();
-                    string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
-                    string ex = "";
-                    for (int i = 0; i < 6; i++)
-                    {
-                        ex += havuz[rnd.Next(havuz.Length - 1)];
-                    }
-                    SqlCommand kodguncelleme = new SqlCommand("update Recete set ReceteKodu='" + ex + "'where ReceteID='" + receteid + "'", bgl.baglan());
-                    kodguncelleme.ExecuteNonQuery();
-                    bgl.baglan().Close();
+                string havuz = "ABCDEFGHIJKLMNOPQRSTUWVYZabcdefghijklmnoprstuvyzwq1234567890";
+                string ex = "";
+                for (int i = 0; i < 6; i++)
+                {
+                    ex += havuz[rnd.Next(havuz.Length - 1)];
+                }
+
+                SqlCommand kodguncelleme = new SqlCommand("update Recete set ReceteKodu='" + ex + "'where ReceteID='" + receteid + "'", bgl.baglan());
+                kodguncelleme.ExecuteNonQuery();
+                bgl.baglan().Close();
+
                 //oncekisiparisler tablosundaki hastaadresi'ni doldurmak için hastalar tablosunu kullandık 
                 SqlCommand adres2 = new SqlCommand("select Adresi from Hastalar where HastaID='"+hastaid+"'",bgl.baglan());
                 SqlDataReader hastadr = adres2.ExecuteReader();
@@ -197,15 +204,17 @@ namespace ProjeDeneme_2
                 {
                     adres = hastadr[0].ToString();
                 }
+                bgl.baglan().Close();
+
                 SqlCommand adres3 = new SqlCommand("update oncekisiparisler set HastaAdresi='"+adres+"' where Recete='"+receteid+"'",bgl.baglan());
                 adres3.ExecuteNonQuery();
                 bgl.baglan().Close();
                 
                 Odeme ode = new Odeme();
-                ode.Name = "deneme";
-                if (Application.OpenForms["deneme"] == null)
+                ode.Name = "odeme";
+                if (Application.OpenForms["odeme"] == null)
                 {
-                ode.Show();
+                    ode.Show();
                 }
 
                 SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + receteid + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
@@ -214,13 +223,15 @@ namespace ProjeDeneme_2
                 {
                     ode.sip2 = Convert.ToInt32(drsip2[0]);
                 }
+                bgl.baglan().Close();
             }
             else
             {
                 MessageBox.Show("Lütfen reçete kodunu girin.","Uyarı",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+            bgl.baglan().Close();
+
             //formda ÖNCEKİ Reçete tablosunu Güncelleme
-            //burada reçete kodu güncelleme hatası var (önceki tablosunda da değişiyor)
             SqlCommand komut6 = new SqlCommand("Select HastaID from Hastalar where TC='" + tc + "'", bgl.baglan());
             SqlDataReader dr3 = komut6.ExecuteReader();
             while (dr3.Read())
@@ -238,6 +249,7 @@ namespace ProjeDeneme_2
             comboBox1.Text = "";
 
         }
+
         public void Yenile(DataGridView dgw)
         {
             string hastaid = "";
@@ -263,12 +275,16 @@ namespace ProjeDeneme_2
         {
             SiparisDurumu hstr = new SiparisDurumu();
             hstr.tc = tc;
-            hstr.Name = "deneme";
-            if (Application.OpenForms["deneme"] == null)
+            hstr.Name = "durum";
+            if (Application.OpenForms["durum"] == null)
             {
-            hstr.Show();
+                hstr.Show();
             }
+        }
 
+        private void txtrecetekodu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Veri_aktarma.ReceteKodu_Kontrolu(e);
         }
     }
 }

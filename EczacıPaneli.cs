@@ -31,6 +31,9 @@ namespace ProjeDeneme_2
         public static DataGridView dgw;
         public static DataGridView dgw2;
         public static string ecz_id;
+
+        //siparişler üzerinde işlem yaptıktan sonra panelin güncel kalabilmesi için
+
         public static void Yeni_siparistable()
         {
             SQL bgl = new SQL();
@@ -38,6 +41,17 @@ namespace ProjeDeneme_2
             DataTable dt1 = new DataTable();
             yeni.Fill(dt1);
             dgw.DataSource = dt1;
+            bgl.baglan().Close();
+        }
+        public static void Kasa()
+        {
+            SQL bgl = new SQL();
+            SqlCommand kasa = new SqlCommand("select EczacıKasa from Eczane where EczaneID='" + ecz_id + "'", bgl.baglan());
+            SqlDataReader drk = kasa.ExecuteReader();
+            while (drk.Read())
+            {
+                staticlblkasa.Text = drk[0].ToString();
+            }
             bgl.baglan().Close();
         }
         public static void Onceki_siparistable()
@@ -49,6 +63,8 @@ namespace ProjeDeneme_2
             dgw2.DataSource = dt2;
             bgl.baglan().Close();
         }
+
+        //kasa tutarını hesaplamak için string i float yaparak işlem yapmak için
         public static float Fiyatregex(string sayi)
         {
             Regex rgx = new Regex(@"\d{0,14}\.\d{0,2}||\d{0,14},\d{0,2}");
@@ -75,28 +91,31 @@ namespace ProjeDeneme_2
                 return 0;
             }
         }
+        // bilgi güncelleme yaptıktan sonra panelde de bilgilerin güncellenmesi için
         private void btnBilgiGuncelle_Click(object sender, EventArgs e)
         {
             EczacıBilgiGuncelle frmb = new EczacıBilgiGuncelle();
             frmb.ecztc = ecz_tc;// tc değişmez olduğu için tcyi id gibi kullanma amacıyla güncelleme formuna gönderme
-            frmb.Name = "deneme";
-            if (Application.OpenForms["deneme"] == null)
+            frmb.Name = "guncelle";
+            if (Application.OpenForms["guncelle"] == null)
             {
                   frmb.Show();
-            }
-            
+            }     
         }
         public static int i=0;
         public static Label staticlbl;
+        public static Label staticlblkasa;
         private void EczacıPaneli_Load(object sender, EventArgs e)
         {
             dgw = dataGridView1;
             dgw2 = dataGridView2;
+            staticlblkasa = Lblkasa;
             // Label sınıf olduğu için referans gönderir
             // bu yüzden iki label ı birbirine eşitlediğimiz de değerleri de eşitleniyor
             staticlbl = label7;
             //eczacı ad soyad ve tc çekme
             label5.Text = ecz_tc;
+
             SqlCommand ecz_komut = new SqlCommand("Select (EczacıAd+' '+EczacıSoyad) from Eczane where EczacıTC=@e1", bgl.baglan());
             ecz_komut.Parameters.AddWithValue("@e1", label5.Text);
             SqlDataReader drr = ecz_komut.ExecuteReader();
@@ -106,6 +125,8 @@ namespace ProjeDeneme_2
             }
             label7.Text = ecz_adsoyad;
             bgl.baglan().Close();
+
+            //eczacı id çekme
             string eczid ="";
             SqlCommand kmt = new SqlCommand("select EczaneID from Eczane where EczacıTC='"+ecz_tc+"'",bgl.baglan());
             SqlDataReader drecz = kmt.ExecuteReader();
@@ -114,38 +135,30 @@ namespace ProjeDeneme_2
                 eczid = drecz[0].ToString();
             }
             ecz_id = eczid;
+            
             bgl.baglan().Close();
 
-            //yeni siparişler
-            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + eczid + "' and SiparişDurumuEczane='True' and SiparişDurumuHasta='False'", bgl.baglan());
-            DataTable dt1 = new DataTable();
-            yeni.Fill(dt1);
-            dataGridView1.DataSource = dt1;
-            bgl.baglan().Close();
+            //yeni siparişler tablosu
+            Yeni_siparistable();
 
-            //önceki siparişler
+            //önceki siparişler tablosu
+            Onceki_siparistable();
 
-            SqlDataAdapter onceki = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where SiparişDurumuEczane='True' and SiparişDurumuHasta='True' and Eczane='" + eczid + "' ", bgl.baglan());
-            DataTable dt2 = new DataTable();
-            onceki.Fill(dt2);
-            dataGridView2.DataSource = dt2;
-            bgl.baglan().Close();
+            //Kasada ki para miktarı
+            Kasa();
         }
 
-
-
+        //yeni sipariş tablosunu açıyor
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             YeniSiparis frm = new YeniSiparis();
             frm.onceid=dataGridView1.CurrentRow.Cells[0].Value.ToString();
             frm.receteid=dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            frm.Name = "deneme";
-            if (Application.OpenForms["deneme"] == null)
+            frm.Name = "siparis";
+            if (Application.OpenForms["siparis"] == null)
             {
-                       frm.Show();
+                frm.Show();
             }
-            
         }
-        
     }
 }

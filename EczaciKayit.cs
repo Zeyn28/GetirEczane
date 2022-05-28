@@ -21,6 +21,7 @@ namespace ProjeDeneme_2
         Veri_aktarma control = new Veri_aktarma(); //Regex ve regular expressions kullanarak textbox kontrolü 
         private void EczaciKayit_Load(object sender, EventArgs e)
         {
+            txtAd.Focus();
             //şehir comboboxını doldurma
             string[] Sehir = { "Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
                 "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
@@ -42,7 +43,7 @@ namespace ProjeDeneme_2
             {
                 if (txteczacisifre.Text.Length >= 4) 
                 {
-                    if (control.regex_sifre(txteczacisifre.Text))
+                    if (control.Regex_sifre(txteczacisifre.Text))
                     {
                         if (dogrulandi.Visible == true)//kontrolden geçerse eczacı kaydı yapılır
                         {
@@ -147,6 +148,16 @@ namespace ProjeDeneme_2
         private void txtEczanead_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtEczanead);
+        }
+
+        private void txtAd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
+        }
+
+        private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
         }
     }
 

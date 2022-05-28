@@ -65,7 +65,7 @@ namespace ProjeDeneme_2
             {
                 if (txtsifre.Text.Length >= 4)
                 {
-                    if (control.regex_sifre(txtsifre.Text))
+                    if (control.Regex_sifre(txtsifre.Text))
                     {
                         ecz_yeni.Parameters.AddWithValue("@y1", txtAd.Text);
                         ecz_yeni.Parameters.AddWithValue("@y2", txtSoyad.Text);
@@ -112,6 +112,16 @@ namespace ProjeDeneme_2
         private void txtEczaneAd_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtEczaneAd);
+        }
+
+        private void txtAd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
+        }
+
+        private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
         }
     }
 }

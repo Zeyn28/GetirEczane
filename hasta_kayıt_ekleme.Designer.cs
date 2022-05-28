@@ -139,6 +139,7 @@ namespace ProjeDeneme_2
             this.txtbox_soyad.Name = "txtbox_soyad";
             this.txtbox_soyad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_soyad.TabIndex = 2;
+            this.txtbox_soyad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbox_soyad_KeyPress);
             this.txtbox_soyad.Leave += new System.EventHandler(this.txtbox_soyad_Leave);
             // 
             // txtbox_ad
@@ -148,6 +149,7 @@ namespace ProjeDeneme_2
             this.txtbox_ad.Name = "txtbox_ad";
             this.txtbox_ad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_ad.TabIndex = 1;
+            this.txtbox_ad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbox_ad_KeyPress);
             this.txtbox_ad.Leave += new System.EventHandler(this.txtbox_ad_Leave);
             // 
             // label5
@@ -288,7 +290,7 @@ namespace ProjeDeneme_2
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "hasta_kayıt_ekleme";
-            this.Text = "hasta_kayıt_ekleme";
+            this.Text = "Hasta Kayıt Paneli";
             this.Load += new System.EventHandler(this.hasta_kayıt_ekleme_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

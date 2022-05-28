@@ -99,6 +99,7 @@ namespace ProjeDeneme_2
             // 
             // btnVazgec
             // 
+            this.btnVazgec.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnVazgec.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnVazgec.Location = new System.Drawing.Point(188, 234);
             this.btnVazgec.Margin = new System.Windows.Forms.Padding(2);
@@ -143,6 +144,7 @@ namespace ProjeDeneme_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CancelButton = this.btnVazgec;
             this.ClientSize = new System.Drawing.Size(776, 307);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnGonder);
@@ -157,7 +159,7 @@ namespace ProjeDeneme_2
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "YeniSiparis";
-            this.Text = "YeniSiparis";
+            this.Text = "Yeni Sipariş";
             this.Load += new System.EventHandler(this.YeniSiparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

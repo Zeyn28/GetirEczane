@@ -145,6 +145,7 @@ namespace ProjeDeneme_2
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(166, 32);
             this.txtSoyad.TabIndex = 2;
+            this.txtSoyad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoyad_KeyPress);
             this.txtSoyad.Leave += new System.EventHandler(this.txtSoyad_Leave);
             // 
             // txtAd
@@ -153,6 +154,7 @@ namespace ProjeDeneme_2
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(166, 32);
             this.txtAd.TabIndex = 1;
+            this.txtAd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAd_KeyPress);
             this.txtAd.Leave += new System.EventHandler(this.txtAd_Leave);
             // 
             // label3
@@ -289,7 +291,7 @@ namespace ProjeDeneme_2
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "EczacıBilgiGuncelle";
-            this.Text = "EczacıBilgiGuncelle";
+            this.Text = "Eczacı Bilgi Güncelleme Paneli";
             this.Load += new System.EventHandler(this.EczacıBilgiGuncelle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

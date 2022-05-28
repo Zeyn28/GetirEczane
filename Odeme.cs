@@ -20,9 +20,8 @@ namespace ProjeDeneme_2
         SQL bgl = new SQL();
         public string tutar;
         Veri_aktarma control = new Veri_aktarma();
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// odeme butonu
         {
-
             SqlCommand kontrol = new SqlCommand("select * from Kartlar where Kartisim='"+txtKartisim.Text+"' and Kartno='"+mtxtKartno.Text+"' and Sontarih='"+cmbay.Text+"/"+cmbyil.Text+"' and Guvenlikkod='"+mtxtGuvenlikkod.Text+"'",bgl.baglan());
             SqlDataReader dr = kontrol.ExecuteReader();
             if (dr.Read()!=true)
@@ -41,6 +40,7 @@ namespace ProjeDeneme_2
 
         private void Odeme_Load(object sender, EventArgs e)
         {
+            txtKartisim.Focus();
             string[] ay = { "01","02","03","04","05","06","07","08","09","10",
                                 "11","12","13","14","15","16","17","18","19","20",
                                 "21","22","23","24","25","26","27","28","29","30","31"};
@@ -56,17 +56,17 @@ namespace ProjeDeneme_2
             {
                 cmbyil.Items.Add(yıl[i]);
             }
-
-
         }
 
         private void txtKartisim_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtKartisim);
         }
+
         int Movem;
         int Mouse_X;
         int Mouse_Y;
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             Movem = 0;
@@ -85,6 +85,11 @@ namespace ProjeDeneme_2
             {
                 this.SetDesktopLocation(MousePosition.X - Mouse_X, MousePosition.Y - Mouse_Y);
             }
+        }
+
+        private void txtKartisim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
         }
 
         private void button2_Click(object sender, EventArgs e)

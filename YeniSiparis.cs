@@ -16,6 +16,7 @@ namespace ProjeDeneme_2
         {
             InitializeComponent();
         }
+
         SQL bgl = new SQL();
         public string receteid;
         public string onceid;
@@ -28,6 +29,7 @@ namespace ProjeDeneme_2
         private void YeniSiparis_Load(object sender, EventArgs e)
         {
             string hstid = ""; eczid="";
+
             SqlCommand hasta = new SqlCommand("select Hasta from oncekisiparisler where OncekisipID='"+onceid+"'",bgl.baglan());
             SqlDataReader hastadr = hasta.ExecuteReader();
             while (hastadr.Read())
@@ -45,7 +47,6 @@ namespace ProjeDeneme_2
             bgl.baglan().Close();
 
 
-
             SqlCommand adres = new SqlCommand("select HastaAdresi from oncekisiparisler where OncekisipID='"+onceid+"'",bgl.baglan());
             SqlDataReader adresdr = adres.ExecuteReader();
             while (adresdr.Read())
@@ -61,9 +62,9 @@ namespace ProjeDeneme_2
                 txtHastaAdSoy.Text = hstisimdr[0].ToString();
             }
             bgl.baglan().Close();
-            //
+            
             //İlaçlar için reçete tablosunu transpoze ettik 
-            //
+            
             SqlDataAdapter ilac = new SqlDataAdapter("Select İlaç1 as '1.İlaç',İlaç2 as '2.İlaç',İlaç3 as '3.İlaç',İlaç4 as '4.İlaç',İlaç5 as '5.İlaç',İlaç6 as '6.İlaç',İlaç7 as '7.İlaç',İlaç8 as '8.İlaç',İlaç9 as '9.İlaç',İlaç10 as '10.İlaç' from Recete where ReceteID='" + receteid + "'", bgl.baglan());
             DataTable dt1 = new DataTable();
             ilac.Fill(dt1);
@@ -86,10 +87,11 @@ namespace ProjeDeneme_2
             }
             dataGridView1.DataSource = dt2;
             bgl.baglan().Close();
-
         }
+
         public string ecz_kasa="";
         public string rct_fiyat="";
+
         private void btnGonder_Click(object sender, EventArgs e)
         {
                 SqlCommand gonder = new SqlCommand("update oncekisiparisler set SiparişDurumuHasta='True' where OncekisipID='" + onceid + "'", bgl.baglan());
@@ -103,7 +105,6 @@ namespace ProjeDeneme_2
                     ecz_kasa = kasadr[0].ToString();
                 }
                 bgl.baglan().Close();
-
 
                 float kasa_tutar =EczacıPaneli.Fiyatregex(ecz_kasa);
 
@@ -123,6 +124,7 @@ namespace ProjeDeneme_2
                 MessageBox.Show("Sipariş gönderildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EczacıPaneli.Yeni_siparistable();
                 EczacıPaneli.Onceki_siparistable();
+                EczacıPaneli.Kasa();
         }
     }
 }

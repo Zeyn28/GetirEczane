@@ -57,7 +57,7 @@ namespace ProjeDeneme_2
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(88, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 32);
+            this.label2.Size = new System.Drawing.Size(79, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "T.C. :";
             // 
@@ -66,7 +66,7 @@ namespace ProjeDeneme_2
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(82, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 32);
+            this.label3.Size = new System.Drawing.Size(85, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Şifre :";
             // 
@@ -139,7 +139,7 @@ namespace ProjeDeneme_2
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.MaximizeBox = false;
             this.Name = "EczaciGiris";
-            this.Text = "EczacıGiris";
+            this.Text = "Eczacı Giriş";
             this.ResumeLayout(false);
             this.PerformLayout();
 

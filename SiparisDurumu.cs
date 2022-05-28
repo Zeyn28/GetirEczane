@@ -37,6 +37,7 @@ namespace ProjeDeneme_2
             dataGridView1.DataSource = dt;
             dtgr = dataGridView1;
         }
+
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string durum="";

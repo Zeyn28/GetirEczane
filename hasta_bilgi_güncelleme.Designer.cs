@@ -118,6 +118,7 @@ namespace ProjeDeneme_2
             this.txtbox_soyad.Name = "txtbox_soyad";
             this.txtbox_soyad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_soyad.TabIndex = 2;
+            this.txtbox_soyad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbox_soyad_KeyPress);
             this.txtbox_soyad.Leave += new System.EventHandler(this.txtbox_soyad_Leave);
             // 
             // txtbox_ad
@@ -127,6 +128,7 @@ namespace ProjeDeneme_2
             this.txtbox_ad.Name = "txtbox_ad";
             this.txtbox_ad.Size = new System.Drawing.Size(162, 24);
             this.txtbox_ad.TabIndex = 1;
+            this.txtbox_ad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbox_ad_KeyPress);
             this.txtbox_ad.Leave += new System.EventHandler(this.txtbox_ad_Leave);
             // 
             // label5
@@ -243,6 +245,7 @@ namespace ProjeDeneme_2
             // btn_vazgec
             // 
             this.btn_vazgec.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_vazgec.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_vazgec.FlatAppearance.BorderSize = 0;
             this.btn_vazgec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vazgec.Font = new System.Drawing.Font("Arial Unicode MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -277,6 +280,7 @@ namespace ProjeDeneme_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CancelButton = this.btn_vazgec;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_vazgec);
             this.Controls.Add(this.btn_guncelle);
@@ -286,7 +290,7 @@ namespace ProjeDeneme_2
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "hasta_bilgi_güncelleme";
-            this.Text = "hasta_bilgi_güncelleme";
+            this.Text = "Hasta Bilgi Güncelleme Paneli";
             this.Load += new System.EventHandler(this.hasta_bilgi_güncelleme_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

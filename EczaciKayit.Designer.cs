@@ -88,6 +88,7 @@ namespace ProjeDeneme_2
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(167, 26);
             this.txtAd.TabIndex = 1;
+            this.txtAd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAd_KeyPress);
             this.txtAd.Leave += new System.EventHandler(this.txtAd_Leave);
             // 
             // txtSoyad
@@ -98,6 +99,7 @@ namespace ProjeDeneme_2
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(167, 26);
             this.txtSoyad.TabIndex = 2;
+            this.txtSoyad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoyad_KeyPress);
             this.txtSoyad.Leave += new System.EventHandler(this.txtSoyad_Leave);
             // 
             // mskTC
@@ -343,6 +345,7 @@ namespace ProjeDeneme_2
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OliveDrab;
@@ -386,6 +389,7 @@ namespace ProjeDeneme_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(917, 517);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
@@ -395,7 +399,7 @@ namespace ProjeDeneme_2
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "EczaciKayit";
-            this.Text = "EczaciKayit";
+            this.Text = "Eczacı Kayıt Paneli";
             this.Load += new System.EventHandler(this.EczaciKayit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

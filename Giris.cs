@@ -16,7 +16,6 @@ namespace ProjeDeneme_2
         {
             InitializeComponent();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             EczaciGiris frmg = new EczaciGiris();

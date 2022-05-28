@@ -68,7 +68,7 @@ namespace ProjeDeneme_2
             this.label2.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(77, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 32);
+            this.label2.Size = new System.Drawing.Size(79, 32);
             this.label2.TabIndex = 5;
             this.label2.Text = "T.C. :";
             // 
@@ -78,7 +78,7 @@ namespace ProjeDeneme_2
             this.label3.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.Location = new System.Drawing.Point(71, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 32);
+            this.label3.Size = new System.Drawing.Size(85, 32);
             this.label3.TabIndex = 6;
             this.label3.Text = "Şifre :";
             // 
@@ -143,7 +143,8 @@ namespace ProjeDeneme_2
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "hasta_girisi";
-            this.Text = "hasta_girisi";
+            this.Text = "Hasta Giriş";
+            this.Load += new System.EventHandler(this.hasta_girisi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

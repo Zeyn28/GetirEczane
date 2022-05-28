@@ -30,10 +30,10 @@ namespace ProjeDeneme_2
         {
             if (txtbox_ad.Text != "" && txtbox_soyad.Text != "" && txt_sifre.Text != "" && rtxtbox_adres.Text != "" && mskd_tc.Text != "" && mskd_tel.Text != "" && cmbbox_sehir.Text != "")
             {
-                if (txt_sifre.Text.Length >= 4)
+                if (txt_sifre.Text.Length >= 4) 
                 {
                     SqlCommand komut = new SqlCommand("insert into Hastalar(Ad,Soyad,TelNo,TC,Sehir,Adresi,Sifre) values(@h1,@h2,@h3,@h4,@h5,@h6,@h7)", bgl.baglan());
-                    if (control.regex_sifre(txt_sifre.Text))
+                    if (control.Regex_sifre(txt_sifre.Text))
                     {
                         komut.Parameters.AddWithValue("@h1", txtbox_ad.Text);
                         komut.Parameters.AddWithValue("@h2", txtbox_soyad.Text);
@@ -72,6 +72,7 @@ namespace ProjeDeneme_2
 
         private void hasta_kayıt_ekleme_Load(object sender, EventArgs e)
         {
+            txtbox_ad.Focus();
             string[] Sehir = { "Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
                 "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
                 "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari",
@@ -94,6 +95,16 @@ namespace ProjeDeneme_2
         private void txtbox_soyad_Leave(object sender, EventArgs e)
         {
             control.Buyuk_Harfe_Donusturme(txtbox_soyad);
+        }
+
+        private void txtbox_ad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
+        }
+
+        private void txtbox_soyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolu(e);
         }
     }
 }
