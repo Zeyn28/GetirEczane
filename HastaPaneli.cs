@@ -219,11 +219,7 @@ namespace ProjeDeneme_2
                 bgl.baglan().Close();
                 
                 Odeme ode = new Odeme();
-                ode.Name = "odeme";
-                if (Application.OpenForms["odeme"] == null)
-                {
-                    ode.Show();
-                }
+                ode.Show();
 
                 SqlCommand sipid2 = new SqlCommand("SELECT OncekisipID from oncekisiparisler where Recete='" + receteid + "' and TeslimTarihi='" + tarih + "'", bgl.baglan());
                 SqlDataReader drsip2 = sipid2.ExecuteReader();
@@ -258,7 +254,11 @@ namespace ProjeDeneme_2
                 hastaid = dr3[0].ToString();
             }
             DataTable dt1 = new DataTable();
-            SqlDataAdapter komut5 = new SqlDataAdapter("SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA' FROM oncekisiparisler INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID where Hasta='" + hastaid + "' and SiparişDurumuHasta='True' and SiparişDurumuEczane='True'", bgl.baglan());
+            SqlDataAdapter komut5 = new SqlDataAdapter(@"SELECT EczaneAd,OncekiReceteKod,TeslimTarihi,Ad+' '+Soyad as 'HASTA' FROM oncekisiparisler 
+                                                         INNER JOIN Eczane ON oncekisiparisler.Eczane=Eczane.EczaneID 
+                                                         INNER JOIN Recete ON oncekisiparisler.Recete=Recete.ReceteID 
+                                                         INNER JOIN Hastalar ON oncekisiparisler.Hasta=Hastalar.HastaID 
+            where Hasta='" + hastaid + "' and SiparişDurumuHasta='True' and SiparişDurumuEczane='True'", bgl.baglan());
             komut5.Fill(dt1);
             dgw.DataSource = dt1;
             bgl.baglan().Close();
@@ -282,7 +282,7 @@ namespace ProjeDeneme_2
 
         private void txtrecetekodu_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Veri_aktarma.ReceteKodu_Kontrolu(e);
+            Metotlar.ReceteKodu_Kontrolu(e);
         }
     }
 }

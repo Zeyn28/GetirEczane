@@ -118,6 +118,7 @@ namespace ProjeDeneme_2
             // 
             this.txt_sifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txt_sifre.Location = new System.Drawing.Point(90, 247);
+            this.txt_sifre.MaxLength = 10;
             this.txt_sifre.Name = "txt_sifre";
             this.txt_sifre.Size = new System.Drawing.Size(162, 24);
             this.txt_sifre.TabIndex = 5;

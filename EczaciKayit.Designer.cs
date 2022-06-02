@@ -278,7 +278,7 @@ namespace ProjeDeneme_2
             this.txteczacisifre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txteczacisifre.Location = new System.Drawing.Point(186, 232);
             this.txteczacisifre.Margin = new System.Windows.Forms.Padding(2);
-            this.txteczacisifre.MaxLength = 5;
+            this.txteczacisifre.MaxLength = 10;
             this.txteczacisifre.Name = "txteczacisifre";
             this.txteczacisifre.Size = new System.Drawing.Size(167, 26);
             this.txteczacisifre.TabIndex = 20;
@@ -330,6 +330,7 @@ namespace ProjeDeneme_2
             this.txtEczanead.Name = "txtEczanead";
             this.txtEczanead.Size = new System.Drawing.Size(247, 26);
             this.txtEczanead.TabIndex = 8;
+            this.txtEczanead.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEczanead_KeyPress);
             this.txtEczanead.Leave += new System.EventHandler(this.txtEczanead_Leave);
             // 
             // label11

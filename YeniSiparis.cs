@@ -65,7 +65,9 @@ namespace ProjeDeneme_2
             
             //İlaçlar için reçete tablosunu transpoze ettik 
             
-            SqlDataAdapter ilac = new SqlDataAdapter("Select İlaç1 as '1.İlaç',İlaç2 as '2.İlaç',İlaç3 as '3.İlaç',İlaç4 as '4.İlaç',İlaç5 as '5.İlaç',İlaç6 as '6.İlaç',İlaç7 as '7.İlaç',İlaç8 as '8.İlaç',İlaç9 as '9.İlaç',İlaç10 as '10.İlaç' from Recete where ReceteID='" + receteid + "'", bgl.baglan());
+            SqlDataAdapter ilac = new SqlDataAdapter(@"Select İlaç1 as '1.İlaç',İlaç2 as '2.İlaç',İlaç3 as '3.İlaç',İlaç4 as '4.İlaç',İlaç5 as '5.İlaç',
+                                                       İlaç6 as '6.İlaç',İlaç7 as '7.İlaç',İlaç8 as '8.İlaç',İlaç9 as '9.İlaç',İlaç10 as '10.İlaç' 
+                                                       from Recete where ReceteID='" + receteid + "'", bgl.baglan());
             DataTable dt1 = new DataTable();
             ilac.Fill(dt1);
             DataTable dt2 = new DataTable();// veritabanından gelen tabloyu düzenlemek için ikinci bir tablo oluşturduk

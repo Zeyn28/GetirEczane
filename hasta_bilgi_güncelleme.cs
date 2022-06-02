@@ -18,7 +18,7 @@ namespace ProjeDeneme_2
             InitializeComponent();
         }
         SQL bgl = new SQL();
-        Veri_aktarma control = new Veri_aktarma();
+        Metotlar control = new Metotlar();
         private void btn_vazgec_Click(object sender, EventArgs e)
         {
             this.Hide();

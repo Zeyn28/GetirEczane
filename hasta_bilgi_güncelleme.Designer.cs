@@ -97,6 +97,7 @@ namespace ProjeDeneme_2
             // 
             this.txt_sifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txt_sifre.Location = new System.Drawing.Point(90, 247);
+            this.txt_sifre.MaxLength = 10;
             this.txt_sifre.Name = "txt_sifre";
             this.txt_sifre.Size = new System.Drawing.Size(162, 24);
             this.txt_sifre.TabIndex = 5;
@@ -187,14 +188,16 @@ namespace ProjeDeneme_2
             // 
             // cmbbox_sehir
             // 
+            this.cmbbox_sehir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbbox_sehir.FormattingEnabled = true;
             this.cmbbox_sehir.Location = new System.Drawing.Point(104, 40);
             this.cmbbox_sehir.Name = "cmbbox_sehir";
-            this.cmbbox_sehir.Size = new System.Drawing.Size(210, 30);
+            this.cmbbox_sehir.Size = new System.Drawing.Size(210, 28);
             this.cmbbox_sehir.TabIndex = 6;
             // 
             // rtxtbox_adres
             // 
+            this.rtxtbox_adres.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rtxtbox_adres.Location = new System.Drawing.Point(104, 87);
             this.rtxtbox_adres.Name = "rtxtbox_adres";
             this.rtxtbox_adres.Size = new System.Drawing.Size(261, 108);

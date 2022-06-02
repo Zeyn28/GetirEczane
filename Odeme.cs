@@ -19,7 +19,7 @@ namespace ProjeDeneme_2
         }
         SQL bgl = new SQL();
         public string tutar;
-        Veri_aktarma control = new Veri_aktarma();
+        Metotlar control = new Metotlar();
         private void button1_Click(object sender, EventArgs e)// odeme butonu
         {
             SqlCommand kontrol = new SqlCommand("select * from Kartlar where Kartisim='"+txtKartisim.Text+"' and Kartno='"+mtxtKartno.Text+"' and Sontarih='"+cmbay.Text+"/"+cmbyil.Text+"' and Guvenlikkod='"+mtxtGuvenlikkod.Text+"'",bgl.baglan());

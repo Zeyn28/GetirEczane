@@ -18,7 +18,7 @@ namespace ProjeDeneme_2
             InitializeComponent();
         }
         SQL bgl = new SQL();
-        Veri_aktarma control = new Veri_aktarma(); //Regex ve regular expressions kullanarak textbox kontrolü 
+        Metotlar control = new Metotlar(); //Regex ve regular expressions kullanarak textbox kontrolü 
         private void EczaciKayit_Load(object sender, EventArgs e)
         {
             txtAd.Focus();
@@ -97,9 +97,12 @@ namespace ProjeDeneme_2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Kontrol butonu çalıştığında eczane tablosunda yeni kayıt açıyor fakat barkod hariç bütün sütunlar null oluyor
+            //bu yüzden vazgeçe basıldığında null olan sütunların olduğu satırı siliyor
             SqlCommand sil = new SqlCommand("delete from Eczane where EczacıBarkod='"+mskDiploma.Text+"'",bgl.baglan());
             sil.ExecuteNonQuery();
-
+            EczaciGiris ecz = new EczaciGiris();
+            ecz.Show();
             this.Hide();
         }
 
@@ -158,6 +161,11 @@ namespace ProjeDeneme_2
         private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
         {
             control.Harf_kontrolu(e);
+        }
+
+        private void txtEczanead_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolusayili(e);
         }
     }
 

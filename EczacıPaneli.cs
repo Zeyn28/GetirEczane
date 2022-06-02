@@ -37,7 +37,10 @@ namespace ProjeDeneme_2
         public static void Yeni_siparistable()
         {
             SQL bgl = new SQL();
-            SqlDataAdapter yeni = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where Eczane='" + ecz_id + "' and SiparişDurumuHasta='False' and SiparişDurumuEczane='False'", bgl.baglan());
+            SqlDataAdapter yeni = new SqlDataAdapter(@"select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler 
+                                                       inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID 
+                                                       inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID 
+            where Eczane='" + ecz_id + "' and SiparişDurumuHasta='False' and SiparişDurumuEczane='False'", bgl.baglan());
             DataTable dt1 = new DataTable();
             yeni.Fill(dt1);
             dgw.DataSource = dt1;
@@ -57,14 +60,17 @@ namespace ProjeDeneme_2
         public static void Onceki_siparistable()
         {
             SQL bgl = new SQL();
-            SqlDataAdapter onceki = new SqlDataAdapter("select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID where SiparişDurumuHasta='True' and Eczane='" + ecz_id + "' ", bgl.baglan());
+            SqlDataAdapter onceki = new SqlDataAdapter(@"select OncekisipID,Recete,Ad+' '+Soyad as 'Hasta',TeslimTarihi from oncekisiparisler 
+                                                         inner join Hastalar on oncekisiparisler.Hasta=Hastalar.HastaID 
+                                                         inner join Eczane on oncekisiparisler.Eczane=Eczane.EczaneID 
+            where SiparişDurumuHasta='True' and Eczane='" + ecz_id + "' ", bgl.baglan());
             DataTable dt2 = new DataTable();
             onceki.Fill(dt2);
             dgw2.DataSource = dt2;
             bgl.baglan().Close();
         }
 
-        //kasa tutarını hesaplamak için string i float yaparak işlem yapmak için
+        //kasa tutarını hesaplamak için string i float yapar
         public static float Fiyatregex(string sayi)
         {
             Regex rgx = new Regex(@"\d{0,14}\.\d{0,2}||\d{0,14},\d{0,2}");
@@ -96,11 +102,7 @@ namespace ProjeDeneme_2
         {
             EczacıBilgiGuncelle frmb = new EczacıBilgiGuncelle();
             frmb.ecztc = ecz_tc;// tc değişmez olduğu için tcyi id gibi kullanma amacıyla güncelleme formuna gönderme
-            frmb.Name = "guncelle";
-            if (Application.OpenForms["guncelle"] == null)
-            {
-                  frmb.Show();
-            }
+            frmb.Show();
         }
         public static int i=0;
         public static Label staticlbl;

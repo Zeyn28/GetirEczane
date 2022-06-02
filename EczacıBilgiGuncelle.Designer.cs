@@ -80,6 +80,7 @@ namespace ProjeDeneme_2
             // txtsifre
             // 
             this.txtsifre.Location = new System.Drawing.Point(201, 258);
+            this.txtsifre.MaxLength = 10;
             this.txtsifre.Name = "txtsifre";
             this.txtsifre.Size = new System.Drawing.Size(166, 32);
             this.txtsifre.TabIndex = 6;
@@ -216,6 +217,7 @@ namespace ProjeDeneme_2
             this.txtEczaneAd.Name = "txtEczaneAd";
             this.txtEczaneAd.Size = new System.Drawing.Size(221, 32);
             this.txtEczaneAd.TabIndex = 9;
+            this.txtEczaneAd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEczaneAd_KeyPress);
             this.txtEczaneAd.Leave += new System.EventHandler(this.txtEczaneAd_Leave);
             // 
             // label9

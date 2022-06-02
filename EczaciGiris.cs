@@ -41,14 +41,9 @@ namespace ProjeDeneme_2
 
         private void btnKaydol_Click(object sender, EventArgs e)
         {
-            //Form içinde form açarken açılan formun sadece 1 kez açılabilmesi
             EczaciKayit kayit = new EczaciKayit();
             kayit.Show();
             this.Hide();
-           
-           
         }
-
-      
     }
 }

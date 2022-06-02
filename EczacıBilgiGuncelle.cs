@@ -18,7 +18,7 @@ namespace ProjeDeneme_2
             InitializeComponent();
         }
         SQL bgl = new SQL();
-        Veri_aktarma control = new Veri_aktarma();
+        Metotlar control = new Metotlar();
         private void btnCık_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -122,6 +122,11 @@ namespace ProjeDeneme_2
         private void txtSoyad_KeyPress(object sender, KeyPressEventArgs e)
         {
             control.Harf_kontrolu(e);
+        }
+
+        private void txtEczaneAd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            control.Harf_kontrolusayili(e);
         }
     }
 }
